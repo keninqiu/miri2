@@ -1,0 +1,6 @@
+<ul class="topnav">
+  <li><a [ngClass]="{'active': selectedItem == 'Home'}" (click)="listClick($event, 'Home')">Home</a></li>
+  <li><a [ngClass]="{'active': selectedItem == 'News'}" (click)="listClick($event, 'News')">News</a></li>
+  <li><a [ngClass]="{'active': selectedItem == 'Contact'}" (click)="listClick($event, 'Contact')">Contact</a></li>
+  <li class="right"><a [ngClass]="{'active': selectedItem == 'About'}" (click)="listClick($event, 'About')">About</a></li>
+</ul>
