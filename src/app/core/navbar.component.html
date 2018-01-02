@@ -1,6 +1,14 @@
 <ul class="topnav">
-  <li><a [ngClass]="{'active': selectedItem == 'Home'}" (click)="listClick($event, 'Home')">Home</a></li>
-  <li><a [ngClass]="{'active': selectedItem == 'News'}" (click)="listClick($event, 'News')">News</a></li>
-  <li><a [ngClass]="{'active': selectedItem == 'Contact'}" (click)="listClick($event, 'Contact')">Contact</a></li>
-  <li class="right"><a [ngClass]="{'active': selectedItem == 'About'}" (click)="listClick($event, 'About')">About</a></li>
+  <li><a [ngClass]="{'active': selectedItem == 'Home'}" routerLink="/">Home</a></li>
+  <li><a [ngClass]="{'active': selectedItem == 'Category'}" routerLink="/category">Category</a></li>
+  <li><a [ngClass]="{'active': selectedItem == 'Chatbot'}" routerLink="/chatbot">Chatbot</a></li>
+  <li><a [ngClass]="{'active': selectedItem == 'Lesson'}" routerLink="/lesson">Lesson</a></li>
+  <li><a [ngClass]="{'active': selectedItem == 'Contact'}" routerLink="/contact">Contact</a></li>
+
+  <li class="right">
+  	<a [ngClass]="{'active': selectedItem == 'Login'}" routerLink="/login">Login</a>
+  </li>
+  <li class="right">
+  	<a [ngClass]="{'active': selectedItem == 'Language'}" (click)="listClick($event, 'Language')">Site Language</a>
+  </li>  
 </ul>

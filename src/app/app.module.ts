@@ -8,9 +8,21 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar.component';
+import { AdminNavbarComponent } from './core/admin-navbar.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AdminComponent } from './admin/admin.component';
+import { FrontendComponent } from './frontend/frontend.component';
+import { RegisterComponent } from './register/register.component';
+import { CategoryComponent } from './category/category.component';
+
+import { MessageService } from './services/message.service';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { LessonComponent } from './lesson/lesson.component';
+import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent
+    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -18,9 +30,10 @@ import { NavbarComponent } from './core/navbar.component';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
