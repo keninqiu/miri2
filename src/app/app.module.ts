@@ -5,6 +5,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar.component';
@@ -16,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { CategoryComponent } from './category/category.component';
 
 import { MessageService } from './services/message.service';
+import { ChatService } from './services/chat.service';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
@@ -31,9 +33,10 @@ import { LoginComponent } from './login/login.component';
     MatMenuModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
