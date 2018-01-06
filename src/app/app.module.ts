@@ -5,6 +5,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
@@ -34,6 +35,7 @@ import { LoginComponent } from './login/login.component';
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule
