@@ -100,12 +100,14 @@
   border-radius:10px;
   text-shadow:0 1px 0 #fff;  
 }
-#statistics{
+.statistics{
   width: 100%;
   vertical-align: center;
   text-align: center; 
+
   display:inline-block;
   padding:10px; 
+  margin-bottom: 10px;
   background:#fafafa; 
   box-shadow:0 0 3px rgba(0, 0, 0, 0.2); 
   -moz-border-radius:4px; 
@@ -136,6 +138,9 @@
 	float: right;
 }
 
+.col-card {
+  padding: 10px;
+}
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
@@ -180,39 +185,28 @@ transition: color 0.5s,margin-top 0.5s,box-shadow 0.5s,border-top 0.5s;
   display:block;
   float: left;
 }
-.statistics-row-left {
-  display:inline-block;
-}
-.statistics-row-right {
-  display:inline;
-  line-height:35px;
-}
 .yingwu-photo {
   width: 30px;
   height: 30px;
+  vertical-align:middle;
 }
 
-
-.wrapper {
-  width: 100px; /* Set the size of the progress bar */
-  height: 100px;
-  position: absolute; /* Enable clipping */
-  clip: rect(0px, 100px, 100px, 50px); /* Hide half of the progress bar */
+.button {
+    
+    border: none;
+    outline:none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
 }
-/* Set the sizes of the elements that make up the progress bar */
-.circle {
-  width: 80px;
-  height: 80px;
-  border: 10px solid green;
-  border-radius: 50px;
-  position: absolute;
-  clip: rect(0px, 50px, 100px, 0px);
+.button1 {
+  background-color: #4CAF50;
 }
-/* Using the data attributes for the animation selectors. */
-/* Base settings for all animated elements */
-div[data-anim~=base] {
-  -webkit-animation-iteration-count: 1;  /* Only run once */
-  -webkit-animation-fill-mode: forwards; /* Hold the last keyframe */
-  -webkit-animation-timing-function:linear; /* Linear animation */
+.button2 {
+  background-color: #1caff6;
 }
-

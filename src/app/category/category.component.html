@@ -4,116 +4,34 @@
   	<div class="col-6 col-m-6 card-list-1">
   		<div class="circle-card">
   			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-  			<button mat-button>Basic</button>
+  			<button mat-button (click)="categoryDetail('1')">Basic</button>
   		</div>
-  		<!--
-		<mat-card class="example-card">
-		  <mat-card-header>
-		    <div mat-card-avatar class="example-header-image"></div>
-		    <mat-card-title>Shiba Inu</mat-card-title>
-		    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-		  </mat-card-header>
-		  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-		  <mat-card-content>
-		    <p>
-		      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-		      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-		      bred for hunting.
-		    </p>
-		  </mat-card-content>
-		  <mat-card-actions>
-		    <button mat-button>LIKE</button>
-		    <button mat-button>SHARE</button>
-		  </mat-card-actions>
-		</mat-card>  
-		-->
 	</div>
 	<div class="col-6 col-m-6 card-list-2">
 		<div class="circle-card">
 			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-			<button mat-button>Basic</button>
+			<button mat-button (click)="categoryDetail('1')">Basic</button>
 		</div>
-		<!--
-		<mat-card class="example-card">
-		  <mat-card-header>
-		    <div mat-card-avatar class="example-header-image"></div>
-		    <mat-card-title>Shiba Inu</mat-card-title>
-		    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-		  </mat-card-header>
-		  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-		  <mat-card-content>
-		    <p>
-		      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-		      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-		      bred for hunting.
-		    </p>
-		  </mat-card-content>
-		  <mat-card-actions>
-		    <button mat-button>LIKE</button>
-		    <button mat-button>SHARE</button>
-		  </mat-card-actions>
-		</mat-card>  
-		-->	
 	</div>
 
   	<div class="col-6 col-m-6 card-list-1">
   		<div class="circle-card">
   			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-  			<button mat-button>Basic</button>
+  			<button mat-button (click)="categoryDetail('1')">Basic</button>
   		</div>
-  		<!--
-		<mat-card class="example-card">
-		  <mat-card-header>
-		    <div mat-card-avatar class="example-header-image"></div>
-		    <mat-card-title>Shiba Inu</mat-card-title>
-		    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-		  </mat-card-header>
-		  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-		  <mat-card-content>
-		    <p>
-		      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-		      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-		      bred for hunting.
-		    </p>
-		  </mat-card-content>
-		  <mat-card-actions>
-		    <button mat-button>LIKE</button>
-		    <button mat-button>SHARE</button>
-		  </mat-card-actions>
-		</mat-card>  	
-	-->
+
 	</div>
 	<div class="col-6 col-m-6 card-list-2">
 		<div class="circle-card">
 			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-			<button mat-button>Basic</button>
+			<button mat-button (click)="categoryDetail('1')">Basic</button>
 		</div>
-		<!--
-		<mat-card class="example-card">
-		  <mat-card-header>
-		    <div mat-card-avatar class="example-header-image"></div>
-		    <mat-card-title>Shiba Inu</mat-card-title>
-		    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-		  </mat-card-header>
-		  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-		  <mat-card-content>
-		    <p>
-		      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-		      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-		      bred for hunting.
-		    </p>
-		  </mat-card-content>
-		  <mat-card-actions>
-		    <button mat-button>LIKE</button>
-		    <button mat-button>SHARE</button>
-		  </mat-card-actions>
-		</mat-card>  	
-	    -->
+
 	</div>	
   </div> <!-- 66% -->
 
   <div class="col-4" id="side-bar">
-  	<div id="statistics">
+  	<div class="statistics">
   		<div class="statistics-row">
   		  <div class="side-card-title">
   		  	<h3>Daily Goal</h3>
@@ -123,20 +41,60 @@
 		  </button>
 		</div>
 		<div class="statistics-row">
-			<div class="statistics-row-left">
-				<img  src="assets/image/yingwu.png" class="yingwu-photo">
-				<div class="statistics-row-right">
-					Learning a language requires practice every day
-				</div>					
+			<div class="col-2 col-m-2">
+				<img  src="assets/image/yingwu.png" class="yingwu-photo">				
 			</div>
+			<div class="col-10 col-m-10">
+					With languages, you are at home everywhere.
+			</div>
+			
 		</div>
 		<div class="statistics-row">
-
+			<div class="col-6 col-m-6">
+				<circle-progress 
+				  [percent]="85" 
+				  [radius]="50" 
+				  [showTitle]=true
+				  [title]="'0/1'"
+				  [subtitle]="'xp gained'"
+				  [outerStrokeWidth]="10"
+				  [innerStrokeWidth]="5"
+				  ></circle-progress>				  
+			</div>
+			<div class="col-6 col-m-6">
+				<div>
+					0
+				</div>
+				<div>
+					day streak
+				</div>
+				<div>
+					1
+				</div>
+				<div>
+					hour left
+				</div>
+			</div>				
 		</div>
   	</div>
+
+  	<div class="statistics">
+  		<h3>Create a profile to save your progress!</h3>
+  		<button class="button button1">Sign up</button>
+  		<button class="button button2">Sign in</button>
+  	</div>
+  	<div class="statistics">
+  		<h3>Follow Miri</h3>
+  		<button class="button button3">Twitter</button>
+  		<button class="button button3">Facebook</button>
+  		<button class="button button3">Google+</button>
+  		<button class="button button3">Instagram</button>
+  		<button class="button button3">Wechat</button>
+  		<button class="button button3">Weibo</button>
+  	</div>  	
   </div> <!-- 33% -->
 
 
 
-  
+
 </div>

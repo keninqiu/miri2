@@ -8,6 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar.component';
@@ -17,6 +18,8 @@ import { AdminComponent } from './admin/admin.component';
 import { FrontendComponent } from './frontend/frontend.component';
 import { RegisterComponent } from './register/register.component';
 import { CategoryComponent } from './category/category.component';
+import { CategoryDetailComponent } from './category/category-detail.component';
+import { PracticeDetailComponent } from './practice/practice-detail.component';
 
 import { MessageService } from './services/message.service';
 import { ChatService } from './services/chat.service';
@@ -24,9 +27,10 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { PracticeComponent } from './practice/practice.component';
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent
+    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,21 @@ import { LoginComponent } from './login/login.component';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgCircleProgressModule.forRoot({
+      "radius": 60,
+      "space": -10,
+      "outerStrokeWidth": 10,
+      "outerStrokeColor": "#4882c2",
+      "innerStrokeColor": "#e7e8ea",
+      "innerStrokeWidth": 10,
+      "title": "UI",
+      "animateTitle": false,
+      "animationDuration": 1000,
+      "showUnits": false,
+      "showBackground": false,
+      "clockwise": false
+    })    
   ],
   providers: [MessageService,ChatService],
   bootstrap: [AppComponent]
