@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./practice.component.css']
 })
 export class PracticeDetailComponent implements OnInit {
-
+  color = 'primary';
+  mode = 'determinate';
+  value = 50;
+  bufferValue = 75;
+  
   constructor() { }
 
   ngOnInit() {

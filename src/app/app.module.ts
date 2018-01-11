@@ -5,7 +5,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -39,7 +39,7 @@ import { PracticeComponent } from './practice/practice.component';
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule,
+    MatProgressBarModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,

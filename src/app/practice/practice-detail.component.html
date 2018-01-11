@@ -1,2 +1,33 @@
 <app-navbar></app-navbar>
-practice detail
+<mat-card>
+  <mat-card-content>
+    <section class="example-section">
+      <mat-progress-bar
+          class="example-margin"
+          [color]="color"
+          [mode]="mode"
+          [value]="value"
+          [bufferValue]="bufferValue">
+      </mat-progress-bar>
+	  <button mat-icon-button>
+	    <mat-icon aria-label="close icon">close</mat-icon>
+	  </button>
+    </section>
+  </mat-card-content>
+</mat-card>
+<div class="example-section practice-main">
+  	<h2>What sound does this make? </h2>
+  	<div class="container">
+	  	<div class="col-6 col-m-12">
+	  		<div class="big-character">
+	  		见
+	  		</div>
+	  	</div>
+	  	<div class="col-6 col-m-12">
+	  		<button mat-raised-button class="answer-button">Basic</button>
+	  		<button mat-raised-button class="answer-button">Basic</button>
+	  		<button mat-raised-button class="answer-button">Basic</button>
+	  		<button mat-raised-button class="answer-button">Basic</button>
+	  	</div>  
+  	</div>	
+</div>
