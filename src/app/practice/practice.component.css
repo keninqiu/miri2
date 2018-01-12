@@ -63,9 +63,22 @@
     .col-12 {width: 100%;text-align: center;margin-right: auto; margin-left: auto; 	}
 }
 
+.bottom {
+    text-align: center;
+}
+
+
 .answer-button {
 	width: 100%;
-	margin-bottom: 20px;
+    margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.confirm_button {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top:30px;
+    margin-button:30px;
 }
 .big-character {
 	text-align: center;
