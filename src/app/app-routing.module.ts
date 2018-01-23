@@ -12,9 +12,13 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent },
+  { path: 'admin/category', component: AdminCategoryComponent },
+  { path: 'admin/chatbot', component: AdminChatbotComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'category/:id', component: CategoryDetailComponent },

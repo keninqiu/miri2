@@ -28,9 +28,11 @@ import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { PracticeComponent } from './practice/practice.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent
+    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent
   ],
   imports: [
     BrowserModule,
