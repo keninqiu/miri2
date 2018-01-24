@@ -1,0 +1,72 @@
+.container {
+   height: auto;
+   overflow: hidden;
+}
+
+.right {
+    width: 70%;
+    float: right;
+    background: #aafed6;
+}
+
+.left {
+    float: none; /* not needed, just for clarification */
+    background: #e8f6fe;
+    /* the next props are meant to keep this block independent from the other floated one */
+    width: auto;
+    overflow: hidden;
+}
+
+.vertical-menu {
+    width: 100%; /* Set a width if you like */
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #d1d1e0; /* Add a green color to the "active/current" link */
+    color: white;
+}
+.img-circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    vertical-align:middle;
+}
+.op_button {
+    position:relative;
+    float:right;
+}
+
+.category-detail {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.category-detail td, .category-detail th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.category-detail tr:nth-child(even){background-color: #f2f2f2;}
+
+.category-detail tr:hover {background-color: #ddd;}
+
+.category-detail th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

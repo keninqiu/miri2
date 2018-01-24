@@ -13,7 +13,7 @@ export class NavbarComponent {
   constructor(private messageService: MessageService) {
         // subscribe to home component messages
       this.subscription = this.messageService.getMessage().subscribe(message => { 
-      this.selectedItem = message.text; 
+        this.selectedItem = message.text; 
       });
   }  
   listClick(event, newValue) {
