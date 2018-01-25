@@ -54,19 +54,45 @@
 			</table>
 	    </div>
 	    <div *ngIf="contentType == 'editCategory'">
-			<form>
-			    <label for="Name" class="form-name">Name</label>
-			    <input id="Name" type="text">
-			 
-			    <label for="Language" class="form-language">Language</label>
-				<select>
-				  <option value="en">English</option>
-				  <option value="ch">Chinese</option>
-				</select>
-			 
-			    <!-- more inputs -->
-			</form>
 
+<div class="container">
+  <form action="/action_page.php">
+  	<fieldset>
+  	<legend>Category:</legend>
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Category Name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="language">Language</label>
+      </div>
+      <div class="col-75">
+        <select id="language" name="language">
+          <option value="english">English</option>
+          <option value="mandarin">Mandarin</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Image</label>
+      </div>
+      <div class="col-75">
+        <img class="img-circle" src="/assets/image/yingwu.png">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+</fieldset>
+  </form>
+</div>
 	    </div>
 	    <div *ngIf="contentType == 'editCategoryDetail'">
 	    	edit category detail

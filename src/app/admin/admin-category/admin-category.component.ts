@@ -23,5 +23,6 @@ export class AdminCategoryComponent implements OnInit {
   }  
   listCategory(id:number) {
     this.selectedCategory.id = id;
+    this.contentType = 'listCategoryDetail';
   }  
 }

@@ -26,32 +26,28 @@
     width: 100%; /* Set a width if you like */
 }
 
-form {
+  .myForm {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-gap: 16px;
-    padding: 20px;
-    text-align: center;
+    grid-template-columns: [labels] auto [controls] 1fr;
+    grid-auto-flow: row;
+    grid-gap: .8em;
+    background: #eee;
+    padding: 1.2em;
+  }
+  .myForm > label  {
+    grid-column: labels;
+    grid-row: auto;
+  }
+  .myForm > input,
+  .myForm > textarea,
+  .myForm > button {
+    grid-column: controls;
+    grid-row: auto;
+    border: none;
+    padding: 1em;
+  }
 
-}
- 
-form label {
-    grid-column: 1 / 2;
-}
- 
-form input,
-button {
-    grid-column: 2 / 3;
-    font-size: 15px;
-}
 
-form input {
-    width:300px;
-}
-form select {
-    font-size: 15px;
-    width:300px;
-}
 
 .vertical-menu a {
     background-color: #777; /* Grey background color */
@@ -102,3 +98,70 @@ form select {
     background-color: #d7dae0;
     color: black;
 }
+
+/* for forms begin */
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+/* for forms end */
