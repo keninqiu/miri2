@@ -54,43 +54,33 @@
 			</table>
 	    </div>
 	    <div *ngIf="contentType == 'editCategory'">
-	    	edit category
+			<form class="example-form">
+			  <mat-form-field class="example-full-width">
+			    <input matInput placeholder="Name" value="Home">
+			  </mat-form-field>
+			</form>
+			<img class="img-circle" src="/assets/image/yingwu.png">
 	    </div>
 	    <div *ngIf="contentType == 'editCategoryDetail'">
 	    	edit category detail
 	    </div>	    
     </div>
     <div class="left">
-    	<h3>Categories <button mat-raised-button color="primary" (click)="editCategory(0)">Create</button></h3>
+    	<h3>Categories 
+    		<button mat-raised-button color="primary" (click)="editCategory(0)">Create</button>
+    		<button mat-raised-button color="primary" (click)="editCategory(1)">Edit</button>
+    		<button mat-raised-button color="primary" (click)="deleteCategory(1)">Delete</button>
+    	</h3>
 		<div class="vertical-menu">
-		  <a href="#" class="active">
+		  <a [ngClass]="{'active': selectedCategory.id == 1}" (click)="listCategory(1)">
 		  	Home<img class="img-circle" src="/assets/image/yingwu.png">
-
-		    <button mat-icon-button color="primary" class="op_button">
-		      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
-		    </button>
-		    <button mat-icon-button color="warn" class="op_button">
-		      <mat-icon aria-label="icon-button with a cancel icon">cancel</mat-icon>
-		    </button>
 		  	
 		  </a>
-		  <a href="#">
+		  <a [ngClass]="{'active': selectedCategory.id == 2}" (click)="listCategory(2)">
 		  	Link 1<img class="img-circle" src="/assets/image/yingwu.png">
-		    <button mat-icon-button color="primary" class="op_button">
-		      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
-		    </button>
-		    <button mat-icon-button color="warn" class="op_button">
-		      <mat-icon aria-label="icon-button with a cancel icon">cancel</mat-icon>
-		    </button>
 		  </a>
-		  <a href="#">
-		  	Link 2<img class="img-circle" src="/assets/image/yingwu.png">
-		    <button mat-icon-button color="primary" class="op_button">
-		      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
-		    </button>
-		    <button mat-icon-button color="warn" class="op_button">
-		      <mat-icon aria-label="icon-button with a cancel icon">cancel</mat-icon>
-		    </button>		  	
+		  <a [ngClass]="{'active': selectedCategory.id == 3}" (click)="listCategory(3)">
+		  	Link 2<img class="img-circle" src="/assets/image/yingwu.png">	  	
 		  </a>
 		</div>
     </div>

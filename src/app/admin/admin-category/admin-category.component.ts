@@ -8,6 +8,7 @@ import { MessageService } from '../../services/message.service';
 })
 export class AdminCategoryComponent implements OnInit {
   contentType = 'listCategoryDetail';	
+  selectedCategory = {id:1};
   constructor(private messageService: MessageService) { }
 
   ngOnInit() {
@@ -19,5 +20,8 @@ export class AdminCategoryComponent implements OnInit {
   }
   editCategoryDetail(id:number) {
   	this.contentType = 'editCategoryDetail';
+  }  
+  listCategory(id:number) {
+    this.selectedCategory.id = id;
   }  
 }

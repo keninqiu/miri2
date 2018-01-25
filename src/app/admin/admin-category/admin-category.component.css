@@ -6,14 +6,15 @@
 .right {
     width: 70%;
     float: right;
-    background: #aafed6;
+    background: white;
 }
 
 .left {
     float: none; /* not needed, just for clarification */
-    background: #e8f6fe;
+    background: #394e6d;
     /* the next props are meant to keep this block independent from the other floated one */
     width: auto;
+    color: white;
     overflow: hidden;
 }
 
@@ -22,19 +23,19 @@
 }
 
 .vertical-menu a {
-    background-color: #eee; /* Grey background color */
-    color: black; /* Black text color */
+    background-color: #394e6d; /* Grey background color */
+    color: white; /* white text color */
     display: block; /* Make the links appear below each other */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove underline from links */
 }
 
 .vertical-menu a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
+    background-color: #303e54; /* Dark grey background on mouse-over */
 }
 
 .vertical-menu a.active {
-    background-color: #d1d1e0; /* Add a green color to the "active/current" link */
+    background-color: #243247; /* Add a green color to the "active/current" link */
     color: white;
 }
 .img-circle {
@@ -67,6 +68,6 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #d7dae0;
+    color: black;
 }

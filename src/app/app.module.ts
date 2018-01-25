@@ -6,6 +6,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -42,6 +43,7 @@ import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.compo
     MatButtonModule,
     MatCardModule,
     MatProgressBarModule,
+    MatInputModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
