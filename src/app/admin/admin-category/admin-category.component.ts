@@ -1,6 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-admin-category',
@@ -10,7 +11,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class AdminCategoryComponent implements OnInit {
   contentType = 'listCategoryDetail';	
   selectedCategory = {id:1};
-  constructor(private messageService: MessageService,public dialog: MatDialog) { }
+  constructor(private messageService: MessageService,public dialog: MatDialog,private router: Router) { }
 
   ngOnInit() {
   	this.messageService.sendMessage('AdminCategory');
@@ -19,13 +20,17 @@ export class AdminCategoryComponent implements OnInit {
   editCategory(id:number) {
   	this.contentType = 'editCategory';
   }
-  editCategoryDetail(id:number) {
-  	this.contentType = 'editCategoryDetail';
+  editPractice(id:number) {
+  	this.contentType = 'editCategoryPractice';
   }  
   listCategory(id:number) {
     this.selectedCategory.id = id;
     this.contentType = 'listCategoryDetail';
   }  
+  listPractice(id:number) {
+    this.router.navigate(['/admin/practice/'+id]);
+  }
+
   deleteCategory(id:number) {
     let dialogRef = this.dialog.open(DialogDeleteCategory, {
       width: '250px',

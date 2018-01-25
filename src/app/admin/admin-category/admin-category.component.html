@@ -2,7 +2,7 @@
 <div class="container">
     <div class="right">
     	<div *ngIf="contentType == 'listCategoryDetail'">
-	    	<h4>Category Details <button mat-raised-button color="primary" (click)="editCategoryDetail(0)">Create</button></h4>
+	    	<h4>Category Details <button mat-raised-button color="primary" (click)="editPractice(0)">Create</button></h4>
 			<table class="category-detail">
 			  <tr>
 			    <th>Name</th>
@@ -17,6 +17,9 @@
 			    <td>Maria Anders</td>
 			    <td><img class="img-circle" src="/assets/image/yingwu.png"></td>
 			    <td>
+			    <button mat-icon-button color="primary" class="op_button" (click)="listPractice(0)">
+			      <mat-icon aria-label="icon-button with an list icon">list</mat-icon>
+			    </button>			    	
 			    <button mat-icon-button color="primary" class="op_button">
 			      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
 			    </button>
@@ -30,6 +33,9 @@
 			    <td>Christina Berglund</td>
 			    <td><img class="img-circle" src="/assets/image/yingwu.png"></td>
 			    <td>
+			    <button mat-icon-button color="primary" class="op_button" (click)="listPractice(0)">
+			      <mat-icon aria-label="icon-button with an list icon">list</mat-icon>
+			    </button>				    	
 			    <button mat-icon-button color="primary" class="op_button">
 			      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
 			    </button>
@@ -43,6 +49,9 @@
 			    <td>Francisco Chang</td>
 			    <td><img class="img-circle" src="/assets/image/yingwu.png"></td>
 			    <td>
+			    <button mat-icon-button color="primary" class="op_button" (click)="listPractice(0)">
+			      <mat-icon aria-label="icon-button with an list icon">list</mat-icon>
+			    </button>				    	
 			    <button mat-icon-button color="primary" class="op_button">
 			      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
 			    </button>
@@ -93,10 +102,10 @@
 		  </form>
 
 	    </div>
-	    <div *ngIf="contentType == 'editCategoryDetail'">
+	    <div *ngIf="contentType == 'editPractice'">
 		  <form>
 		  	<fieldset>
-			  	<legend>Category Details:</legend>
+			  	<legend>Practice:</legend>
 			    <div class="row">
 			      <div class="col-25">
 			        <label for="name">Name</label>

@@ -32,9 +32,10 @@ import { LoginComponent } from './login/login.component';
 import { PracticeComponent } from './practice/practice.component';
 import { AdminCategoryComponent,DialogDeleteCategory } from './admin/admin-category/admin-category.component';
 import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
+import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory
+    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory, AdminPracticeComponent
   ],
   entryComponents: [
     DialogDeleteCategory
