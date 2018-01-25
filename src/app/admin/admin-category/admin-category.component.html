@@ -55,47 +55,77 @@
 	    </div>
 	    <div *ngIf="contentType == 'editCategory'">
 
-<div class="container">
-  <form action="/action_page.php">
-  	<fieldset>
-  	<legend>Category:</legend>
-    <div class="row">
-      <div class="col-25">
-        <label for="name">Name</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="name" name="name" placeholder="Category Name">
-      </div>
-    </div>
+		  <form>
+		  	<fieldset>
+			  	<legend>Category:</legend>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Name</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" id="name" name="name" placeholder="Category Name">
+			      </div>
+			    </div>
 
-    <div class="row">
-      <div class="col-25">
-        <label for="language">Language</label>
-      </div>
-      <div class="col-75">
-        <select id="language" name="language">
-          <option value="english">English</option>
-          <option value="mandarin">Mandarin</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="subject">Image</label>
-      </div>
-      <div class="col-75">
-        <img class="img-circle" src="/assets/image/yingwu.png">
-      </div>
-    </div>
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
-</fieldset>
-  </form>
-</div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="language">Language</label>
+			      </div>
+			      <div class="col-75">
+			        <select id="language" name="language">
+			          <option value="english">English</option>
+			          <option value="mandarin">Mandarin</option>
+			        </select>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="subject">Image</label>
+			      </div>
+			      <div class="col-75">
+			        <img class="img-circle" src="/assets/image/yingwu.png">
+			      </div>
+			    </div>
+			    <div class="row">
+			      <input type="submit" value="Submit">
+			    </div>
+			</fieldset>
+		  </form>
+
 	    </div>
 	    <div *ngIf="contentType == 'editCategoryDetail'">
-	    	edit category detail
+		  <form>
+		  	<fieldset>
+			  	<legend>Category Details:</legend>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Name</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" id="name" name="name" placeholder="Category Name">
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Description</label>
+			      </div>
+			      <div class="col-75">
+			        <textarea name="Text1" cols="40" rows="5"></textarea>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="subject">Image</label>
+			      </div>
+			      <div class="col-75">
+			        <img class="img-circle" src="/assets/image/yingwu.png">
+			      </div>
+			    </div>
+			    <div class="row">
+			      <input type="submit" value="Submit">
+			    </div>
+			</fieldset>
+		  </form>
 	    </div>	    
     </div>
     <div class="left">

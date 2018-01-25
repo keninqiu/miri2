@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -29,12 +30,15 @@ import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { PracticeComponent } from './practice/practice.component';
-import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminCategoryComponent,DialogDeleteCategory } from './admin/admin-category/admin-category.component';
 import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent
+    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory
   ],
+  entryComponents: [
+    DialogDeleteCategory
+  ], 
   imports: [
     BrowserModule,
     MatIconModule,
@@ -44,6 +48,7 @@ import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.compo
     MatCardModule,
     MatProgressBarModule,
     MatInputModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
