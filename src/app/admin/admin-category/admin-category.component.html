@@ -54,23 +54,30 @@
 			</table>
 	    </div>
 	    <div *ngIf="contentType == 'editCategory'">
-			<form class="example-form">
-			  <mat-form-field class="example-full-width">
-			    <input matInput placeholder="Name" value="Home">
-			  </mat-form-field>
+			<form>
+			    <label for="Name" class="form-name">Name</label>
+			    <input id="Name" type="text">
+			 
+			    <label for="Language" class="form-language">Language</label>
+				<select>
+				  <option value="en">English</option>
+				  <option value="ch">Chinese</option>
+				</select>
+			 
+			    <!-- more inputs -->
 			</form>
-			<img class="img-circle" src="/assets/image/yingwu.png">
+
 	    </div>
 	    <div *ngIf="contentType == 'editCategoryDetail'">
 	    	edit category detail
 	    </div>	    
     </div>
     <div class="left">
-    	<h3>Categories 
+    	<div class="left-header"> 
     		<button mat-raised-button color="primary" (click)="editCategory(0)">Create</button>
     		<button mat-raised-button color="primary" (click)="editCategory(1)">Edit</button>
     		<button mat-raised-button color="primary" (click)="deleteCategory(1)">Delete</button>
-    	</h3>
+    	</div>
 		<div class="vertical-menu">
 		  <a [ngClass]="{'active': selectedCategory.id == 1}" (click)="listCategory(1)">
 		  	Home<img class="img-circle" src="/assets/image/yingwu.png">

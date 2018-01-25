@@ -11,19 +11,50 @@
 
 .left {
     float: none; /* not needed, just for clarification */
-    background: #394e6d;
+    background: #777;
     /* the next props are meant to keep this block independent from the other floated one */
     width: auto;
     color: white;
     overflow: hidden;
 }
-
+.left-header {
+    border-bottom: 1px solid #878991;
+    text-align: center;
+    padding: 10px;
+}
 .vertical-menu {
     width: 100%; /* Set a width if you like */
 }
 
+form {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 16px;
+    padding: 20px;
+    text-align: center;
+
+}
+ 
+form label {
+    grid-column: 1 / 2;
+}
+ 
+form input,
+button {
+    grid-column: 2 / 3;
+    font-size: 15px;
+}
+
+form input {
+    width:300px;
+}
+form select {
+    font-size: 15px;
+    width:300px;
+}
+
 .vertical-menu a {
-    background-color: #394e6d; /* Grey background color */
+    background-color: #777; /* Grey background color */
     color: white; /* white text color */
     display: block; /* Make the links appear below each other */
     padding: 12px; /* Add some padding */
@@ -35,7 +66,7 @@
 }
 
 .vertical-menu a.active {
-    background-color: #243247; /* Add a green color to the "active/current" link */
+    background-color: #1f8dd6; /* Add a green color to the "active/current" link */
     color: white;
 }
 .img-circle {
