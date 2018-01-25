@@ -1,4 +1,46 @@
 <admin-navbar></admin-navbar>
-<p>
-  admin-practice works!
-</p>
+
+<mat-list>
+		  <form>
+		  	<fieldset>
+			  	<legend>Category:</legend>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Name</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" id="name" name="name" placeholder="Category Name">
+			      </div>
+			    </div>
+
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="language">Language</label>
+			      </div>
+			      <div class="col-75">
+			        <select id="language" name="language">
+			          <option value="english">English</option>
+			          <option value="mandarin">Mandarin</option>
+			        </select>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="subject">Image</label>
+			      </div>
+			      <div class="col-75">
+			        <img class="img-circle" src="/assets/image/yingwu.png">
+			      </div>
+			    </div>
+			    <div class="row">
+			      <input type="submit" value="Submit">
+			    </div>
+			</fieldset>
+		  </form>
+  <h3 mat-subheader>Practice List:</h3>
+  <mat-list-item *ngFor="let note of notes">
+    <mat-icon mat-list-icon>note</mat-icon>
+    <h4 mat-line>{{note.name}}</h4>
+    <p mat-line> {{note.updated | date}} </p>
+  </mat-list-item>
+</mat-list>

@@ -6,7 +6,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-admin-category',
   templateUrl: './admin-category.component.html',
-  styleUrls: ['./admin-category.component.css']
+  styleUrls: ['../admin.component.css']
 })
 export class AdminCategoryComponent implements OnInit {
   contentType = 'listCategoryDetail';	

@@ -8,6 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -50,6 +51,7 @@ import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.co
     MatProgressBarModule,
     MatInputModule,
     MatDialogModule,
+    MatListModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
