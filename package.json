@@ -8,6 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "dev": "nodemon start.js",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -24,7 +25,10 @@
     "@angular/platform-browser": "^5.1.0",
     "@angular/platform-browser-dynamic": "^5.1.0",
     "@angular/router": "^5.1.0",
+    "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.1",
     "ng-circle-progress": "^0.9.8",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
@@ -45,6 +49,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "nodemon": "^1.14.11",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
