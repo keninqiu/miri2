@@ -29,6 +29,7 @@
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "mongoose": "^5.0.1",
+    "mongoose-auto-increment": "^5.0.1",
     "ng-circle-progress": "^0.9.8",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
