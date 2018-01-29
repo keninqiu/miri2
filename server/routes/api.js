@@ -1,7 +1,7 @@
 var categoryCtrl = require('../controllers/categoryCtrl.js');
 var practiceCtrl = require('../controllers/practiceCtrl.js');
 var questionCtrl = require('../controllers/questionCtrl.js');
-
+var fileCtrl = require('../controllers/fileCtrl.js');
 const express = require('express');
 const router = express.Router();
 
@@ -21,4 +21,5 @@ router.post('/question', questionCtrl.create);
 router.put('/question/:id', questionCtrl.update);
 router.delete('/question/:id', questionCtrl.delete);
 
+router.post('/file/upload', fileCtrl.upload);
 module.exports = router;

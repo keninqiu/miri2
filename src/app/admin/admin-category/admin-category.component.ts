@@ -1,9 +1,10 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit,Inject,EventEmitter } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import { CategoryService } from '../../services/category.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoryModel } from '../../models/category.model';
+import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions } from 'ngx-uploader';
 
 @Component({
   selector: 'app-admin-category',
@@ -11,12 +12,14 @@ import { CategoryModel } from '../../models/category.model';
   styleUrls: ['../admin.component.css']
 })
 export class AdminCategoryComponent implements OnInit {
+  uploadInput: EventEmitter<UploadInput>;
   contentType = 'listCategoryDetail';	
   selectedCategory : any;
   categories = [];
   constructor(private messageService: MessageService,public dialog: MatDialog,private router: Router,private categoryService: CategoryService) { }
 
   ngOnInit() {
+    this.uploadInput = new EventEmitter<UploadInput>();
   	this.messageService.sendMessage('AdminCategory');
     this.categoryService.list().subscribe(    
           suc => {
@@ -107,6 +110,22 @@ export class AdminCategoryComponent implements OnInit {
       }
     });  
   }
+
+  onUploadOutput(output: UploadOutput): void {
+    if (output.type === 'allAddedToQueue') { 
+       const event: UploadInput = {
+         type: 'uploadAll',
+         url: '/api/file/upload',
+         method: 'POST',
+         data: {}
+       };
+       this.uploadInput.emit(event);
+    } 
+    else if(output.type === 'done' && typeof output.file !== 'undefined') {
+      var response = output.file.response;
+      this.selectedCategory.image = response.filepath;
+    }  
+  }  
 }
 
 @Component({

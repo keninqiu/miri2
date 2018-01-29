@@ -35,6 +35,8 @@ import { PracticeComponent } from './practice/practice.component';
 import { AdminCategoryComponent,DialogDeleteCategory } from './admin/admin-category/admin-category.component';
 import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
 import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';
+import { NgUploaderModule } from 'ngx-uploader';
+
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory, AdminPracticeComponent
@@ -57,6 +59,7 @@ import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.co
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    NgUploaderModule,
     NgCircleProgressModule.forRoot({
       "radius": 60,
       "space": -10,

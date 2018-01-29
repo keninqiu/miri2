@@ -31,6 +31,7 @@
     "mongoose": "^5.0.1",
     "mongoose-auto-increment": "^5.0.1",
     "ng-circle-progress": "^0.9.8",
+    "ngx-uploader": "^4.2.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

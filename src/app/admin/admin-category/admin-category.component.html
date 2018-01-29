@@ -92,11 +92,10 @@
 			        <label for="subject">Image</label>
 			      </div>
 			      <div class="col-75">
-			      	<!--
+			      	
   <input hidden type="file" #imgFileInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
-  <img src="{{subjectImage}}" alt="Norway" (click)="imgFileInput.click();">
-  -->			      	
-			        <img class="img-circle" src="/assets/image/yingwu.png">
+  <img class="img-circle" src="{{selectedCategory.image}}" alt="Norway" (click)="imgFileInput.click();">
+
 			      </div>
 			    </div>
 			    <div class="row">
