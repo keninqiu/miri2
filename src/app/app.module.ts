@@ -12,7 +12,7 @@ import {MatListModule} from '@angular/material/list';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar.component';
 import { AdminNavbarComponent } from './core/admin-navbar.component';
@@ -26,6 +26,7 @@ import { PracticeDetailComponent } from './practice/practice-detail.component';
 
 import { MessageService } from './services/message.service';
 import { ChatService } from './services/chat.service';
+import { CategoryService } from './services/category.service';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
@@ -43,6 +44,7 @@ import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.co
   ], 
   imports: [
     BrowserModule,
+    HttpModule,
     MatIconModule,
     MatToolbarModule,
     MatMenuModule,
@@ -70,7 +72,7 @@ import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.co
       "clockwise": false
     })    
   ],
-  providers: [MessageService,ChatService],
+  providers: [MessageService,ChatService,CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

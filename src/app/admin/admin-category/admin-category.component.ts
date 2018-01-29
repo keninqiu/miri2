@@ -1,7 +1,9 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MessageService } from '../../services/message.service';
+import { CategoryService } from '../../services/category.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { CategoryModel } from '../../models/category.model';
 
 @Component({
   selector: 'app-admin-category',
@@ -10,28 +12,75 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class AdminCategoryComponent implements OnInit {
   contentType = 'listCategoryDetail';	
-  selectedCategory = {id:1};
-  constructor(private messageService: MessageService,public dialog: MatDialog,private router: Router) { }
+  selectedCategory : any;
+  categories = [];
+  constructor(private messageService: MessageService,public dialog: MatDialog,private router: Router,private categoryService: CategoryService) { }
 
   ngOnInit() {
   	this.messageService.sendMessage('AdminCategory');
+    this.categoryService.list().subscribe(    
+          suc => {
+              //console.log(suc);
+              this.categories = suc;
+              if(this.categories.length > 0) {
+                this.selectedCategory = this.categories[0];
+              }
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
   }
 
-  editCategory(id:number) {
+  createCategory() {
+    this.contentType = 'editCategory';
+    this.selectedCategory = new CategoryModel('','','');
+  }
+
+  editCategory() {
   	this.contentType = 'editCategory';
   }
+
+  saveCategory() {
+    console.log('start save');
+    //var model = new CategoryModel("112","223","424");
+
+    if(this.selectedCategory._id > 0) { // save Category
+      this.categoryService.update(this.selectedCategory._id,this.selectedCategory).subscribe(    
+          suc => {
+              console.log(suc);
+
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
+    }
+    else { // create Category
+      this.categoryService.create(this.selectedCategory).subscribe(    
+          suc => {
+              console.log(suc);
+              this.categories.push(suc);
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
+    }
+  }
+
   editPractice(id:number) {
   	this.contentType = 'editCategoryPractice';
   }  
-  listCategory(id:number) {
-    this.selectedCategory.id = id;
+  listCategory(category) {
     this.contentType = 'listCategoryDetail';
+    this.selectedCategory = category;
   }  
   listPractice(id:number) {
     this.router.navigate(['/admin/practice/'+id]);
   }
 
-  deleteCategory(id:number) {
+  deleteCategory() {
     let dialogRef = this.dialog.open(DialogDeleteCategory, {
       width: '250px',
       data: { }
@@ -39,6 +88,23 @@ export class AdminCategoryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log(result);
+      if(result == 'yes') {
+        this.categoryService.delete(this.selectedCategory._id).subscribe(    
+            suc => {
+                console.log(suc);
+                for(var i = this.categories.length - 1; i >= 0; i--) {
+                    if(this.categories[i]._id == this.selectedCategory._id) {
+                      this.categories.splice(i, 1);
+                      break;
+                    }
+                } 
+            },
+            err => {
+                console.log(err);
+            }
+        ); 
+      }
     });  
   }
 }
@@ -55,12 +121,12 @@ export class DialogDeleteCategory {
 
   onConfirmClick() {
     console.log('yes, delete it');
-    this.dialogRef.close();
+    this.dialogRef.close('yes');
   }
 
   onCancelClick() {
     console.log('no');
-    this.dialogRef.close();
+    this.dialogRef.close('no');
   }  
 
 }
