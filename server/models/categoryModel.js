@@ -4,6 +4,6 @@ module.exports = class CategoryModel {
         this.language = language;
         this.name = name;
         this.image = image;
-    }    
+    }     
        
 }

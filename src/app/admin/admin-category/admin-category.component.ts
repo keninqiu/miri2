@@ -21,6 +21,7 @@ export class AdminCategoryComponent implements OnInit {
   categories = [];
   selectedPractice : any;
   practices = [];
+  practicesFilterList = [];
 
   constructor(private messageService: MessageService,public dialog: MatDialog,private router: Router,private categoryService: CategoryService,private practiceService: PracticeService) { }
 
@@ -33,6 +34,21 @@ export class AdminCategoryComponent implements OnInit {
               this.categories = suc;
               if(this.categories.length > 0) {
                 this.selectedCategory = this.categories[0];
+
+
+    this.practiceService.list().subscribe(    
+          suc => {
+              //console.log(suc);
+              this.practices = suc;
+              console.log('id=' + this.selectedCategory._id);
+              this.practicesFilterList = this.practices.filter((practice: PracticeModel) => practice.category_id == this.selectedCategory._id);
+
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
+
               }
           },
           err => {
@@ -40,15 +56,6 @@ export class AdminCategoryComponent implements OnInit {
           }
       ); 
 
-    this.practiceService.list().subscribe(    
-          suc => {
-              //console.log(suc);
-              this.practices = suc;
-          },
-          err => {
-              console.log(err);
-          }
-      );       
   }
 
   createCategory() {
@@ -108,6 +115,7 @@ export class AdminCategoryComponent implements OnInit {
           suc => {
               console.log(suc);
               this.practices.push(suc);
+              this.practicesFilterList.push(suc);
           },
           err => {
               console.log(err);
@@ -125,6 +133,7 @@ export class AdminCategoryComponent implements OnInit {
   listCategory(category) {
     this.contentType = 'listCategoryDetail';
     this.selectedCategory = category;
+    this.practicesFilterList = this.practices.filter((practice: PracticeModel) => practice.category_id == category._id);
   }  
   listPractice(id:number) {
     this.router.navigate(['/admin/practice/'+id]);
@@ -156,6 +165,32 @@ export class AdminCategoryComponent implements OnInit {
         ); 
       }
     });  
+  }
+
+  deletePractice(practice) {
+    this.selectedPractice = practice;
+    let dialogRef = this.dialog.open(DialogDeleteCategory, {
+      width: '250px',
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result == 'yes') {
+        this.practiceService.delete(this.selectedPractice._id).subscribe(    
+            suc => {
+                for(var i = this.practices.length - 1; i >= 0; i--) {
+                    if(this.practices[i]._id == this.selectedPractice._id) {
+                      this.practices.splice(i, 1);
+                      break;
+                    }
+                } 
+            },
+            err => {
+                console.log(err);
+            }
+        ); 
+      }
+    });   
   }
 
   uploadCategoryImage(): void {
