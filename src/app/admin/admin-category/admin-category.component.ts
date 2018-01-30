@@ -1,9 +1,11 @@
 import { Component, OnInit,Inject,EventEmitter } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import { CategoryService } from '../../services/category.service';
+import { PracticeService } from '../../services/practice.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoryModel } from '../../models/category.model';
+import { PracticeModel } from '../../models/practice.model';
 import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions } from 'ngx-uploader';
 
 @Component({
@@ -13,10 +15,14 @@ import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions }
 })
 export class AdminCategoryComponent implements OnInit {
   uploadInput: EventEmitter<UploadInput>;
+  uploadImgType = 'category';
   contentType = 'listCategoryDetail';	
   selectedCategory : any;
   categories = [];
-  constructor(private messageService: MessageService,public dialog: MatDialog,private router: Router,private categoryService: CategoryService) { }
+  selectedPractice : any;
+  practices = [];
+
+  constructor(private messageService: MessageService,public dialog: MatDialog,private router: Router,private categoryService: CategoryService,private practiceService: PracticeService) { }
 
   ngOnInit() {
     this.uploadInput = new EventEmitter<UploadInput>();
@@ -33,6 +39,16 @@ export class AdminCategoryComponent implements OnInit {
               console.log(err);
           }
       ); 
+
+    this.practiceService.list().subscribe(    
+          suc => {
+              //console.log(suc);
+              this.practices = suc;
+          },
+          err => {
+              console.log(err);
+          }
+      );       
   }
 
   createCategory() {
@@ -46,7 +62,6 @@ export class AdminCategoryComponent implements OnInit {
 
   saveCategory() {
     console.log('start save');
-    //var model = new CategoryModel("112","223","424");
 
     if(this.selectedCategory._id > 0) { // save Category
       this.categoryService.update(this.selectedCategory._id,this.selectedCategory).subscribe(    
@@ -71,10 +86,42 @@ export class AdminCategoryComponent implements OnInit {
       ); 
     }
   }
-
-  editPractice(id:number) {
-  	this.contentType = 'editCategoryPractice';
+  createPractice() {
+    this.contentType = 'editPractice';
+    this.selectedPractice = new PracticeModel(this.selectedCategory._id,'','','');
   }  
+
+  savePractice() {
+    if(this.selectedPractice._id > 0) { // save Practice
+      this.practiceService.update(this.selectedPractice._id,this.selectedPractice).subscribe(    
+          suc => {
+              console.log(suc);
+
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
+    }
+    else { // create Category
+      this.practiceService.create(this.selectedPractice).subscribe(    
+          suc => {
+              console.log(suc);
+              this.practices.push(suc);
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
+    }
+    this.contentType = 'listCategoryDetail';
+  }
+
+  editPractice(practice) {
+  	this.contentType = 'editPractice';
+    this.selectedPractice = practice;
+  }  
+
   listCategory(category) {
     this.contentType = 'listCategoryDetail';
     this.selectedCategory = category;
@@ -111,6 +158,14 @@ export class AdminCategoryComponent implements OnInit {
     });  
   }
 
+  uploadCategoryImage(): void {
+    this.uploadImgType = 'category';
+  }  
+
+  uploadPracticeImage(): void {
+    this.uploadImgType = 'practice';
+  }
+
   onUploadOutput(output: UploadOutput): void {
     if (output.type === 'allAddedToQueue') { 
        const event: UploadInput = {
@@ -122,8 +177,15 @@ export class AdminCategoryComponent implements OnInit {
        this.uploadInput.emit(event);
     } 
     else if(output.type === 'done' && typeof output.file !== 'undefined') {
+      console.log('output is:');
+      console.log(output);
       var response = output.file.response;
-      this.selectedCategory.image = response.filepath;
+      if(this.uploadImgType == 'category') {
+        this.selectedCategory.image = response.filepath;
+      }
+      else {
+        this.selectedPractice.image = response.filepath;
+      }
     }  
   }  
 }
