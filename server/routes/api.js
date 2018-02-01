@@ -12,6 +12,7 @@ router.put('/category/:id', categoryCtrl.update);
 router.delete('/category/:id', categoryCtrl.delete);
 
 router.get('/practice', practiceCtrl.list);
+router.get('/practice/:id', practiceCtrl.details);
 router.post('/practice', practiceCtrl.create);
 router.put('/practice/:id', practiceCtrl.update);
 router.delete('/practice/:id', practiceCtrl.delete);

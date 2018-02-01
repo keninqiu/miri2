@@ -135,8 +135,9 @@ export class AdminCategoryComponent implements OnInit {
     this.selectedCategory = category;
     this.practicesFilterList = this.practices.filter((practice: PracticeModel) => practice.category_id == category._id);
   }  
-  listPractice(id:number) {
-    this.router.navigate(['/admin/practice/'+id]);
+  listPractice(practice) {
+  console.log();
+    this.router.navigate(['/admin/practice/'+practice._id]);
   }
 
   deleteCategory() {

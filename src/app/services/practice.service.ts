@@ -26,4 +26,8 @@ export class PracticeService {
     return this.http.get('/api/practice')
       .map(res => res.json());  
   }
+  details(id) {
+    return this.http.get('/api/practice/' + id)
+      .map(res => res.json());    
+  }
 }
