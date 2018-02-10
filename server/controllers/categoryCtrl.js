@@ -6,7 +6,7 @@ module.exports = {
 	Model.find({},'language name image', function (err, entities) {
 	  return res.status(200).json(entities);
 	});
-  },
+  }, 
   create : function(req, res) {
   	var body = req.body; 
   	var language = body.language;

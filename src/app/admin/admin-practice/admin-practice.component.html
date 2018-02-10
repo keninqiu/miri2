@@ -78,7 +78,10 @@
 			      </div>
 			      <div class="col-75">
 	  <input hidden type="file" #imgFileInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
-	  <img class="img-circle" src="{{selectedQuestion.voice}}" alt="Norway" (click)="uploadVoice();imgFileInput.click();">
+	  <img class="img-circle" src="/assets/image/voice.png" alt="Norway" (click)="uploadVoice();imgFileInput.click();">
+	  <button mat-icon-button color="primary" class="op_button" (click)="playVoice(selectedQuestion.voice)">
+	    <mat-icon>volume_up</mat-icon>
+	  </button>
 			      </div>
 			    </div>	
 

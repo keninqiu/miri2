@@ -45,6 +45,10 @@ export class AdminPracticeComponent implements OnInit {
     this.uploadType = 'voice';
   }
 
+  playVoice(filename) {
+
+  }
+  
   onUploadOutput(output: UploadOutput): void {
     if (output.type === 'allAddedToQueue') { 
        const event: UploadInput = {
