@@ -1,12 +1,13 @@
 module.exports = class QuestionModel {
-    constructor(type,topic,text, voice, image, choice, answer) {
+    constructor(practice_id,type,topic,text, voice, image, choices, answer) {
         // always initialize all instance properties
+        this.practice_id = practice_id;
         this.type = type;
         this.topic = topic;
         this.text = text;
         this.voice = voice;
         this.image = image;
-        this.choice = choice;
+        this.choices = choices;
         this.answer = answer;
     }           
 }

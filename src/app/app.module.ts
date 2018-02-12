@@ -28,6 +28,7 @@ import { MessageService } from './services/message.service';
 import { ChatService } from './services/chat.service';
 import { CategoryService } from './services/category.service';
 import { PracticeService } from './services/practice.service';
+import { QuestionService } from './services/question.service';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
@@ -76,7 +77,7 @@ import { NgUploaderModule } from 'ngx-uploader';
       "clockwise": false
     })    
   ],
-  providers: [MessageService,ChatService,CategoryService,PracticeService],
+  providers: [MessageService,ChatService,CategoryService,PracticeService,QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

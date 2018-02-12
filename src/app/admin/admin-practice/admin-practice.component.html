@@ -50,8 +50,9 @@
 			        <label for="name">Type</label>
 			      </div>
 			      <div class="col-75">
-			        <select [(ngModel)]="selectedQuestion.type" name="type">
+			        <select [(ngModel)]="selectedQuestion.type" (ngModelChange)="onChangeType($event)" name="type">
 			          <option value="basic">Basic</option>
+			          <option value="recognize_word">Recognize word</option>
 			        </select>
 			      </div>
 			    </div>			  	
@@ -72,20 +73,23 @@
 			      </div>
 			    </div>
 
-			    <div class="row">
+			    <div class="row" *ngIf="showVoice">
 			      <div class="col-25">
 			        <label for="name">Voice</label>
 			      </div>
 			      <div class="col-75">
 	  <input hidden type="file" #imgFileInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
 	  <img class="img-circle" src="/assets/image/voice.png" alt="Norway" (click)="uploadVoice();imgFileInput.click();">
-	  <button mat-icon-button color="primary" class="op_button" (click)="playVoice(selectedQuestion.voice)">
+	  <button mat-icon-button color="primary" (click)="playVoice(selectedQuestion.voice)">
 	    <mat-icon>volume_up</mat-icon>
 	  </button>
+	  <button mat-icon-button color="primary" (click)="pauseVoice()">
+	    <mat-icon>pause</mat-icon>
+	  </button>	  
 			      </div>
 			    </div>	
 
-			    <div class="row">
+			    <div class="row" *ngIf="showImage">
 			      <div class="col-25">
 			        <label for="name">Image</label>
 			      </div>
@@ -96,7 +100,18 @@
 
 			      </div>
 			    </div>	
-
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Choices</label>
+			      </div>
+			      <div class="col-75">
+					  <div *ngFor="let choice of selectedQuestion.choices; let in=index" class="choice-input">
+					        <input type="text" [(ngModel)]="selectedQuestion.choices[in].value" name="choice"  [attr.placeholder]="selectedQuestion.choices[in].value" required>
+						  <input type="file" ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" (click)="uploadChoiceImage(in);" multiple>     
+						  <img class="img-circle" src="{{selectedQuestion.choices[in].image}}" alt="Norway">					        
+					  </div>
+			      </div>
+			    </div>	
 			    <div class="row">
 			      <div class="col-25">
 			        <label for="name">Answer</label>
@@ -106,7 +121,7 @@
 			      </div>
 			    </div>				    			    		    
 			    <div class="row">
-			      <input type="submit" (click)="savePractice()" value="Submit">
+			      <input type="submit" (click)="saveQuestion()" value="Submit">
 			    </div>
 			</fieldset>
 		  </form>	

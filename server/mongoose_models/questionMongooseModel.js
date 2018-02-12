@@ -9,6 +9,10 @@ function getModel () {
   mongoose.connect('mongodb://keningqiu:98523020@ds117148.mlab.com:17148/miri');
   autoIncrement.initialize(mongoose.connection);
   var schema = new mongoose.Schema({
+    practice_id: {
+      type: String,
+      required: true
+    },      
     type: {
       type: String
     },    
@@ -25,7 +29,7 @@ function getModel () {
     image: {
       type: String
     },
-    choice: {
+    choices: {
       type: Array
     },
     answer: {

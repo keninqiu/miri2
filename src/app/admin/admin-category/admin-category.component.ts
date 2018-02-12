@@ -60,7 +60,7 @@ export class AdminCategoryComponent implements OnInit {
 
   createCategory() {
     this.contentType = 'editCategory';
-    this.selectedCategory = new CategoryModel('','','');
+    this.selectedCategory = new CategoryModel('english','','');
   }
 
   editCategory() {

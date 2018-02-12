@@ -9,14 +9,15 @@ module.exports = {
   },
   create : function(req, res) {
   	var body = req.body; 
+    var practice_id = body.practice_id;
     var type = body.type;
   	var topic = body.topic;
     var text = body.text;
   	var voice = body.voice;
   	var image = body.image;
-    var choice = body.choice;
+    var choices = body.choices;
     var answer = body.answer;
-  	var questionModel = new QuestionModel(type,topic,text,voice,image,choice,answer);
+  	var questionModel = new QuestionModel(practice_id,type,topic,text,voice,image,choices,answer);
   	var entity = new Model(questionModel);
   	entity.save(function (err, entity) {
   	  if (err) return console.error(err);
@@ -26,14 +27,15 @@ module.exports = {
   update : function(req, res) {
   	var body = req.body; 
   	var _id = req.params.id;
+    var practice_id = body.practice_id;
     var type = body.type;
     var topic = body.topic;
     var text = body.text;
     var voice = body.voice;
     var image = body.image;
-    var choice = body.choice;
+    var choices = body.choices;
     var answer = body.answer;
-  	var questionModel = new QuestionModel(type,topic,text,voice,image,choice,answer);
+  	var questionModel = new QuestionModel(practice_id,type,topic,text,voice,image,choices,answer);
   	Model.findByIdAndUpdate(_id,{ $set: questionModel}, { new: true },function(err, subject) {
   	  if (err) console.log(err);
   	  return res.status(200).json(subject);

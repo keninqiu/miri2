@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { PracticeService } from '../../services/practice.service';
+import { QuestionService } from '../../services/question.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { QuestionModel } from '../../models/question.model';
 import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions } from 'ngx-uploader';
@@ -12,15 +13,22 @@ import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions }
 export class AdminPracticeComponent implements OnInit {
   uploadInput: EventEmitter<UploadInput>;
   practice:any;
+  audio:any;
   selectedQuestion:any;
   questions = [];
   private sub: any;
   contentType = 'listQuestionDetail'; 
   uploadType = 'image';
+  choiceCount = 4;
+  choiceIndex = 0;
+  showImage = true;
+  showVoice = true;
 
-  constructor(private route: ActivatedRoute,private router: Router,private practiceService: PracticeService) { }
+  constructor(private route: ActivatedRoute,private router: Router,private practiceService: PracticeService,private questionService: QuestionService) { }
 
   ngOnInit() {
+
+    this.audio = new Audio();
     this.uploadInput = new EventEmitter<UploadInput>();
     this.sub = this.route.params.subscribe(params => {
       var practice_id = params['id'];
@@ -36,6 +44,15 @@ export class AdminPracticeComponent implements OnInit {
       );  
     });
   }
+  onChangeType(type) {
+    console.log(type);
+    if(type == 'recognize_word') {
+      this.showImage = false;
+      this.showVoice = false;
+      this.choiceCount = 3;
+      this.resetChoiceCount();
+    }
+  }
 
   uploadImage() {
     this.uploadType = 'image';
@@ -45,10 +62,20 @@ export class AdminPracticeComponent implements OnInit {
     this.uploadType = 'voice';
   }
 
-  playVoice(filename) {
-
+  playVoice(path:string) {
+      this.audio.src = path;
+      this.audio.load();
+      this.audio.play();    
   }
-  
+
+  uploadChoiceImage(index:number) {
+    this.uploadType = 'choice';
+    this.choiceIndex = index;
+  }
+
+  pauseVoice() {
+    this.audio.pause();
+  }
   onUploadOutput(output: UploadOutput): void {
     if (output.type === 'allAddedToQueue') { 
        const event: UploadInput = {
@@ -64,16 +91,48 @@ export class AdminPracticeComponent implements OnInit {
       if(this.uploadType == 'image') {
         this.selectedQuestion.image = response.filepath;
       }
-      else {
+      else if(this.uploadType == 'voice'){
         this.selectedQuestion.voice = response.filepath;
+      }
+      else if(this.uploadType == 'choice') {
+        this.selectedQuestion.choices[this.choiceIndex].image = response.filepath;
       }
     }  
   }  
 
-
+  resetChoiceCount() {
+    var choices = [];
+    for (var i = 0; i < this.choiceCount; i++) { 
+      choices.push({value: '',image:''});
+    }
+    this.selectedQuestion = new QuestionModel(this.practice._id,'','','','','',choices,'');  
+  }
   createQuestion() {
     this.contentType = 'editQuestion';
-    this.selectedQuestion = new QuestionModel(this.practice._id,'','','','','',[],'');
+    this.resetChoiceCount();
   }
+  saveQuestion() {
+    if(this.selectedQuestion._id > 0) { // save Question
+      this.questionService.update(this.selectedQuestion._id,this.selectedQuestion).subscribe(    
+          suc => {
+              console.log(suc);
 
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
+    }
+    else { // create Category
+      this.questionService.create(this.selectedQuestion).subscribe(    
+          suc => {
+              console.log(suc);
+              this.questions.push(suc);
+          },
+          err => {
+              console.log(err);
+          }
+      ); 
+    }  
+  }
 }

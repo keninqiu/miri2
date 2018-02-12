@@ -22,7 +22,7 @@ module.exports = {
 
       var response = {
         "success":true,
-        "filepath":filepath
+        "filepath":filepath 
       }; 
       return res.status(200).json(response);       
     });
