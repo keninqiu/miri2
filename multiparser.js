@@ -30,6 +30,22 @@ function mime(req) {
 
 function parseMultipart(opt, req, res, next) {
   var form = new Formidable.IncomingForm();
+  form.parse(req);
+  form.on('fileBegin', function (name, file){
+      console.log('file.name=' + file.name);
+      file.path = __dirname + '/dist/assets/uploads/' + file.name;
+  });  
+  form.on('file', function (name, file){
+      console.log('Uploaded ' + file.name);
+      var filepath = 'assets/uploads/' + file.name;
+      var response = {
+        "success":true,
+        "filepath":filepath 
+      }; 
+      return res.status(200).json(response);       
+  });  
+
+  /*
   form.parse(req, function(err, fields, files) {
     if (err)
       next(err);
@@ -60,6 +76,7 @@ function parseMultipart(opt, req, res, next) {
       next();
     }
   });
+  */
 }
 
 function extend(target) {

@@ -134,5 +134,6 @@ export class AdminPracticeComponent implements OnInit {
           }
       ); 
     }  
+    this.contentType = 'listQuestionDetail';
   }
 }

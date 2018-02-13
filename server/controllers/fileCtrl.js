@@ -2,6 +2,22 @@ const fs = require('fs');
 var formidable = require('formidable');
 module.exports = {
   upload : function(req, res) {
+
+    var form = new formidable.IncomingForm();
+    form.parse(req);
+    form.on('fileBegin', function (name, file){
+        console.log('file.name=' + file.name);
+        file.path = __dirname + '/../../dist/assets/uploads/' + file.name;
+    });  
+    form.on('file', function (name, file){
+        console.log('Uploaded ' + file.name);
+        var filepath = 'assets/uploads/' + file.name;
+        var response = {
+          "success":true,
+          "filepath":filepath 
+        }; 
+        return res.status(200).json(response);       
+    });      
     //this function was moved to multiparser.js
     /*
     var form = new formidable.IncomingForm();
