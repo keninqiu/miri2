@@ -6,16 +6,18 @@ module.exports = {
     var form = new formidable.IncomingForm();
     form.parse(req);
     form.on('fileBegin', function (name, file){
-        console.log('file.name=' + file.name);
         file.path = __dirname + '/../../dist/assets/uploads/' + file.name;
     });  
     form.on('file', function (name, file){
-        console.log('Uploaded ' + file.name);
         var filepath = 'assets/uploads/' + file.name;
         var response = {
           "success":true,
           "filepath":filepath 
         }; 
+
+        var oldpath = __dirname + '/../../dist/assets/uploads/' + file.name;
+        var srcpath = __dirname + '/../../src/assets/uploads/' + file.name;
+        fs.createReadStream(oldpath).pipe(fs.createWriteStream(srcpath));
         return res.status(200).json(response);       
     });      
     //this function was moved to multiparser.js
