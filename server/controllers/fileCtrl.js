@@ -2,6 +2,8 @@ const fs = require('fs');
 var formidable = require('formidable');
 module.exports = {
   upload : function(req, res) {
+    //this function was moved to multiparser.js
+    /*
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
 
@@ -29,5 +31,6 @@ module.exports = {
 
   
     return res.status(200);    
+    */
   }
 }

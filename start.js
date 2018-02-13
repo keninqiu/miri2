@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const MultiParser = require('./multiparser');
 
 const api = require('./server/routes/api');
 const app = express();
+
+app.use(MultiParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 // Set our api routes
