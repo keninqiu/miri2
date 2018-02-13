@@ -53,6 +53,7 @@
 			        <select [(ngModel)]="selectedQuestion.type" (ngModelChange)="onChangeType($event)" name="type">
 			          <option value="basic">Basic</option>
 			          <option value="recognize_word">Recognize word</option>
+			          <option value="write_word">Write word</option>
 			        </select>
 			      </div>
 			    </div>			  	
@@ -72,7 +73,14 @@
 			        <input type="text" name="text" [(ngModel)]="selectedQuestion.text" placeholder="Question Text">
 			      </div>
 			    </div>
-
+			    <div class="row" *ngIf="showWord">
+			      <div class="col-25">
+			        <label for="name">Word</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" name="word" [(ngModel)]="selectedQuestion.word" placeholder="Question Word">
+			      </div>
+			    </div>
 			    <div class="row" *ngIf="showVoice">
 			      <div class="col-25">
 			        <label for="name">Voice</label>
@@ -100,7 +108,7 @@
 
 			      </div>
 			    </div>	
-			    <div class="row">
+			    <div class="row" *ngIf="showChoices">
 			      <div class="col-25">
 			        <label for="name">Choices</label>
 			      </div>

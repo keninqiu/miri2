@@ -14,7 +14,7 @@ module.exports = {
       if (err) return console.error(err);
       var details = {};
       details.practice = entity;
-      QuestionModel.find({practice_id:id},'topic', function (err, entities) {
+      QuestionModel.find({practice_id:id},'topic title text word choices answer', function (err, entities) {
         details.questions = entities;
         return res.status(200).json(details);
       });

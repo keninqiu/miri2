@@ -23,6 +23,8 @@ export class AdminPracticeComponent implements OnInit {
   choiceIndex = 0;
   showImage = true;
   showVoice = true;
+  showWord = true;
+  showChoices = true;
 
   constructor(private route: ActivatedRoute,private router: Router,private practiceService: PracticeService,private questionService: QuestionService) { }
 
@@ -49,8 +51,16 @@ export class AdminPracticeComponent implements OnInit {
     if(type == 'recognize_word') {
       this.showImage = false;
       this.showVoice = false;
+      this.showWord = false;
+      this.showChoices = true;
       this.choiceCount = 3;
       this.resetChoiceCount();
+    }
+    else if(type == 'write_word') {
+      this.showImage = false;
+      this.showChoices = false;
+      this.showVoice = true;
+      this.showWord = true;
     }
   }
 
@@ -105,7 +115,7 @@ export class AdminPracticeComponent implements OnInit {
     for (var i = 0; i < this.choiceCount; i++) { 
       choices.push({value: '',image:''});
     }
-    this.selectedQuestion = new QuestionModel(this.practice._id,'','','','','',choices,'');  
+    this.selectedQuestion = new QuestionModel(this.practice._id,'','','','','','',choices,'');  
   }
   createQuestion() {
     this.contentType = 'editQuestion';
