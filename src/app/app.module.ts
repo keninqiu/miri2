@@ -26,6 +26,7 @@ import { PracticeDetailComponent } from './practice/practice-detail.component';
 
 import { MessageService } from './services/message.service';
 import { ChatService } from './services/chat.service';
+import { WordService } from './services/word.service';
 import { CategoryService } from './services/category.service';
 import { PracticeService } from './services/practice.service';
 import { QuestionService } from './services/question.service';
@@ -38,10 +39,11 @@ import { AdminCategoryComponent,DialogDeleteCategory } from './admin/admin-categ
 import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
 import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';
 import { NgUploaderModule } from 'ngx-uploader';
+import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-dictionary.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory, AdminPracticeComponent
+    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory, AdminPracticeComponent, AdminDictionaryComponent
   ],
   entryComponents: [
     DialogDeleteCategory
@@ -77,7 +79,7 @@ import { NgUploaderModule } from 'ngx-uploader';
       "clockwise": false
     })    
   ],
-  providers: [MessageService,ChatService,CategoryService,PracticeService,QuestionService],
+  providers: [MessageService,ChatService,WordService,CategoryService,PracticeService,QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

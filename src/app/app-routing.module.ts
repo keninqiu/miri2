@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';
+import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-dictionary.component';
 import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'category/:id', component: CategoryDetailComponent },
   { path: 'practice/:id', component: PracticeComponent },
   { path: 'practice-detail/:id', component: PracticeDetailComponent },
+  { path: 'admin/dictionary', component: AdminDictionaryComponent },
   { path: 'chatbot', component: ChatbotComponent },
   { path: 'lesson', component: LessonComponent },
   { path: 'contact', component: ContactComponent },

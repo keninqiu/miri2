@@ -48,13 +48,15 @@ export class AdminPracticeComponent implements OnInit {
   }
   onChangeType(type) {
     console.log(type);
-    if(type == 'recognize_word') {
+    if(type == 'basic') {
+      this.choiceCount = 4;
+    }
+    else if(type == 'recognize_word') {
       this.showImage = false;
       this.showVoice = false;
       this.showWord = false;
       this.showChoices = true;
       this.choiceCount = 3;
-      this.resetChoiceCount();
     }
     else if(type == 'write_word') {
       this.showImage = false;
@@ -121,6 +123,31 @@ export class AdminPracticeComponent implements OnInit {
     this.contentType = 'editQuestion';
     this.resetChoiceCount();
   }
+
+  editQuestion(question) {
+    this.selectedQuestion = question;
+    console.log('this.selectedQuestion===');
+    console.log(this.selectedQuestion);
+    this.onChangeType(this.selectedQuestion.type);
+    this.contentType = 'editQuestion';
+  }
+
+  deleteQuestion(question) {
+        this.questionService.delete(this.selectedQuestion._id).subscribe(    
+            suc => {
+                for(var i = this.questions.length - 1; i >= 0; i--) {
+                    if(this.questions[i]._id == question._id) {
+                      this.questions.splice(i, 1);
+                      break;
+                    }
+                } 
+            },
+            err => {
+                console.log(err);
+            }
+        ); 
+  }
+
   saveQuestion() {
     if(this.selectedQuestion._id > 0) { // save Question
       this.questionService.update(this.selectedQuestion._id,this.selectedQuestion).subscribe(    

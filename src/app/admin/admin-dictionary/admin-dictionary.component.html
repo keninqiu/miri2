@@ -1,0 +1,72 @@
+<admin-navbar></admin-navbar>
+<h3>Words List:<button mat-raised-button color="primary" (click)="createWord()">Create</button></h3>
+<div *ngIf="contentType == 'listWord'">
+	  <table class="word-detail">
+			  <tr>
+			    <th>Text</th>
+			    <th>Voice</th>
+			    <th>Image</th>
+			    <th>
+			    Operation			    	
+			    </th>
+			  </tr>	 
+			  <tr *ngFor="let word of words">
+			    <td>{{word.text}}</td>
+			    <td>{{word.voice}}</td>
+			    <td>{{word.image}}</td>
+			    <td>			    	
+			    <button mat-icon-button color="primary" class="op_button" (click)="editWord(word)">
+			      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
+			    </button>
+			    <button mat-icon-button color="warn" class="op_button" (click)="deleteWord(word)">
+			      <mat-icon aria-label="icon-button with a cancel icon">cancel</mat-icon>
+			    </button>			    	
+			    </td>
+			  </tr>			   	
+	  </table>
+</div>
+<div *ngIf="contentType == 'editWord'">
+		  <form>
+		  	<fieldset>
+			  	<legend>Word:</legend>		  	
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Text</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" name="text" [(ngModel)]="selectedWord.text" placeholder="Word Text">
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Voice</label>
+			      </div>
+			      <div class="col-75">
+	  <input hidden type="file" #imgVoiceInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
+	  <img class="img-circle" src="/assets/image/voice.png" alt="Norway" (click)="uploadVoice();imgVoiceInput.click();">
+	  <button mat-icon-button color="primary" (click)="playVoice(selectedWord.voice)">
+	    <mat-icon>volume_up</mat-icon>
+	  </button>
+	  <button mat-icon-button color="primary" (click)="pauseVoice()">
+	    <mat-icon>pause</mat-icon>
+	  </button>	  
+			      </div>
+			    </div>	
+
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Image</label>
+			      </div>
+			      <div class="col-75">
+
+	  <input hidden type="file" #imgFileInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
+	  <img class="img-circle" src="{{selectedWord.image}}" alt="Norway" (click)="uploadImage();imgFileInput.click();">
+
+			      </div>
+			    </div>				    			    		    
+			    <div class="row">
+			      <input type="submit" (click)="saveWord()" value="Submit">
+			    </div>
+			</fieldset>
+		  </form>		
+</div>

@@ -1,3 +1,4 @@
+var wordCtrl = require('../controllers/wordCtrl.js');
 var categoryCtrl = require('../controllers/categoryCtrl.js');
 var practiceCtrl = require('../controllers/practiceCtrl.js');
 var questionCtrl = require('../controllers/questionCtrl.js');
@@ -6,6 +7,11 @@ const express = require('express');
 const router = express.Router();
 
 /* GET api listing. */
+router.get('/word', wordCtrl.list);
+router.post('/word', wordCtrl.create);
+router.put('/word/:id', wordCtrl.update);
+router.delete('/word/:id', wordCtrl.delete);
+
 router.get('/category', categoryCtrl.list);
 router.post('/category', categoryCtrl.create);
 router.put('/category/:id', categoryCtrl.update);

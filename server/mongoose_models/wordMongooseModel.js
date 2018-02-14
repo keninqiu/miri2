@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const autoIncrement = require('mongoose-auto-increment');
 
-const collection = 'Question';
+const collection = 'Word';
 function getModel () {
   // Create your Schema
   var mongoose = require('mongoose');
@@ -9,38 +9,17 @@ function getModel () {
   mongoose.connect('mongodb://keningqiu:98523020@ds117148.mlab.com:17148/miri');
   autoIncrement.initialize(mongoose.connection);
   var schema = new mongoose.Schema({
-    practice_id: {
-      type: String,
-      required: true
-    },      
-    type: {
-      type: String
-    },    
-    topic: {
-      type: String,
-      required: true
-    },  
     text: {
-      type: String
-    },   
-    word: {
-      type: String
-    },         
+      type: String,
+      required: true
+    },     
     voice: {
       type: String
     },
     image: {
       type: String
-    },
-    choices: {
-      type: Array
-    },
-    answer: {
-      type: String
-    }    
+    }
   });
-
-  //topic voice image choice answer
   schema.plugin(autoIncrement.plugin, {
     model: collection,
     field: '_id',

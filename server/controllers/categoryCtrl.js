@@ -26,7 +26,7 @@ module.exports = {
   	var name = body.name;
   	var image = body.image;
   	var categoryModel = new CategoryModel(language,name,image);
-  	console.log(categoryModel);
+
   	Model.findByIdAndUpdate(_id,{ $set: categoryModel}, { new: true },function(err, subject) {
   	  if (err) console.log(err);
   	  return res.status(200).json(subject);

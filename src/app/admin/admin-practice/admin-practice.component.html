@@ -33,13 +33,31 @@
 		  </form>
 <div *ngIf="contentType == 'listQuestionDetail'">
 	  <h3 mat-subheader>Question List:<button mat-raised-button color="primary" (click)="createQuestion()">Create</button></h3>
-	  <mat-list>
-		  <mat-list-item *ngFor="let question of questions">
-		    <mat-icon mat-list-icon>note</mat-icon>
-		    <h4 mat-line>{{question.topic}}</h4>
-		    <p mat-line> {{question.text}} </p>
-		  </mat-list-item>
-	  </mat-list>
+	  <table class="question-detail">
+			  <tr>
+			    <th>Type</th>
+			    <th>Topic</th>
+			    <th>Text</th>
+			    <th>Answer</th>
+			    <th>
+			    Operation			    	
+			    </th>
+			  </tr>	 
+			  <tr *ngFor="let question of questions">
+			    <td>{{question.type}}</td>
+			    <td>{{question.topic}}</td>
+			    <td>{{question.text}}</td>
+			    <td>{{question.answer}}</td>
+			    <td>			    	
+			    <button mat-icon-button color="primary" class="op_button" (click)="editQuestion(question)">
+			      <mat-icon aria-label="icon-button with an edit icon">mode_edit</mat-icon>
+			    </button>
+			    <button mat-icon-button color="warn" class="op_button" (click)="deleteQuestion(question)">
+			      <mat-icon aria-label="icon-button with a cancel icon">cancel</mat-icon>
+			    </button>			    	
+			    </td>
+			  </tr>			   	
+	  </table>
 </div>
 <div *ngIf="contentType == 'editQuestion'">
 		  <form>
@@ -114,9 +132,11 @@
 			      </div>
 			      <div class="col-75">
 					  <div *ngFor="let choice of selectedQuestion.choices; let in=index" class="choice-input">
+					  	<div *ngIf="in<choiceCount">
 					        <input type="text" [(ngModel)]="selectedQuestion.choices[in].value" name="choice"  [attr.placeholder]="selectedQuestion.choices[in].value" required>
 						  <input type="file" ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" (click)="uploadChoiceImage(in);" multiple>     
-						  <img class="img-circle" src="{{selectedQuestion.choices[in].image}}" alt="Norway">					        
+						  <img class="img-circle" src="{{selectedQuestion.choices[in].image}}" alt="Norway">
+						</div>					        
 					  </div>
 			      </div>
 			    </div>	

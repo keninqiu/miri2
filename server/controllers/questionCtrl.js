@@ -3,7 +3,7 @@ var Model = require('../mongoose_models/questionMongooseModel.js');
 
 module.exports = {
   list : function(req, res) {
-	Model.find({},'topic voice image choice answer', function (err, entities) {
+	Model.find({},'type topic text word voice image choice answer', function (err, entities) {
 	  return res.status(200).json(entities);
 	});
   },
