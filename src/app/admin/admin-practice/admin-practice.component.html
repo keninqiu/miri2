@@ -36,8 +36,8 @@
 	  <table class="question-detail">
 			  <tr>
 			    <th>Type</th>
-			    <th>Topic</th>
-			    <th>Text</th>
+			    <th>Title</th>
+			    <th>Sub Title</th>
 			    <th>Answer</th>
 			    <th>
 			    Operation			    	
@@ -45,8 +45,8 @@
 			  </tr>	 
 			  <tr *ngFor="let question of questions">
 			    <td>{{question.type}}</td>
-			    <td>{{question.topic}}</td>
-			    <td>{{question.text}}</td>
+			    <td>{{question.title}}</td>
+			    <td>{{question.subtitle}}</td>
 			    <td>{{question.answer}}</td>
 			    <td>			    	
 			    <button mat-icon-button color="primary" class="op_button" (click)="editQuestion(question)">
@@ -69,73 +69,39 @@
 			      </div>
 			      <div class="col-75">
 			        <select [(ngModel)]="selectedQuestion.type" (ngModelChange)="onChangeType($event)" name="type">
-			          <option value="basic">Basic</option>
-			          <option value="recognize_word">Recognize word</option>
-			          <option value="write_word">Write word</option>
+			          <option value="recognize_word">Recognize words</option>
+			          <option value="write_word">Write words</option>
+			          <option value="fill_blank">Fill blank</option>
+			          <option value="speak_word">Speak words</option>
 			        </select>
 			      </div>
 			    </div>			  	
 			    <div class="row">
 			      <div class="col-25">
-			        <label for="name">Topic</label>
+			        <label for="name">Title</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" name="name" [(ngModel)]="selectedQuestion.topic" placeholder="Question Topic">
+			        <input type="text" name="title" [(ngModel)]="selectedQuestion.title" placeholder="Question Title">
 			      </div>
 			    </div>
-			    <div class="row">
+			    <div class="row" *ngIf="showSubTitle">
 			      <div class="col-25">
-			        <label for="name">Text</label>
+			        <label for="name">Sub Title</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" name="text" [(ngModel)]="selectedQuestion.text" placeholder="Question Text">
+			        <input type="text" name="subtitle" [(ngModel)]="selectedQuestion.subtitle" placeholder="Question Text">
 			      </div>
 			    </div>
-			    <div class="row" *ngIf="showWord">
-			      <div class="col-25">
-			        <label for="name">Word</label>
-			      </div>
-			      <div class="col-75">
-			        <input type="text" name="word" [(ngModel)]="selectedQuestion.word" placeholder="Question Word">
-			      </div>
-			    </div>
-			    <div class="row" *ngIf="showVoice">
-			      <div class="col-25">
-			        <label for="name">Voice</label>
-			      </div>
-			      <div class="col-75">
-	  <input hidden type="file" #imgFileInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
-	  <img class="img-circle" src="/assets/image/voice.png" alt="Norway" (click)="uploadVoice();imgFileInput.click();">
-	  <button mat-icon-button color="primary" (click)="playVoice(selectedQuestion.voice)">
-	    <mat-icon>volume_up</mat-icon>
-	  </button>
-	  <button mat-icon-button color="primary" (click)="pauseVoice()">
-	    <mat-icon>pause</mat-icon>
-	  </button>	  
-			      </div>
-			    </div>	
 
-			    <div class="row" *ngIf="showImage">
-			      <div class="col-25">
-			        <label for="name">Image</label>
-			      </div>
-			      <div class="col-75">
-
-	  <input hidden type="file" #imgFileInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
-	  <img class="img-circle" src="{{selectedQuestion.image}}" alt="Norway" (click)="uploadImage();imgFileInput.click();">
-
-			      </div>
-			    </div>	
 			    <div class="row" *ngIf="showChoices">
 			      <div class="col-25">
 			        <label for="name">Choices</label>
 			      </div>
 			      <div class="col-75">
 					  <div *ngFor="let choice of selectedQuestion.choices; let in=index" class="choice-input">
-					  	<div *ngIf="in<choiceCount">
-					        <input type="text" [(ngModel)]="selectedQuestion.choices[in].value" name="choice"  [attr.placeholder]="selectedQuestion.choices[in].value" required>
-						  <input type="file" ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" (click)="uploadChoiceImage(in);" multiple>     
-						  <img class="img-circle" src="{{selectedQuestion.choices[in].image}}" alt="Norway">
+					  	<div *ngIf=" in < choiceCount">
+					        <input type="text" [(ngModel)]="selectedQuestion.choices[in].text" name="choice-{{in}}"  [attr.placeholder]="selectedQuestion.choices[in].text" required>
+					  		
 						</div>					        
 					  </div>
 			      </div>

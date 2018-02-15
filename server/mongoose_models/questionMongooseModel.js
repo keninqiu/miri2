@@ -16,22 +16,13 @@ function getModel () {
     type: {
       type: String
     },    
-    topic: {
+    title: {
       type: String,
       required: true
     },  
-    text: {
+    subtitle: {
       type: String
     },   
-    word: {
-      type: String
-    },         
-    voice: {
-      type: String
-    },
-    image: {
-      type: String
-    },
     choices: {
       type: Array
     },

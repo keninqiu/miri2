@@ -7,7 +7,7 @@ import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions }
 @Component({
   selector: 'app-admin-dictionary',
   templateUrl: './admin-dictionary.component.html',
-  styleUrls: ['./admin-dictionary.component.css']
+  styleUrls: ['../admin.component.css']
 })
 export class AdminDictionaryComponent implements OnInit {
 	uploadInput: EventEmitter<UploadInput>;
@@ -15,10 +15,12 @@ export class AdminDictionaryComponent implements OnInit {
   selectedWord:any;
   words = [];
   uploadImgType:any;
+  audio:any;
 
   constructor(private messageService: MessageService,private wordService: WordService) { }
 
   ngOnInit() {
+    this.audio = new Audio();
     this.uploadInput = new EventEmitter<UploadInput>();
   	this.messageService.sendMessage('AdminDictionary');
     this.wordService.list().subscribe(    
@@ -36,7 +38,8 @@ export class AdminDictionaryComponent implements OnInit {
   	this.selectedWord = word;
   }
   deleteWord(word) {
-        this.wordService.delete(this.selectedWord._id).subscribe(    
+
+        this.wordService.delete(word._id).subscribe(    
             suc => {
                 for(var i = this.words.length - 1; i >= 0; i--) {
                     if(this.words[i]._id == word._id) {
@@ -54,6 +57,16 @@ export class AdminDictionaryComponent implements OnInit {
   createWord() {
     this.contentType = 'editWord';
     this.selectedWord = new WordModel('','','');
+  }
+
+  playVoice(path:string) {
+      this.audio.src = path;
+      this.audio.load();
+      this.audio.play();    
+  }
+
+  pauseVoice() {
+    this.audio.pause();
   }
 
   saveWord() {
@@ -79,6 +92,8 @@ export class AdminDictionaryComponent implements OnInit {
           }
       ); 
     }
+
+    this.contentType = 'listWord';
   } 
 
   uploadVoice(): void {

@@ -12,7 +12,7 @@ module.exports = {
       if(name == 'path') {
         path = value;
       }
-      console.log('path in field:' + path);
+//      console.log('path in field:' + path);
     });    
     form.on('fileBegin', function (name, file){
         file.path = __dirname + '/../../dist' + uploadedPath + '/' + file.name;

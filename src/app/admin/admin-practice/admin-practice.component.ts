@@ -21,9 +21,7 @@ export class AdminPracticeComponent implements OnInit {
   uploadType = 'image';
   choiceCount = 4;
   choiceIndex = 0;
-  showImage = true;
-  showVoice = true;
-  showWord = true;
+  showSubTitle = true;
   showChoices = true;
 
   constructor(private route: ActivatedRoute,private router: Router,private practiceService: PracticeService,private questionService: QuestionService) { }
@@ -52,18 +50,17 @@ export class AdminPracticeComponent implements OnInit {
       this.choiceCount = 4;
     }
     else if(type == 'recognize_word') {
-      this.showImage = false;
-      this.showVoice = false;
-      this.showWord = false;
+      this.showSubTitle = false;
       this.showChoices = true;
-      this.choiceCount = 3;
     }
-    else if(type == 'write_word') {
-      this.showImage = false;
+    else if((type == 'write_word') || (type == 'speak_word')) {
+      this.showSubTitle = true;
       this.showChoices = false;
-      this.showVoice = true;
-      this.showWord = true;
     }
+    else if(type == 'fill_blank') {
+      this.showSubTitle = true;
+      this.showChoices = true;    
+    } 
   }
 
   uploadImage() {
@@ -115,19 +112,26 @@ export class AdminPracticeComponent implements OnInit {
   resetChoiceCount() {
     var choices = [];
     for (var i = 0; i < this.choiceCount; i++) { 
-      choices.push({value: '',image:''});
+      choices.push({text: ''});
     }
-    this.selectedQuestion = new QuestionModel(this.practice._id,'','','','','','',choices,'');  
+    
   }
   createQuestion() {
+    console.log('createQuestion');
     this.contentType = 'editQuestion';
+
+    var choices = [];
+    for (var i = 0; i < this.choiceCount; i++) { 
+      choices.push({text: ''});
+    }    
+    this.selectedQuestion = new QuestionModel(this.practice._id,'recognize_word','','',choices,''); 
+    this.showSubTitle = false; 
     this.resetChoiceCount();
+    console.log('showSubTitle===' + this.showSubTitle);
   }
 
   editQuestion(question) {
     this.selectedQuestion = question;
-    console.log('this.selectedQuestion===');
-    console.log(this.selectedQuestion);
     this.onChangeType(this.selectedQuestion.type);
     this.contentType = 'editQuestion';
   }
