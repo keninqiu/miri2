@@ -16,7 +16,7 @@ module.exports = {
   	var entity = new Model(categoryModel);
 	entity.save(function (err, entity) {
 	  if (err) return console.error(err);
-	  res.status(200).json(entity);
+	  res.status(200).json(entity); 
 	});	  	
   },
   update : function(req, res) {

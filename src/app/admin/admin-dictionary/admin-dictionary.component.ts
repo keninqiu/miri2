@@ -90,12 +90,16 @@ export class AdminDictionaryComponent implements OnInit {
   }
 
   onUploadOutput(output: UploadOutput): void {
+    var data={path:'/assets/dictionary/image'};
+    if(this.uploadImgType == 'voice') {
+      data = {path:'/assets/dictionary/voice'};
+    }
     if (output.type === 'allAddedToQueue') { 
        const event: UploadInput = {
          type: 'uploadAll',
          url: '/api/file/upload',
          method: 'POST',
-         data: {}
+         data: data
        };
        this.uploadInput.emit(event);
     } 
