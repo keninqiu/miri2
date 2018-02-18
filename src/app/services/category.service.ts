@@ -24,4 +24,9 @@ export class CategoryService {
     return this.http.get('/api/category')
       .map(res => res.json());  
   }
+
+  details(id) {
+    return this.http.get('/api/category/' + id)
+      .map(res => res.json());    
+  }  
 }

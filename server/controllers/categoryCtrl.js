@@ -1,11 +1,25 @@
 const CategoryModel = require("../models/categoryModel.js");
 var Model = require('../mongoose_models/categoryMongooseModel.js');
+var PracticeModel = require('../mongoose_models/practiceMongooseModel.js');
 
 module.exports = {
   list : function(req, res) {
 	Model.find({},'language name image', function (err, entities) {
 	  return res.status(200).json(entities);
-	});
+	}).sort('_id');
+  },  
+  details: function(req, res) {
+    var id = req.params.id;
+    Model.findOne({_id:id}, function (err, entity) {
+      if (err) return console.error(err);
+      var details = {};
+      details.category = entity;
+      PracticeModel.find({category_id:id}, function (err, entities) {
+        details.practices = entities;
+        return res.status(200).json(details);
+      });
+      
+    });
   },   
   create : function(req, res) {  
   	var body = req.body; 

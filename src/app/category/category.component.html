@@ -1,33 +1,12 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="col-6 col-m-12" id="category_list">
-  	<div class="col-6 col-m-6 card-list-1">
+  	<div class="col-6 col-m-6 card-list-1" *ngFor="let category of categories">
   		<div class="circle-card">
-  			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-  			<button mat-button (click)="categoryDetail('1')">Basic</button>
+  			<img class="img-circle" src="{{category.image}}">
+  			<button mat-button (click)="categoryDetail(category._id)">{{category.name}}</button>
   		</div>
 	</div>
-	<div class="col-6 col-m-6 card-list-2">
-		<div class="circle-card">
-			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-			<button mat-button (click)="categoryDetail('1')">Basic</button>
-		</div>
-	</div>
-
-  	<div class="col-6 col-m-6 card-list-1">
-  		<div class="circle-card">
-  			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-  			<button mat-button (click)="categoryDetail('1')">Basic</button>
-  		</div>
-
-	</div>
-	<div class="col-6 col-m-6 card-list-2">
-		<div class="circle-card">
-			<img class="img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-			<button mat-button (click)="categoryDetail('1')">Basic</button>
-		</div>
-
-	</div>	
   </div> <!-- 66% -->
 
   <div class="col-4" id="side-bar">

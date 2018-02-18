@@ -13,6 +13,7 @@ router.put('/word/:id', wordCtrl.update);
 router.delete('/word/:id', wordCtrl.delete);
 
 router.get('/category', categoryCtrl.list);
+router.get('/category/:id', categoryCtrl.details);
 router.post('/category', categoryCtrl.create);
 router.put('/category/:id', categoryCtrl.update);
 router.delete('/category/:id', categoryCtrl.delete);

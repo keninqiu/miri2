@@ -23,6 +23,7 @@ export class AdminPracticeComponent implements OnInit {
   choiceIndex = 0;
   showSubTitle = true;
   showChoices = true;
+  showAnswer = true;
 
   constructor(private route: ActivatedRoute,private router: Router,private practiceService: PracticeService,private questionService: QuestionService) { }
 
@@ -46,21 +47,32 @@ export class AdminPracticeComponent implements OnInit {
   }
   onChangeType(type) {
     console.log(type);
-    if(type == 'basic') {
-      this.choiceCount = 4;
-    }
-    else if(type == 'recognize_word') {
+
+    if(type == 'recognize_word') {
       this.showSubTitle = false;
       this.showChoices = true;
+      this.showAnswer = true;
     }
-    else if((type == 'write_word') || (type == 'speak_word')) {
+    else if((type == 'write_word_with_Chinese') || (type == 'write_word_with_English') || (type == 'speak_word')) {
       this.showSubTitle = true;
       this.showChoices = false;
+      this.showAnswer = true;
     }
     else if(type == 'fill_blank') {
       this.showSubTitle = true;
-      this.showChoices = true;    
+      this.showChoices = true;   
+      this.showAnswer = true; 
     } 
+    if(type == 'write_word_with_Chinese') {
+      this.selectedQuestion.title = '用中文书写这个';
+    }
+    else if(type == 'write_word_with_English') {
+      this.selectedQuestion.title = '用英文书写这个';
+    }
+    else if(type == 'speak_word') {
+      this.selectedQuestion.title = '单击麦克风并说出';
+      this.showAnswer = false;
+    }    
   }
 
   uploadImage() {
@@ -153,6 +165,9 @@ export class AdminPracticeComponent implements OnInit {
   }
 
   saveQuestion() {
+    if(this.selectedQuestion.type == 'speak_word') {
+      this.selectedQuestion.answer = this.selectedQuestion.subtitle;
+    }
     if(this.selectedQuestion._id > 0) { // save Question
       this.questionService.update(this.selectedQuestion._id,this.selectedQuestion).subscribe(    
           suc => {
@@ -176,5 +191,8 @@ export class AdminPracticeComponent implements OnInit {
       ); 
     }  
     this.contentType = 'listQuestionDetail';
+    this.selectedQuestion.title = '';
+    this.showSubTitle = true;
+    this.showChoices = true;
   }
 }

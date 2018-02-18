@@ -92,6 +92,7 @@ export class AdminCategoryComponent implements OnInit {
           }
       ); 
     }
+    this.contentType = 'listCategoryDetail';
   }
   createPractice() {
     this.contentType = 'editPractice';
@@ -203,12 +204,13 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   onUploadOutput(output: UploadOutput): void {
+    var data={path:'/assets/category'};
     if (output.type === 'allAddedToQueue') { 
        const event: UploadInput = {
          type: 'uploadAll',
          url: '/api/file/upload',
          method: 'POST',
-         data: {}
+         data: data
        };
        this.uploadInput.emit(event);
     } 

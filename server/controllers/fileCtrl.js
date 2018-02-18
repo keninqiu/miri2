@@ -19,7 +19,7 @@ module.exports = {
     });  
     form.on('file', function (name, file){
 
-        var filepath = 'assets/uploads/' + file.name;
+        var filepath = path + '/' + file.name;
         var response = {
           "success":true,
           "filepath":filepath 

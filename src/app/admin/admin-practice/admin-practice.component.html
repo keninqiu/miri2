@@ -70,7 +70,8 @@
 			      <div class="col-75">
 			        <select [(ngModel)]="selectedQuestion.type" (ngModelChange)="onChangeType($event)" name="type">
 			          <option value="recognize_word">Recognize words</option>
-			          <option value="write_word">Write words</option>
+			          <option value="write_word_with_Chinese">Write words with Chinese</option>
+			          <option value="write_word_with_English">Write words with English</option>
 			          <option value="fill_blank">Fill blank</option>
 			          <option value="speak_word">Speak words</option>
 			        </select>
@@ -106,7 +107,7 @@
 					  </div>
 			      </div>
 			    </div>	
-			    <div class="row">
+			    <div class="row" *ngIf="showAnswer">
 			      <div class="col-25">
 			        <label for="name">Answer</label>
 			      </div>
