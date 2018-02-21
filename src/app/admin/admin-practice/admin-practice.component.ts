@@ -190,6 +190,7 @@ export class AdminPracticeComponent implements OnInit {
           }
       ); 
     }  
+    
     this.contentType = 'listQuestionDetail';
     this.selectedQuestion.title = '';
     this.showSubTitle = true;

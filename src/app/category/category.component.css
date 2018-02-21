@@ -209,3 +209,6 @@ transition: color 0.5s,margin-top 0.5s,box-shadow 0.5s,border-top 0.5s;
 .practice-description {
   height: 10px;
 }
+.category-image {
+  background-size: cover;
+}

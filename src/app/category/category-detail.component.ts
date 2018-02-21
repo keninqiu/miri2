@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoryService } from '../services/category.service';
 
@@ -8,6 +8,8 @@ import { CategoryService } from '../services/category.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryDetailComponent implements OnInit {
+
+  @Input() myObject: any;
   private sub: any;
   category: any;
   practices = [];
@@ -26,7 +28,7 @@ export class CategoryDetailComponent implements OnInit {
           console.log(err);
         }
       );  
-    });  	
+    });   
   }
   startPractice(id:string): void {
     this.router.navigate(['/practice/'+id]);
