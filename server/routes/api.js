@@ -9,6 +9,7 @@ const router = express.Router();
 /* GET api listing. */
 router.get('/word', wordCtrl.list);
 router.post('/word', wordCtrl.create);
+router.post('/word/search', wordCtrl.search);
 router.put('/word/:id', wordCtrl.update);
 router.delete('/word/:id', wordCtrl.delete);
 

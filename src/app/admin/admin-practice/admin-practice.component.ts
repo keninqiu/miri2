@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { PracticeService } from '../../services/practice.service';
 import { QuestionService } from '../../services/question.service';
+import { WordService } from '../../services/word.service';
+import { WordModel } from '../../models/word.model';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { QuestionModel } from '../../models/question.model';
 import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions } from 'ngx-uploader';
@@ -25,7 +27,7 @@ export class AdminPracticeComponent implements OnInit {
   showChoices = true;
   showAnswer = true;
 
-  constructor(private route: ActivatedRoute,private router: Router,private practiceService: PracticeService,private questionService: QuestionService) { }
+  constructor(private route: ActivatedRoute,private router: Router,private practiceService: PracticeService,private questionService: QuestionService,private wordService:WordService) { }
 
   ngOnInit() {
 
@@ -164,6 +166,29 @@ export class AdminPracticeComponent implements OnInit {
         ); 
   }
 
+  saveWordIfNotExisted(textModel) {
+    this.wordService.search(textModel).subscribe(    
+      suc => {
+        console.log(suc);
+        if(suc.length == 0) {
+          console.log('suc is empty');
+          var wordModel = new WordModel(textModel.text,'','');
+          this.wordService.create(wordModel).subscribe(
+            suc => {
+              console.log(suc);
+            },
+            err => {
+              console.log(err);
+            }
+          ); 
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    ); 
+  }
+
   saveQuestion() {
     if(this.selectedQuestion.type == 'speak_word') {
       this.selectedQuestion.answer = this.selectedQuestion.subtitle;
@@ -191,6 +216,16 @@ export class AdminPracticeComponent implements OnInit {
       ); 
     }  
     
+    if(this.selectedQuestion.type == 'recognize_word') {
+      console.log('recognize_word');
+      for (var i = 0; i < this.selectedQuestion.choices.length; i++) {
+        console.log('i='+i);
+        this.saveWordIfNotExisted(this.selectedQuestion.choices[i]);
+      }
+    }
+    else if(this.selectedQuestion.type == 'speak_word' || this.selectedQuestion.type == 'write_word_with_Chinese') {
+      this.saveWordIfNotExisted({text:this.selectedQuestion.subtitle});
+    }
     this.contentType = 'listQuestionDetail';
     this.selectedQuestion.title = '';
     this.showSubTitle = true;

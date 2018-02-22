@@ -3,10 +3,18 @@ var Model = require('../mongoose_models/wordMongooseModel.js');
 
 module.exports = {
   list : function(req, res) {
-	Model.find({}, function (err, entities) {
-	  return res.status(200).json(entities);
-	});
-  },   
+  	Model.find({}, function (err, entities) {
+  	  return res.status(200).json(entities);
+  	}).sort('-_id');
+  }, 
+  search: function(req, res) {
+    var body = req.body; 
+    var text = body.text; 
+    //console.log('text is:::' + text);
+    Model.find({text:text}, function (err, entities) {
+      return res.status(200).json(entities);
+    });       
+  },  
   create : function(req, res) {  
   	var body = req.body; 
   	var text = body.text;
