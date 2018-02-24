@@ -15,20 +15,12 @@
     </section>
   </mat-card-content>
 </mat-card>
-<div class="example-section practice-main">
-  	<h2>What sound does this make? </h2>
-  	<div class="container">
-	  	<div class="col-4 col-m-12">
-	  		<div class="big-character">
-	  		见
-	  		</div>
-	  	</div>
-	  	<div class="col-8 col-m-12">
-	  		<button mat-raised-button class="answer-button">Basic</button>
-	  		<button mat-raised-button class="answer-button">Basic</button>
-	  		<button mat-raised-button class="answer-button">Basic</button>
-	  		<button mat-raised-button class="answer-button">Basic</button>
-	  	</div>  
+<div class="example-section practice-main" *ngIf="question">
+  	<h2>{{question.title}}</h2>
+  	<div class="container" *ngIf="question.type=='recognize_word'">
+	  	<div class="col-3 col-m-3" *ngFor="let choice of question.choices">
+	  		{{choice.text}}
+	  	</div> 
   	</div>	
 </div>
 

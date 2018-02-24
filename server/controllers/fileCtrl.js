@@ -1,4 +1,5 @@
 const fs = require('fs');
+const sharp = require('sharp');
 var formidable = require('formidable');
 module.exports = {
   upload : function(req, res) {
@@ -27,8 +28,30 @@ module.exports = {
  
         var srcpath = __dirname + '/../../src' + path + '/' + file.name;
         var distpath = __dirname + '/../../dist' + path + '/' + file.name;
-        fs.createReadStream(file.path).pipe(fs.createWriteStream(srcpath));
-        fs.createReadStream(file.path).pipe(fs.createWriteStream(distpath));
+
+        if(['jpeg','png','jpg'].indexOf(file.format) > -1) {
+          sharp(file.path)
+          .resize(320, 320)
+          .toFile(srcpath, (err, info) => {
+            if(err) {
+              console.log(err);
+            }
+            console.log(info);
+          });  
+          sharp(file.path)
+          .resize(320, 320)
+          .toFile(distpath, (err, info) => {
+            if(err) {
+              console.log(err);
+            }
+            console.log(info);
+          });                   
+        }
+        else {
+          fs.createReadStream(file.path).pipe(fs.createWriteStream(srcpath));
+          fs.createReadStream(file.path).pipe(fs.createWriteStream(distpath));          
+        }
+
         return res.status(200).json(response);       
     });      
     //this function was moved to multiparser.js
