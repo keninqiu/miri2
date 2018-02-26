@@ -1,6 +1,4 @@
 <admin-navbar></admin-navbar>
-
-
 		  <form *ngIf="practice">
 		  	<fieldset>
 			  	<legend>Practice:</legend>
@@ -76,7 +74,7 @@
 			          <option value="speak_word">Speak words</option>
 			        </select>
 			      </div>
-			    </div>			  	
+			    </div>
 			    <div class="row">
 			      <div class="col-25">
 			        <label for="name">Title</label>
@@ -93,7 +91,6 @@
 			        <input type="text" name="subtitle" [(ngModel)]="selectedQuestion.subtitle" placeholder="Question Text">
 			      </div>
 			    </div>
-
 			    <div class="row" *ngIf="showChoices">
 			      <div class="col-25">
 			        <label for="name">Choices</label>
@@ -102,11 +99,10 @@
 					  <div *ngFor="let choice of selectedQuestion.choices; let in=index" class="choice-input">
 					  	<div *ngIf=" in < choiceCount">
 					        <input type="text" [(ngModel)]="selectedQuestion.choices[in].text" name="choice-{{in}}"  [attr.placeholder]="selectedQuestion.choices[in].text" required>
-					  		
-						</div>					        
+						</div>
 					  </div>
 			      </div>
-			    </div>	
+			    </div>
 			    <div class="row" *ngIf="showAnswer">
 			      <div class="col-25">
 			        <label for="name">Answer</label>

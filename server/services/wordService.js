@@ -14,9 +14,22 @@ module.exports = {
   					var word = words[k];
   					if(choice.text == word.text) {
   						questions[i].choices[j] = word;
+
+  						break;
   					}
   				}
   			}
+  		}
+  		else if(type == 'speak_word' || type == 'write_word_with_Chinese') {
+  			for(var k=0;k<words.length;k++) {
+  				var word = words[k];
+  				if(question.subtitle == word.text) {
+  					questions[i].subtitle = word;
+  				}
+  				else {
+  					questions[i].subtitle = {text:questions[i].subtitle};
+  				}
+  			}  			
   		}
   	}
     return questions;

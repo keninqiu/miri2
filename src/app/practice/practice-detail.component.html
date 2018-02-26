@@ -15,16 +15,35 @@
     </section>
   </mat-card-content>
 </mat-card>
+
+
 <div class="example-section practice-main" *ngIf="question">
   	<h2>{{question.title}}</h2>
-  	<div class="container" *ngIf="question.type=='recognize_word'">
-	  	<div class="col-3 col-m-3" *ngFor="let choice of question.choices">
-	  		{{choice.text}}
-	  	</div> 
-  	</div>	
+  	<div class="card-container" *ngIf="question.type=='recognize_word'">
+		<div class="card" *ngFor="let choice of question.choices;let i=index" [ngClass]="{ 'card-selected': choice.radio}">
+		  <img src="{{choice.image}}" class="card-image" alt="{{choice.text}}" (click)="selectChoice(i)">
+		  <div class="container" (click)="selectChoice(i)">
+		    <h4><b><input type="radio" [checked]="choice.radio">{{choice.text}}</b></h4> 
+		  </div>
+		</div>
+	</div>
 </div>
 
-<div class="bottom">
-<button mat-raised-button color="warn" class="confirm_button">Skip</button>
-<button mat-raised-button color="primary" class="confirm_button">Check</button>
+<div class="bottom" [ngClass]="{ 'bottom-right-answer': answerFlag == 1,'bottom-wrong-answer': answerFlag == -1}">
+	<button mat-raised-button class="bottom-button skip-button" *ngIf="this.answerFlag == 0">Skip</button>
+	<img class="right-wrong-image" *ngIf="this.answerFlag == 1" src="assets/image/right.png">
+
+	<img class="right-wrong-image" *ngIf="this.answerFlag == -1" src="assets/image/wrong.png">
+
+	<div *ngIf="this.answerFlag == -1" class="right-answer-text">
+		<h3 class="answer-text">
+			正确答案：
+		</h3>
+		<p class="answer-text">
+			{{rightAnswer}}
+		</p>
+	</div>
+	<button mat-raised-button color="primary" class="bottom-button confirm-button" (click)="check()" *ngIf="stage=='check'">Check</button>
+	<button mat-raised-button color="primary" class="bottom-button confirm-button" (click)="continue()" *ngIf="(stage=='continue') && (answerFlag == 1)">Continue</button>
+	<button mat-raised-button color="accent" class="bottom-button confirm-button" (click)="continue()" *ngIf="(stage=='continue') && (answerFlag == -1)">Continue</button>
 </div>

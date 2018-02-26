@@ -11,10 +11,10 @@
 	margin-right: auto; margin-left: auto; 	
 }
 
-.row::after {
+.row {
     content: "";
     clear: both;
-    display: table;
+    display: table-cell;
 }
 
 .container {
@@ -29,6 +29,7 @@
 }
 
 [class*="col-"] {
+    float:left;
     width: 100%;
 }
 @media only screen and (min-width: 600px) {
@@ -65,20 +66,33 @@
 
 .bottom {
     text-align: center;
+    height: 100px;
+    background-color: #e7e7e7;
 }
 
-
+.bottom-right-answer {
+    background-color: #65ab00;
+}
+.bottom-wrong-answer {
+    background-color: #ffd3d1;;
+}
 .answer-button {
 	width: 100%;
     margin-top: 15px;
 	margin-bottom: 15px;
 }
 
-.confirm_button {
-    margin-left: 60px;
-    margin-right: 60px;
+.confirm-button {
+    float:right;
+}
+.bottom-button {
+    margin-left: 100px;
+    margin-right: 100px;
     margin-top:30px;
-    margin-button:30px;
+    margin-bottom:30px;       
+}
+.skip-button {
+    float: left;
 }
 .big-character {
 	text-align: center;
@@ -86,4 +100,56 @@
 	width: 250px;
 	height: 250px;
 	border-style: outset;
+}
+.card {
+    border: 1px solid #ccc!important;
+    border-radius: 6px;
+    margin:0 8px;
+    display:inline-block;
+    position:relative;
+}
+
+@media only screen and (min-width: 480px) {
+    .card {
+        width: 92%;
+    }    
+}
+
+@media only screen and (min-width: 600px) {
+    .card {
+        width: 42%;
+    }    
+}
+
+@media only screen and (min-width: 768px) {
+    .card {
+        width: 22%;
+    }
+}
+
+.card-container {
+    text-align: center;
+}
+.card:hover {
+    border-color: red!important;
+}
+.card-image {
+    width:100%;
+    border-radius: 5px 5px 0px 0px;
+}
+.card-selected {
+    background-color: lightblue;
+}
+.right-wrong-image {
+    margin-top:10px;
+    margin-bottom:10px;
+    float:left;
+    padding-left: 100px;
+}
+.answer-text {
+    color: #e70800;
+}
+.right-answer-text {
+    float:left;
+    display: inline-block;
 }
