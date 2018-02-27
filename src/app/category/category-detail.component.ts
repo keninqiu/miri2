@@ -31,6 +31,7 @@ export class CategoryDetailComponent implements OnInit {
     });   
   }
   startPractice(id:string): void {
-    this.router.navigate(['/practice/'+id]);
+    console.log('id='+id);
+    this.router.navigate(['/practice-detail/'+id]);
   }
 }

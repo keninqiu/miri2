@@ -11,35 +11,34 @@ export class PracticeDetailComponent implements OnInit {
   color = 'primary';
   private sub: any;
   mode = 'determinate';
-  value = 0;
   bufferValue = 100;
+  value = 0;
   practice: any;
   questions = [];  
-  index = 0;
+  index = 6;
   question:any;
   userAnswer = '';
   rightAnswer = '';
   audio:any;
   answerFlag = 0;
   stage='check';
+  finished = false;
   
   constructor(private route: ActivatedRoute,private practiceService: PracticeService) { }
   resetRadioForThisQuestion() {
-    if(this.question.type != 'recognize_word') {
-      return;
+
+    if(this.question.type == 'write_word_with_Chinese' || this.question.type == 'speak_word'){
+      console.log('this.question.subtitle=');    
+      this.question.subtitle = this.question.choices[0];      
     }
-    for(var i=0;i<this.question.choices.length;i++) {
-      this.question.choices[i].radio =false;
-    }
+ 
   }
   selectChoice(index) {
     console.log('selectChoice for ' + index);
-    this.question.choices[index].radio = true;
     for(var i=0;i<this.question.choices.length;i++) {
       if(i == index) {
         continue;
       }
-      this.question.choices[i].radio = false;
       this.userAnswer = this.question.choices[index].text;
       if(this.question.choices[index].voice) {
         this.playVoice(this.question.choices[index].voice);
@@ -84,12 +83,24 @@ export class PracticeDetailComponent implements OnInit {
       this.answerFlag = -1;
       console.log('wrong answer');
     }
+    this.value = (this.index+1)*100/this.questions.length;
     this.stage='continue';
+
   }
   continue() {
-    this.stage='check';
-    this.question = this.questions[++this.index];
-    this.resetRadioForThisQuestion();    
+    if(this.index == this.questions.length - 1) {
+      this.finished = true;
+    }
+    else {
+      this.stage='check';
+      this.question = this.questions[++this.index];
+      console.log('this.question.subtitle=');
+      console.log(this.question.subtitle);
+      this.resetRadioForThisQuestion();   
+      this.userAnswer = ''; 
+      this.answerFlag = 0;    
+    }
+    
   }
   ngOnInit() {
     this.audio = new Audio();
@@ -102,6 +113,7 @@ export class PracticeDetailComponent implements OnInit {
           this.bufferValue = this.questions.length;
           this.question = this.questions[this.index];
           this.resetRadioForThisQuestion();
+          console.log('final=');
           console.log(this.question);
         },
         err => {
