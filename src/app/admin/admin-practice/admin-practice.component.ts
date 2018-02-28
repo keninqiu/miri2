@@ -80,6 +80,9 @@ export class AdminPracticeComponent implements OnInit {
       this.selectedQuestion.title = '键入你听到的内容';
       this.showAnswer = false;    
     }
+    else if(type == 'fill_blank') {
+      this.selectedQuestion.title = '选词填空';
+    }    
   }
 
   uploadImage() {
