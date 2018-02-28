@@ -21,16 +21,16 @@
 	<div class="example-section practice-main" *ngIf="question">
 	  	<h2>{{question.title}}</h2>
 	  	<div class="card-container" *ngIf="question.type=='recognize_word'">
-			<div class="card" *ngFor="let choice of question.choices;let i=index" [ngClass]="{ 'card-selected': choice.radio}">
+			<div class="card" *ngFor="let choice of question.choices;let i=index" [ngClass]="{ 'card-selected': userAnswer==choice.text}">
 			  <img src="{{choice.image}}" class="card-image" alt="{{choice.text}}" (click)="selectChoice(i)">
 			  <div class="container" (click)="selectChoice(i)">
 			    <h4><b><input type="radio" radio-custom [checked]="userAnswer==choice.text">{{choice.text}}</b></h4> 
 			  </div>
 			</div>
 		</div>
-		<div *ngIf="question.type=='write_word_with_Chinese'">
+		<div *ngIf="(question.type=='write_word_with_Chinese')">
 			
-			<div *ngIf="question.subtitle.text">
+			<div *ngIf="question.subtitle.text" class="div-img-text">
 				<img src="/assets/image/voice.png" class="voice-image" alt="{{question.subtitle.text}}" *ngIf="question.subtitle.voice" (click)="playVoice(question.subtitle.voice)">
 				{{question.subtitle.text}}
 			</div>
@@ -42,7 +42,7 @@
 
 		<div *ngIf="question.type=='write_word_with_English'">
 			
-			<div *ngIf="question.subtitle">
+			<div *ngIf="question.subtitle" class="div-img-text">
 				{{question.subtitle}}
 			</div>
 		
@@ -50,6 +50,16 @@
 				<textarea [(ngModel)]="userAnswer" class="textarea" cols="40" rows="5"></textarea>
 			</div>
 		</div>	
+
+		<div *ngIf="question.type=='speak_word'">
+			<div class="fill_blank_choice">
+				<img src="/assets/image/microphone.png" class="voice-image" [ngClass]="{ 'blink': recording}" (click)="record()">
+			</div>
+			<div *ngIf="question.subtitle.text" class="div-img-text fill_blank_choice">
+				<img src="/assets/image/voice.png" class="voice-image" alt="{{question.subtitle.text}}" *ngIf="question.subtitle.voice" (click)="playVoice(question.subtitle.voice)">
+				{{question.subtitle.text}}
+			</div>		
+		</div>
 
 		<div *ngIf="question.type=='fill_blank'">
 			<div *ngIf="question.subtitle">

@@ -30,6 +30,7 @@ import { WordService } from './services/word.service';
 import { CategoryService } from './services/category.service';
 import { PracticeService } from './services/practice.service';
 import { QuestionService } from './services/question.service';
+import { SpeechRecognitionService } from './services/speech-recognition.service';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
@@ -79,7 +80,7 @@ import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-diction
       "clockwise": false
     })    
   ],
-  providers: [MessageService,ChatService,WordService,CategoryService,PracticeService,QuestionService],
+  providers: [MessageService,ChatService,WordService,CategoryService,PracticeService,QuestionService,SpeechRecognitionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

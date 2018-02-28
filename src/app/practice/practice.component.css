@@ -221,3 +221,37 @@
 .checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
   outline: 1px solid #ddd; /* focus style */
 }
+
+.div-img-text {
+    padding-bottom: 25px;
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.blink {
+    animation: blink 2s;
+    animation-iteration-count: infinite;
+}

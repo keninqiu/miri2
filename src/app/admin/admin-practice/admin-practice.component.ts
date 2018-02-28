@@ -55,7 +55,7 @@ export class AdminPracticeComponent implements OnInit {
       this.showChoices = true;
       this.showAnswer = true;
     }
-    else if((type == 'write_word_with_Chinese') || (type == 'write_word_with_English') || (type == 'speak_word')) {
+    else if((type == 'write_word_with_Chinese') || (type == 'write_word_with_English') || (type == 'speak_word') || (type == 'listen_only')) {
       this.showSubTitle = true;
       this.showChoices = false;
       this.showAnswer = true;
@@ -65,6 +65,7 @@ export class AdminPracticeComponent implements OnInit {
       this.showChoices = true;   
       this.showAnswer = true; 
     } 
+
     if(type == 'write_word_with_Chinese') {
       this.selectedQuestion.title = '用中文书写这个';
     }
@@ -75,6 +76,10 @@ export class AdminPracticeComponent implements OnInit {
       this.selectedQuestion.title = '单击麦克风并说出';
       this.showAnswer = false;
     }    
+    else if(type == 'listen_only') {
+      this.selectedQuestion.title = '键入你听到的内容';
+      this.showAnswer = false;    
+    }
   }
 
   uploadImage() {
@@ -190,7 +195,7 @@ export class AdminPracticeComponent implements OnInit {
   }
 
   saveQuestion() {
-    if(this.selectedQuestion.type == 'speak_word') {
+    if(this.selectedQuestion.type == 'speak_word' || this.selectedQuestion.type == 'listen_only') {
       this.selectedQuestion.answer = this.selectedQuestion.subtitle;
     }
     if(this.selectedQuestion._id > 0) { // save Question
@@ -223,7 +228,7 @@ export class AdminPracticeComponent implements OnInit {
         this.saveWordIfNotExisted(this.selectedQuestion.choices[i]);
       }
     }
-    else if(this.selectedQuestion.type == 'speak_word' || this.selectedQuestion.type == 'write_word_with_Chinese') {
+    else if(this.selectedQuestion.type == 'speak_word' || this.selectedQuestion.type == 'write_word_with_Chinese' || this.selectedQuestion.type == 'listen_only') {
       this.saveWordIfNotExisted({text:this.selectedQuestion.subtitle});
     }
     this.contentType = 'listQuestionDetail';

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PracticeService } from '../services/practice.service';
+import { SpeechRecognitionService } from '../services/speech-recognition.service';
 
 @Component({
   selector: 'app-practice-detail',
@@ -15,7 +16,7 @@ export class PracticeDetailComponent implements OnInit {
   value = 0;
   practice: any;
   questions = [];  
-  index = 6;
+  index = 0;
   question:any;
   userAnswer = '';
   rightAnswer = '';
@@ -23,8 +24,9 @@ export class PracticeDetailComponent implements OnInit {
   answerFlag = 0;
   stage='check';
   finished = false;
+  recording = false;
   
-  constructor(private route: ActivatedRoute,private practiceService: PracticeService) { }
+  constructor(private route: ActivatedRoute,private practiceService: PracticeService,private speechRecognitionService:SpeechRecognitionService) { }
   resetRadioForThisQuestion() {
 
     if(this.question.type == 'write_word_with_Chinese' || this.question.type == 'speak_word'){
@@ -87,6 +89,24 @@ export class PracticeDetailComponent implements OnInit {
     this.stage='continue';
 
   }
+  record() {
+    this.recording = !this.recording;
+    this.speechRecognitionService.record()
+      .subscribe(
+      //listener
+      (value) => {
+        console.log(value);      
+      },
+      //errror
+      (err) => {
+        console.log(err);
+      },
+      //completion
+      () => {
+        console.log("--complete--");
+      }
+    );    
+  }
   continue() {
     if(this.index == this.questions.length - 1) {
       this.finished = true;
@@ -99,6 +119,7 @@ export class PracticeDetailComponent implements OnInit {
       this.resetRadioForThisQuestion();   
       this.userAnswer = ''; 
       this.answerFlag = 0;    
+      this.recording = false;
     }
     
   }
