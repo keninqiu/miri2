@@ -82,7 +82,14 @@ export class AdminPracticeComponent implements OnInit {
     }
     else if(type == 'fill_blank') {
       this.selectedQuestion.title = '选词填空';
-    }    
+    }   
+    else if(type == 'mark_expression') {
+      this.selectedQuestion.title = '标记所有正确表达';
+      this.showSubTitle = true;
+      this.showChoices = true;
+      this.showAnswer = true;      
+    }
+
   }
 
   uploadImage() {

@@ -5,7 +5,7 @@ module.exports = {
   list : function(req, res) {
   	Model.find({}, function (err, entities) {
   	  return res.status(200).json(entities);
-  	}).sort('-_id');
+  	}).sort('voice');
   }, 
   search: function(req, res) {
     var body = req.body; 
