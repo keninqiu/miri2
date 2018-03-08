@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
-<div *ngIf="!finished">
-	<mat-card>
+<div>
+	<mat-card  *ngIf="!finished">
 	  <mat-card-content>
 	    <section class="example-section">
 	      <mat-progress-bar
@@ -18,7 +18,7 @@
 	</mat-card>
 
 
-	<div class="example-section practice-main" *ngIf="question">
+	<div class="example-section practice-main" *ngIf="question && !finished">
 	  	<h2>{{question.title}}</h2>
 	  	<div class="card-container" *ngIf="question.type=='recognize_word'">
 			<div class="card" *ngFor="let choice of question.choices;let i=index" [ngClass]="{ 'card-selected': userAnswer==choice.text}">
@@ -77,36 +77,29 @@
 			</div>		
 		</div>
 	</div>
-
+	<div *ngIf="finished" class="unit-completed">
+		<div>
+		<img  src="/assets/image/unit_completed.jpeg">
+		</div>
+		<div>
+			Unit completed
+		</div>
+	</div>
 	<div class="bottom" [ngClass]="{ 'bottom-right-answer': answerFlag == 1,'bottom-wrong-answer': answerFlag == -1}">
-		<button mat-raised-button class="bottom-button skip-button" *ngIf="this.answerFlag == 0">Skip</button>
-		<img class="right-wrong-image" *ngIf="this.answerFlag == 1" src="assets/image/right.png">
+		<button mat-raised-button class="bottom-button skip-button" *ngIf="answerFlag == 2" (click)="redo()" >Redo</button>
+		<button mat-raised-button class="bottom-button skip-button" *ngIf="answerFlag == 0">Skip</button>
+		<img class="right-wrong-image" *ngIf="answerFlag == 1" src="assets/image/right.png">
 
-		<img class="right-wrong-image" *ngIf="this.answerFlag == -1" src="assets/image/wrong.png">
+		<img class="right-wrong-image" *ngIf="answerFlag == -1" src="assets/image/wrong.png">
 
 		<div *ngIf="this.answerFlag == -1" class="right-answer-text">
 			<h3 class="answer-text">
-				正确答案：
+				正确答案：{{rightAnswer}}
 			</h3>
-			<p class="answer-text">
-				{{rightAnswer}}
-			</p>
 		</div>
+		<button mat-raised-button color="primary" class="bottom-button confirm-button" (click)="nextCourse()" *ngIf="answerFlag == 2">Continue</button>
 		<button mat-raised-button color="primary" class="bottom-button confirm-button" (click)="check()" *ngIf="stage=='check'">Check</button>
 		<button mat-raised-button color="primary" class="bottom-button confirm-button" (click)="continue()" *ngIf="(stage=='continue') && (answerFlag == 1)">Continue</button>
 		<button mat-raised-button color="accent" class="bottom-button confirm-button" (click)="continue()" *ngIf="(stage=='continue') && (answerFlag == -1)">Continue</button>
-	</div>
-</div>
-<div *ngIf="finished" class="example-section practice-main">
-	<div>
-	Unit completed
-	</div>
-	<div class="bottom">
-		<button mat-raised-button color="primary" class="bottom-button confirm-button" (click)="check()">
-			Review
-		</button>
-		<button mat-raised-button color="primary" class="bottom-button confirm-button" (click)="continue()">
-			Continue
-		</button>		
 	</div>
 </div>

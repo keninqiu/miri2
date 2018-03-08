@@ -144,8 +144,8 @@
     background-color: lightblue;
 }
 .right-wrong-image {
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:0px;
+    margin-bottom:0px;
     float:left;
     padding-left: 100px;
 }
@@ -159,6 +159,10 @@
 .voice-image {
     vertical-align:middle;
 }
+.unit-completed {
+    text-align: center;
+    margin-top:30px;
+}
 .textarea {
     width: 600px;
     height: 120px;
@@ -169,7 +173,8 @@
     background-repeat: no-repeat;    
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;    
+    border-radius: 5px;  
+    font-size: 22px;  
 }
 
 .fill_blank_choice {
@@ -227,6 +232,7 @@
 
 .div-img-text {
     padding-bottom: 25px;
+    font-size: 22px;
 }
 
 @-webkit-keyframes blink {

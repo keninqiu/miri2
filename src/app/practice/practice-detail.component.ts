@@ -16,7 +16,7 @@ export class PracticeDetailComponent implements OnInit {
   value = 0;
   practice: any;
   questions = [];  
-  index = 0;
+  index = 6;
   question:any;
   userAnswer = '';
   rightAnswer = '';
@@ -26,7 +26,7 @@ export class PracticeDetailComponent implements OnInit {
   finished = false;
   recording = false;
   
-  constructor(private route: ActivatedRoute,private practiceService: PracticeService,private speechRecognitionService:SpeechRecognitionService) { }
+  constructor(private route: ActivatedRoute,private practiceService: PracticeService,private speechRecognitionService:SpeechRecognitionService,private router: Router) { }
   resetRadioForThisQuestion() {
 
     if((this.question.type == 'write_word_with_Chinese') || (this.question.type == 'speak_word')|| (this.question.type == 'listen_only')){
@@ -85,10 +85,12 @@ export class PracticeDetailComponent implements OnInit {
   check() {
     if(this.isRightAnswer()) {
       this.answerFlag = 1;
+      this.playVoice('/assets/voice/Correct-answer.mp3');
       console.log('correct answer');
     }
     else {
       this.answerFlag = -1;
+      this.playVoice('/assets/voice/Wrong-answer.mp3');
       console.log('wrong answer');
       var answers = this.question.answer.split(';');
       if(answers) {
@@ -121,6 +123,7 @@ export class PracticeDetailComponent implements OnInit {
   continue() {
     if(this.index == this.questions.length - 1) {
       this.finished = true;
+      this.answerFlag = 2;
     }
     else {
       this.stage='check';
@@ -134,6 +137,20 @@ export class PracticeDetailComponent implements OnInit {
     }
     
   }
+  redo() {
+    this.index = 0;
+    this.answerFlag = 0;
+    this.finished = false;
+    this.stage='check';
+    this.question = this.questions[0];
+    this.resetRadioForThisQuestion();   
+    this.userAnswer = '';   
+    this.recording = false;    
+    this.value = (this.index)*100/this.questions.length;
+  }
+  nextCourse() {
+    this.router.navigate(['/category/'+this.practice._id]);
+  }
   ngOnInit() {
     this.audio = new Audio();
     this.sub = this.route.params.subscribe(params => {
@@ -142,6 +159,7 @@ export class PracticeDetailComponent implements OnInit {
         suc => {
           this.practice = suc.practice;
           this.questions = suc.questions;
+          this.value = (this.index)*100/this.questions.length;
           this.bufferValue = this.questions.length;
           this.question = this.questions[this.index];
           this.resetRadioForThisQuestion();
