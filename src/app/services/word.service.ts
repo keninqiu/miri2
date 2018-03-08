@@ -24,6 +24,17 @@ export class WordService {
     return this.http.get('/api/word')
       .map(res => res.json());  
   }
+
+  load() {
+    return this.http.get('/api/word/load')
+      .map(res => res.json());  
+  }  
+
+  clear() {
+    return this.http.get('/api/word/clear')
+      .map(res => res.json());  
+  }  
+
   search(textModel) {
     return this.http.post('/api/word/search', textModel)
       .map(res => res.json());    

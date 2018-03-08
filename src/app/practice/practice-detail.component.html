@@ -61,6 +61,12 @@
 			</div>		
 		</div>
 
+		<div *ngIf="question.type=='listen_only'">
+			<div *ngIf="question.subtitle.text" class="div-img-text fill_blank_choice">
+				<img src="/assets/image/voice.png" class="voice-image" alt="{{question.subtitle.text}}" *ngIf="question.subtitle.voice" (click)="playVoice(question.subtitle.voice)">
+			</div>		
+		</div>
+
 		<div *ngIf="question.type=='fill_blank'">
 			<div *ngIf="question.subtitle">
 				{{question.subtitle}}

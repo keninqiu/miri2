@@ -66,8 +66,11 @@
 
 .bottom {
     text-align: center;
-    height: 100px;
+    height: 80px;
+    width: 100%;
     background-color: #e7e7e7;
+    position: fixed; 
+    bottom: 0;    
 }
 
 .bottom-right-answer {

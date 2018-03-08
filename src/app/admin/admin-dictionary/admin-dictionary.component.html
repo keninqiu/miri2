@@ -1,5 +1,9 @@
 <admin-navbar></admin-navbar>
-<h3>Words List:<button mat-raised-button color="primary" (click)="createWord()">Create</button></h3>
+<h3>Words List:
+	<button mat-raised-button color="primary" (click)="createWord()">Create</button>
+	<button mat-raised-button color="primary" (click)="load()">Load</button>
+	<button mat-raised-button color="primary" (click)="clear()">Clear</button>
+</h3>
 <div *ngIf="contentType == 'listWord'">
 	  <table class="word-detail">
 			  <tr>

@@ -29,8 +29,8 @@ export class PracticeDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,private practiceService: PracticeService,private speechRecognitionService:SpeechRecognitionService) { }
   resetRadioForThisQuestion() {
 
-    if(this.question.type == 'write_word_with_Chinese' || this.question.type == 'speak_word'){
-      console.log('this.question.subtitle=');    
+    if((this.question.type == 'write_word_with_Chinese') || (this.question.type == 'speak_word')|| (this.question.type == 'listen_only')){
+      console.log('this.question.subtitle 1234 for type ' + this.question.type);    
       this.question.subtitle = this.question.choices[0];      
     }
  
@@ -66,15 +66,21 @@ export class PracticeDetailComponent implements OnInit {
   }  
   isRightAnswer() {
     console.log(this.userAnswer);
-    var arr = this.question.answer.split(";");
-    for(var i=0;i<arr.length;i++) {
-      this.rightAnswer = arr[i];
-      if(this.rightAnswer == this.userAnswer) {
-        return true;
+
+    var userAnswer = this.userAnswer.replace(/[,.?，。？]/g,'');
+    var answer = this.question.answer.replace(/[,.?，。？]/g,'');
+
+    var answers = answer.split(';');
+    var correct = false;
+    for(var i=0;i<answers.length;i++) {
+      var pattern = new RegExp(answers[i]);
+      correct = pattern.test(userAnswer);
+      if(correct) {
+        break;
       }
     }
 
-    return false;
+    return correct;
   }
   check() {
     if(this.isRightAnswer()) {
@@ -84,6 +90,11 @@ export class PracticeDetailComponent implements OnInit {
     else {
       this.answerFlag = -1;
       console.log('wrong answer');
+      var answers = this.question.answer.split(';');
+      if(answers) {
+        this.rightAnswer = answers[0];
+      }
+      
     }
     this.value = (this.index+1)*100/this.questions.length;
     this.stage='continue';

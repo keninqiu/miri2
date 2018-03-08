@@ -33,6 +33,27 @@ export class AdminDictionaryComponent implements OnInit {
       );   	
   }
 
+  load() {
+    this.wordService.load().subscribe(    
+          suc => {
+              console.log(suc);
+          },
+          err => {
+              console.log(err);
+          }
+      );  
+  }
+
+  clear() {
+    this.wordService.clear().subscribe(    
+          suc => {
+              console.log(suc);
+          },
+          err => {
+              console.log(err);
+          }
+      );  
+  }
   editWord(word) {
   	this.contentType = 'editWord';
   	this.selectedWord = word;
