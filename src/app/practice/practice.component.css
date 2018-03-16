@@ -6,7 +6,7 @@
 	text-align: center;
 }
 .practice-main {
-	padding-top: 15px;
+	padding-top: 5px;
 	text-align: center;
 	margin-right: auto; margin-left: auto; 	
 }
@@ -137,8 +137,8 @@
     border-color: red!important;
 }
 .card-image {
-    width:100%;
-    border-radius: 5px 5px 0px 0px;
+    width:100%; 
+    border-radius: 5px 5px 0px 0px; 
 }
 .card-selected {
     background-color: lightblue;
@@ -263,4 +263,8 @@
 .blink {
     animation: blink 2s;
     animation-iteration-count: infinite;
+}
+
+.mat-card {
+    padding: 5px;
 }

@@ -87,7 +87,7 @@ module.exports = {
           .then(function (url) {
             //console.log('text=' + text);
             var filename = text.replace(/\s/g, '_');
-            filename = filename.replace(/(\"|\'|\,|\.|\?|，|。|？)/g, '');
+            filename = filename.replace(/(\"|\'|\,|\.|\?|，|。|？|\!|！)/g, '');
             //console.log(url); // https://translate.google.com/translate_tts?...
             var path = '/assets/dictionary/voice';
             var fileFullname = filename + ".mp3";

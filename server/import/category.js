@@ -1,6 +1,7 @@
 var url = "https://www.duolingo.com/skill/en/Nature";
 var category_id = 40;
 
+var asyncLoop = require('node-async-loop');
 const PracticeModel = require("../models/practiceModel.js");
 const https = require("https");
 var Model = require('../mongoose_models/practiceMongooseModel.js');
@@ -38,7 +39,7 @@ request.get({
       // data is already parsed as JSON:
         console.log(data.skills[0].id);
 
-		var asyncLoop = require('node-async-loop');
+		
 		//var DataSource = {"skills":[{"lessons":5,"accessible":true,"fromLanguage":"zh","strength":0.25,"name":"\u6559\u80b2","learningLanguage":"en","iconId":23,"finishedLessons":5,"lessonWords":[["studies","teacher","note","pens","school","program","education"],["library","test","application","study","example","knowledge","training"],["class","words","chapter","practice","institute","idea","lecture"],["professor","presentation","preparation","explanation","difficulty","universities","course"],["college","objective","teaching","history","pages","report","document","meaning"]],"urlName":"Education","shortName":"\u6559\u80b2","id":"5ec0d62d0f684095996e5a593200d353"}]};
 		var DataSource = data;
 		var lessonWords = DataSource.skills[0].lessonWords;

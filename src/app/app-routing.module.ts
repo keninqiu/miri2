@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';
 import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-dictionary.component';
-import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
+import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component'; 
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent },

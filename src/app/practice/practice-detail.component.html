@@ -19,7 +19,7 @@
 
 
 	<div class="example-section practice-main" *ngIf="question && !finished">
-	  	<h2>{{question.title}}</h2>
+	  	<h2 class="question-title">{{question.title}}</h2>
 	  	<div class="card-container" *ngIf="question.type=='recognize_word'">
 			<div class="card" *ngFor="let choice of question.choices;let i=index" [ngClass]="{ 'card-selected': userAnswer==choice.text}">
 			  <img src="{{choice.image}}" class="card-image" alt="{{choice.text}}" (click)="selectChoice(i)">
@@ -58,24 +58,40 @@
 			<div *ngIf="question.subtitle.text" class="div-img-text fill_blank_choice">
 				<img src="/assets/image/voice.png" class="voice-image" alt="{{question.subtitle.text}}" *ngIf="question.subtitle.voice" (click)="playVoice(question.subtitle.voice)">
 				{{question.subtitle.text}}
-			</div>		
+			</div>	
+			<div class="div-img-text">
+				Your speech:{{userAnswer}}
+			</div>	
 		</div>
 
 		<div *ngIf="question.type=='listen_only'">
 			<div *ngIf="question.subtitle.text" class="div-img-text fill_blank_choice">
 				<img src="/assets/image/voice.png" class="voice-image" alt="{{question.subtitle.text}}" *ngIf="question.subtitle.voice" (click)="playVoice(question.subtitle.voice)">
-			</div>		
+			</div>	
+			<div>
+				<textarea [(ngModel)]="userAnswer" class="textarea" cols="40" rows="5"></textarea>
+			</div>				
 		</div>
 
 		<div *ngIf="question.type=='fill_blank'">
-			<div *ngIf="question.subtitle">
+			<div *ngIf="question.subtitle" class="div-img-text">
 				{{question.subtitle}}
 			</div>	
-			<div *ngFor="let choice of question.choices;let i=index" class="fill_blank_choice" (click)="selectChoice(i)">
-	            <input class="radio-custom" name="radio-group" type="radio" [checked]="userAnswer==choice.text">
-	            <label class="radio-custom-label">{{choice.text}}</label>
+			<div *ngFor="let choice of question.choices;let i=index" class="fill_blank_choice div-img-text" (click)="selectChoice(i)">
+	            <input class="radio-custom div-img-text" name="radio-group" type="radio" [checked]="userAnswer==choice.text">
+	            <label class="radio-custom-label div-img-text">{{choice.text}}</label>
 			</div>		
 		</div>
+
+		<div *ngIf="question.type=='judge'">
+			<div *ngIf="question.subtitle" class="div-img-text">
+				{{question.subtitle}}
+			</div>	
+			<div *ngFor="let choice of question.choices;let i=index" class="fill_blank_choice div-img-text" (click)="selectChoice(i)">
+	            <input class="radio-custom div-img-text" name="radio-group" type="radio" [checked]="userAnswer==choice.text">
+	            <label class="radio-custom-label div-img-text">{{choice.text}}</label>
+			</div>		
+		</div>		
 	</div>
 	<div *ngIf="finished" class="unit-completed">
 		<div>

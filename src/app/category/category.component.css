@@ -139,7 +139,9 @@
 }
 
 .col-card {
-  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
 }
 
 .img-circle {
@@ -207,7 +209,8 @@ transition: color 0.5s,margin-top 0.5s,box-shadow 0.5s,border-top 0.5s;
   background-color: #1caff6;
 }
 .practice-description {
-  height: 10px;
+  height: 10px; 
+  word-break:break-word;
 }
 .category-image {
   background-size: cover;

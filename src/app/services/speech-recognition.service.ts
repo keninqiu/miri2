@@ -15,13 +15,13 @@ export class SpeechRecognitionService {
     }
 
     record(): Observable<string> {
-
+        console.log('record in speech-recognition');
         return Observable.create(observer => {
             const { webkitSpeechRecognition }: IWindow = <IWindow>window;
             this.speechRecognition = new webkitSpeechRecognition();
             this.speechRecognition.continuous = true;
             //this.speechRecognition.interimResults = true;
-            this.speechRecognition.lang = 'zh-cn';
+            this.speechRecognition.lang = 'en-us';
             this.speechRecognition.maxAlternatives = 1;
 
             this.speechRecognition.onresult = speech => {

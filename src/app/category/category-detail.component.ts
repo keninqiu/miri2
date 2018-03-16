@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoryService } from '../services/category.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-category',
@@ -13,9 +14,10 @@ export class CategoryDetailComponent implements OnInit {
   private sub: any;
   category: any;
   practices = [];
-  constructor(private route: ActivatedRoute,private categoryService: CategoryService,private router: Router) { }
+  constructor(private messageService: MessageService,private route: ActivatedRoute,private categoryService: CategoryService,private router: Router) { }
 
   ngOnInit() {
+    this.messageService.sendMessage('Category');
     this.sub = this.route.params.subscribe(params => {
       var category_id = params['id'];
       this.categoryService.details(category_id).subscribe(    

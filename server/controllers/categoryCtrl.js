@@ -4,7 +4,7 @@ var PracticeModel = require('../mongoose_models/practiceMongooseModel.js');
 
 module.exports = {
   list : function(req, res) {
-	Model.find({},'language name image', function (err, entities) {
+	Model.find({},'language name image', function (err, entities) { 
 	  return res.status(200).json(entities);
 	}).sort('_id');
   },  

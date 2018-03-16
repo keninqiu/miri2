@@ -1,4 +1,5 @@
 const PracticeModel = require("../models/practiceModel.js");
+var CategoryModel = require('../mongoose_models/categoryMongooseModel.js');
 var Model = require('../mongoose_models/practiceMongooseModel.js');
 var QuestionModel = require('../mongoose_models/questionMongooseModel.js');
 var WordModel = require('../mongoose_models/wordMongooseModel.js');
@@ -16,15 +17,19 @@ module.exports = {
     Model
       .findOne({_id:id})
       .exec(function(err, practice) {
-        QuestionModel
-          .find({practice_id:id})
-          .exec(function(err,questions) {
-            WordService.appendAssets(questions).then(questions => { 
-              details.practice = practice;
-              details.questions = questions;
-              return res.status(200).json(details);
+        CategoryModel.findOne({_id:practice.category_id},function(err,category) {
+          QuestionModel
+            .find({practice_id:id})
+            .exec(function(err,questions) {
+              WordService.appendAssets(questions).then(questions => { 
+                details.category = category;
+                details.practice = practice;
+                details.questions = questions;
+                return res.status(200).json(details);
+              });
             });
-          });
+        });
+
     });
   },
   create : function(req, res) {

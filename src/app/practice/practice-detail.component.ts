@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PracticeService } from '../services/practice.service';
 import { SpeechRecognitionService } from '../services/speech-recognition.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-practice-detail',
@@ -15,8 +16,9 @@ export class PracticeDetailComponent implements OnInit {
   bufferValue = 100;
   value = 0;
   practice: any;
+  category: any;
   questions = [];  
-  index = 6;
+  index = 0;
   question:any;
   userAnswer = '';
   rightAnswer = '';
@@ -26,11 +28,10 @@ export class PracticeDetailComponent implements OnInit {
   finished = false;
   recording = false;
   
-  constructor(private route: ActivatedRoute,private practiceService: PracticeService,private speechRecognitionService:SpeechRecognitionService,private router: Router) { }
+  constructor(private messageService: MessageService,private route: ActivatedRoute,private practiceService: PracticeService,private speechRecognitionService:SpeechRecognitionService,private router: Router) { }
   resetRadioForThisQuestion() {
 
-    if((this.question.type == 'write_word_with_Chinese') || (this.question.type == 'speak_word')|| (this.question.type == 'listen_only')){
-      console.log('this.question.subtitle 1234 for type ' + this.question.type);    
+    if((this.question.type == 'write_word_with_Chinese') || (this.question.type == 'speak_word')|| (this.question.type == 'listen_only')){   
       this.question.subtitle = this.question.choices[0];      
     }
  
@@ -62,18 +63,30 @@ export class PracticeDetailComponent implements OnInit {
           // Auto-play was prevented
           // Show paused UI.
         });
-      }      
+      }     
   }  
   isRightAnswer() {
-    console.log(this.userAnswer);
+    
 
-    var userAnswer = this.userAnswer.replace(/[,.?，。？]/g,'');
-    var answer = this.question.answer.replace(/[,.?，。？]/g,'');
-
+    var userAnswer = this.userAnswer.replace(/[,.?，。？!！]/g,'').trim().toLowerCase();
+    var answer = this.question.answer.replace(/[,.?，。？!！]/g,'').trim().toLowerCase();
+    console.log('userAnswer=' + userAnswer);
+    console.log('answer=' + answer);
     var answers = answer.split(';');
     var correct = false;
+    console.log('answers.length=' + answers.length);
     for(var i=0;i<answers.length;i++) {
-      var pattern = new RegExp(answers[i]);
+      var answer = answers[i].trim();
+      console.log('answers.i=' + answer + '==');
+      console.log('userAnswer=' + userAnswer + '==');
+      /*
+      if(answer == userAnswer) {
+        console.log('right answer');
+        correct = true;
+        break;
+      }
+      */
+      var pattern = new RegExp(answer);
       correct = pattern.test(userAnswer);
       if(correct) {
         break;
@@ -104,21 +117,27 @@ export class PracticeDetailComponent implements OnInit {
   }
   record() {
     this.recording = !this.recording;
-    this.speechRecognitionService.record()
-      .subscribe(
-      //listener
-      (value) => {
-        console.log(value);      
-      },
-      //errror
-      (err) => {
-        console.log(err);
-      },
-      //completion
-      () => {
-        console.log("--complete--");
-      }
-    );    
+    if(this.recording) {
+      this.speechRecognitionService.record()
+        .subscribe(
+        //listener
+        (value) => {
+          console.log(value);  
+          this.userAnswer = value;    
+        },
+        //errror
+        (err) => {
+          console.log(err);
+        },
+        //completion
+        () => {
+          console.log("--complete--");
+        }
+      );     
+    }
+    else {
+      this.speechRecognitionService.DestroySpeechObject();
+    }
   }
   continue() {
     if(this.index == this.questions.length - 1) {
@@ -128,12 +147,14 @@ export class PracticeDetailComponent implements OnInit {
     else {
       this.stage='check';
       this.question = this.questions[++this.index];
-      console.log('this.question.subtitle=');
-      console.log(this.question.subtitle);
+      console.log('type='+this.question.type);
       this.resetRadioForThisQuestion();   
       this.userAnswer = ''; 
       this.answerFlag = 0;    
       this.recording = false;
+      if(this.question.subtitle && this.question.subtitle.voice) {
+        this.playVoice(this.question.subtitle.voice);
+      }
     }
     
   }
@@ -149,22 +170,27 @@ export class PracticeDetailComponent implements OnInit {
     this.value = (this.index)*100/this.questions.length;
   }
   nextCourse() {
-    this.router.navigate(['/category/'+this.practice._id]);
+    this.router.navigate(['/category/'+this.category._id]);
   }
   ngOnInit() {
+    this.messageService.sendMessage('Category');
     this.audio = new Audio();
     this.sub = this.route.params.subscribe(params => {
       var practice_id = params['id'];
       this.practiceService.details(practice_id).subscribe(    
         suc => {
+          this.category = suc.category;
           this.practice = suc.practice;
           this.questions = suc.questions;
+          console.log('this.questihbkons=');
+          console.log(this.questions);
           this.value = (this.index)*100/this.questions.length;
           this.bufferValue = this.questions.length;
           this.question = this.questions[this.index];
           this.resetRadioForThisQuestion();
-          console.log('final=');
-          console.log(this.question);
+          if(this.question.subtitle && this.question.subtitle.voice) {
+            this.playVoice(this.question.subtitle.voice);
+          }
         },
         err => {
           console.log(err);
