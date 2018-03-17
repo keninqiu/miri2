@@ -1,11 +1,206 @@
 <app-navbar></app-navbar>
-<h1>Angular Bot</h1>
-<ng-container *ngFor="let message of messages | async">
-  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
-                                    'to':   message.sentBy === 'user' }">
-    {{ message.content }}
-  </div>
-</ng-container>
-<label for="nameField">Your Message</label>
-<input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
-<button (click)="sendMessage()">Send</button>
+
+
+	<div id="cm-pane-wrapper" class="cm-pane-wrapper">
+		<div class="cm-pane-header">
+			<div tabindex="0" aria-label="Toggle menu" class="cm-pane-toggle-btn shown">
+                                <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                                    <title>umx-toggle-menu-hover-24</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs></defs>
+                                    <g id="cm-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="cm-umx-toggle-menu-hover-24">
+                                            <g id="cm-overflow--menu" transform="translate(6.000000, 6.000000)">
+                                                <g id="cm-Icon" transform="translate(10.500000, 3.000000)" fill="currentColor" fill-rule="nonzero">
+                                                    <circle id="cm-Oval" cx="1.5" cy="1.5" r="1.5"></circle>
+                                                    <circle id="cm-Oval" cx="1.5" cy="9" r="1.5"></circle>
+                                                    <circle id="cm-Oval" cx="1.5" cy="16.5" r="1.5"></circle>
+                                                </g>
+                                                <g id="cm-Transparent_Rectangle">
+                                                    <rect id="cm-Rectangle-path" x="0" y="0" width="24" height="24"></rect>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+        	</div>
+
+			<div class="cm-pane-header-text-wrapper">
+                                    <a class="cm-pane-header-top with-pointer-cursor" type="name" href="https://www.ibm.com/watson/services/conversation/" target="_blank">Virtual Agent</a>
+                                    <div class="cm-pane-header-bottom">Built with Miri</div>
+            </div> 
+
+			<div class="cm-pane-header-btn-container cm-pane-header-btn-container-one-btn"> 
+                                <div class="cm-pane-header-btn-wrapper cm-pane-header-btn-wrapper-minimize">
+                                    <div tabindex="0" aria-label="Minimize chat box" class="cm-pane-minimize-btn cm-pane-btn">
+                                        <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                                    <title>umx-minimize-icon-24</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs></defs>
+                                    <g id="cm-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="cm-umx-minimize-icon-24">
+                                            <g id="cm-subtract" transform="translate(6.000000, 6.000000)">
+                                                <g id="cm-Icon" transform="translate(4.500000, 17.250000)" fill="currentColor" fill-rule="nonzero">
+                                                    <rect id="cm-Rectangle-path" x="0" y="0" width="15" height="1.5"></rect>
+                                                </g>
+                                                <g id="cm-Transparent_Rectangle">
+                                                    <rect id="cm-Rectangle-path" x="0" y="0" width="24" height="24"></rect>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                    </div>
+                                </div> 
+                                <div class="cm-pane-header-btn-wrapper cm-pane-header-btn-wrapper-close">
+                                    <div tabindex="0" aria-label="Close chat box" class="cm-pane-close-btn cm-pane-btn">
+                                        <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                                    <title>umx-close-icon-24</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs></defs>
+                                    <g id="cm-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="cm-umx-close-icon-24">
+                                            <g id="cm-close" transform="translate(6.000000, 6.000000)">
+                                                <g id="cm-Icon" transform="translate(4.500000, 4.500000)" fill="currentColor" fill-rule="nonzero">
+                                                    <polygon id="cm-Shape" points="15 1.0575 13.9425 0 7.5 6.4425 1.0575 0 0 1.0575 6.4425 7.5 0 13.9425 1.0575 15 7.5 8.5575 13.9425 15 15 13.9425 8.5575 7.5"></polygon>
+                                                </g>
+                                                <g id="cm-Transparent_Rectangle">
+                                                    <rect id="cm-Rectangle-path" x="0" y="0" width="24" height="24"></rect>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                    </div>
+                                </div>  
+                            </div>
+
+ 		</div>
+ 		<div class="chat-box-wrapper">
+
+
+
+			<div class="chat-box-main history shown">
+                                        <ul tabindex="0" class="scrollingChat"><li data-timestamp="20571600000" class="history date-header"><div class="message-inner" datestamp="1520571600000">Friday, March 9</div></li><li data-timestamp="20627961852" class="history message from-user"><div class="from-user">
+                                <div class="name-time-line">Me on Mar 9, 3:39 PM</div>
+                                <div class="from-user-wrapper">
+                                    <div class="from-user-arrow"></div>
+                                    <div class="from-user-line">
+                                        <span class="from-user-line-text">hi</span>
+                                    </div>
+                                </div>
+                            </div></li><li data-timestamp="20627961852" class="history message from-bot">
+                        <div class="watson-ray"></div>
+                        <div class="message-inner">
+                            <div class="name-time-line">Virtual Agent on Mar 9, 3:39 PM</div>
+                            <div class="message-line">Hello! I'm a chatbot built with the Watson Conversation Service. Even though I'm technically a bot, you can talk to me like a person. What can I help you with?</div>
+                        </div>
+                        </li><li data-timestamp="20627974504" class="history message from-user"><div class="from-user">
+                                <div class="name-time-line">Me on Mar 9, 3:39 PM</div>
+                                <div class="from-user-wrapper">
+                                    <div class="from-user-arrow"></div>
+                                    <div class="from-user-line">
+                                        <span class="from-user-line-text">how are you doing these days</span>
+                                    </div>
+                                </div>
+                            </div></li><li data-timestamp="20627974504" class="history message from-bot">
+                        <div class="watson-ray"></div>
+                        <div class="message-inner">
+                            <div class="name-time-line">Virtual Agent on Mar 9, 3:39 PM</div>
+                            <div class="message-line">Greetings, friend.</div>
+                        </div>
+                        </li><li data-timestamp="20627974504" class="history message from-bot">
+                        <div class="watson-ray"></div>
+                        <div class="message-inner">
+                            <div class="name-time-line">Virtual Agent on Mar 9, 3:39 PM</div>
+                            <div class="message-line">I'm great! Being a chatbot really takes off the burden of human woes off, ya know?</div>
+                        </div>
+                        </li><li data-timestamp="20658000000" class="history date-header"><div class="message-inner" datestamp="1520658000000">Yesterday</div></li><li data-timestamp="20685638842" class="history message from-user"><div class="from-user">
+                                <div class="name-time-line">Me on Mar 10, 7:40 AM</div>
+                                <div class="from-user-wrapper">
+                                    <div class="from-user-arrow"></div>
+                                    <div class="from-user-line">
+                                        <span class="from-user-line-text">hi</span>
+                                    </div>
+                                </div>
+                            </div></li><li data-timestamp="20685638842" class="history message from-bot">
+                        <div class="watson-ray"></div>
+                        <div class="message-inner">
+                            <div class="name-time-line">Virtual Agent on Mar 10, 7:40 AM</div>
+                            <div class="message-line">Hi. It's nice to see you. What can I do for you?</div>
+                        </div>
+                        </li><li data-timestamp="20744400000" class="date-header"><div class="message-inner" datestamp="1520744400000">Today</div></li><li data-timestamp="20810571561" class="message from-bot">
+                        <div class="watson-ray"></div>
+                        <div class="message-inner">
+                            <div class="name-time-line">Virtual Agent on Mar 11, 7:22 PM</div>
+                            <div class="message-line">Hey, I'm a chat bot built to answer your questions about Watson Conversation API. Are you a developer, a business owner, or just someone curious about bots?</div>
+                        </div>
+                        </li><li data-timestamp="20810572572" class="message from-bot">
+                        <div class="watson-ray"></div>
+                        <div class="message-inner">
+                            <div class="name-time-line">Virtual Agent on Mar 11, 7:22 PM</div>
+                            <div class="message-line">Or if you have general questions about Conversation API, go ahead and ask me anything you’d like.</div>
+                        </div>
+                        </li><li data-timestamp="20810574917" class="message from-user"><div class="from-user">
+                                <div class="name-time-line">Me on Mar 11, 7:22 PM</div>
+                                <div class="from-user-wrapper">
+                                    <div class="from-user-arrow"></div>
+                                    <div class="from-user-line">
+                                        <span class="from-user-line-text">hi</span>
+                                    </div>
+                                </div>
+                            </div></li><li data-timestamp="20810575405" class="message from-bot">
+                        <div class="watson-ray"></div>
+                        <div class="message-inner">
+                            <div class="name-time-line">Virtual Agent on Mar 11, 7:22 PM</div>
+                            <div class="message-line">Hi. It's nice to see you. What can I do for you?</div>
+                        </div>
+                        <div class="bot-feedback">
+                                <label>Was this helpful?</label>
+                                <svg role="tab" tabindex="0" class="thumbs-up feedback-btn" viewBox="0 0 100 100">
+                                    <svg version="1.1" id="cm-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve">
+                                    <g>
+                                        <path d="M11,21 M11,22"></path>
+                                    </g>
+                                    <g>
+                                        <circle cx="8" cy="8" r="1"></circle>
+                                        <path d="M11,16.5c-3.4,0-6.3-2.8-6.4-3l0.7-0.7c0,0,2.7,2.7,5.7,2.7c3,0,5.2-2.6,5.2-2.6l0.8,0.6C16.9,13.6,14.5,16.5,11,16.5z"></path>
+                                        <circle cx="14" cy="8" r="1"></circle>
+                                        <path d="M11,1c5.5,0,10,4.5,10,10s-4.5,10-10,10S1,16.5,1,11S5.5,1,11,1 M11,0C4.9,0,0,4.9,0,11s4.9,11,11,11s11-4.9,11-11
+                                            S17.1,0,11,0L11,0z"></path>
+                                    </g>
+                                </svg>
+                                </svg>
+                                <svg role="tab" tabindex="0" class="thumbs-down feedback-btn" viewBox="0 0 100 100">
+                                    <svg version="1.1" id="cm-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve">
+                                    <g>
+                                        <circle cx="8" cy="8" r="1"></circle>
+                                        <circle cx="14" cy="8" r="1"></circle>
+                                        <path d="M11,1c5.5,0,10,4.5,10,10s-4.5,10-10,10S1,16.5,1,11S5.5,1,11,1 M11,0C4.9,0,0,4.9,0,11s4.9,11,11,11s11-4.9,11-11
+                                            S17.1,0,11,0L11,0z"></path>
+                                        <path d="M10.9,13c0.5-0.5,1.6-1.2,2.7-1.2c1.7,0,2.8,1.5,2.9,1.6L15.7,14c0,0-0.9-1.2-2.1-1.2c-1.2,0-2.3,1.2-2.3,1.2L11,14.3
+                                            l-0.1,0.1c-0.5,0.5-1.4,1.1-2.5,1.1c-1.6,0-3-1.5-3-1.5l0.7-0.7c0,0,1.1,1.2,2.3,1.2c1.1,0,2.1-1.1,2.1-1.2"></path>
+                                    </g>
+                                </svg>
+                                </svg>
+                            </div></li>
+                                        </ul>
+            </div>
+
+
+ 		</div>
+		<div class="chat-box-bottom">
+                                        <div class="textInput-wrapper">
+                                            <textarea role="textbox" aria-label="Enter text to begin chat" id="cm-textInput" placeholder="Enter text here" class="textarea" type="text"></textarea>
+                                        </div>
+
+                                        <img role="button" aria-label="Send message" alt="Enter Button" class="send-btn" src="https://static.ibmserviceengage.com/umx-messaging-return.svg" disabled="">
+                                        
+
+                                        <div class="decoration-line1" style="width: 0px;"></div>
+                                        <div class="decoration-line2"></div>
+        </div>
+	</div>
