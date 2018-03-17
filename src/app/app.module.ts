@@ -28,6 +28,7 @@ import { MessageService } from './services/message.service';
 import { ChatService } from './services/chat.service';
 import { WordService } from './services/word.service';
 import { CategoryService } from './services/category.service';
+import { ChatbotService } from './services/chatbot.service';
 import { PracticeService } from './services/practice.service';
 import { QuestionService } from './services/question.service';
 import { SpeechRecognitionService } from './services/speech-recognition.service';
@@ -37,17 +38,17 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { PracticeComponent } from './practice/practice.component';
 import { AdminCategoryComponent,DialogDeleteCategory } from './admin/admin-category/admin-category.component';
-import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component';
+import { AdminChatbotComponent,DialogDeleteChatbot } from './admin/admin-chatbot/admin-chatbot.component';
 import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';
 import { NgUploaderModule } from 'ngx-uploader';
 import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-dictionary.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory, AdminPracticeComponent, AdminDictionaryComponent
+    AppComponent,NavbarComponent,AdminNavbarComponent, AdminComponent, FrontendComponent, RegisterComponent, CategoryComponent,CategoryDetailComponent, ChatbotComponent, LessonComponent, ContactComponent, LoginComponent, PracticeComponent,PracticeDetailComponent, AdminCategoryComponent, AdminChatbotComponent,DialogDeleteCategory,DialogDeleteChatbot, AdminPracticeComponent, AdminDictionaryComponent
   ],
   entryComponents: [
-    DialogDeleteCategory
+    DialogDeleteCategory,DialogDeleteChatbot
   ], 
   imports: [
     BrowserModule,
@@ -80,7 +81,7 @@ import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-diction
       "clockwise": false
     })    
   ],
-  providers: [MessageService,ChatService,WordService,CategoryService,PracticeService,QuestionService,SpeechRecognitionService],
+  providers: [MessageService,ChatService,WordService,CategoryService,ChatbotService,PracticeService,QuestionService,SpeechRecognitionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

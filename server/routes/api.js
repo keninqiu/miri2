@@ -1,5 +1,6 @@
 var wordCtrl = require('../controllers/wordCtrl.js');
 var categoryCtrl = require('../controllers/categoryCtrl.js');
+var chatbotCtrl = require('../controllers/chatbotCtrl.js');
 var practiceCtrl = require('../controllers/practiceCtrl.js');
 var questionCtrl = require('../controllers/questionCtrl.js');
 var fileCtrl = require('../controllers/fileCtrl.js');
@@ -31,6 +32,12 @@ router.get('/question', questionCtrl.list);
 router.post('/question', questionCtrl.create);
 router.put('/question/:id', questionCtrl.update);
 router.delete('/question/:id', questionCtrl.delete);
+
+router.get('/chatbot', chatbotCtrl.list);
+router.get('/chatbot/:id', chatbotCtrl.details);
+router.post('/chatbot', chatbotCtrl.create);
+router.put('/chatbot/:id', chatbotCtrl.update);
+router.delete('/chatbot/:id', chatbotCtrl.delete);
 
 router.post('/file/upload', fileCtrl.upload);
 module.exports = router;

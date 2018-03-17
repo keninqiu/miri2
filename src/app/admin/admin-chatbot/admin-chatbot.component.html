@@ -1,4 +1,89 @@
 <admin-navbar></admin-navbar>
-<p>
-  admin-chatbot works!
-</p>
+<div class="container">
+    <div class="right">
+	    <div *ngIf="selectedChatbot && (contentType == 'editChatbot')">
+
+		  <form>
+		  	<fieldset>
+			  	<legend>Chatbot:</legend>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Name</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" [(ngModel)]="selectedChatbot.name" name="name" placeholder="Chatbot Name">
+			      </div>
+			    </div>
+
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="language">Description</label>
+			      </div>
+			      <div class="col-75">
+					<textarea rows="4" cols="50" [(ngModel)]="selectedChatbot.description" name="description">
+					At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+					</textarea>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="subject">Image</label> 
+			      </div>
+			      <div class="col-75">
+			      	
+  <input hidden type="file" #imgFileInput ngFileSelect [options]="options" (change)="onUploadOutput($event)" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>     
+  <img class="img-circle" src="{{selectedChatbot.image}}" alt="Norway" (click)="uploadChatbotImage();imgFileInput.click();">
+
+			      </div>
+			    </div>
+
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="language">Agent Type</label>
+			      </div>
+			      <div class="col-75">
+			        <select [(ngModel)]="selectedChatbot.agent_type" name="type">
+			          <option value="dialogflow">Dialogflow</option>
+			        </select>
+			      </div>
+			    </div>
+
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Agent Name</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" [(ngModel)]="selectedChatbot.agent_name" name="agent_name" placeholder="Chatbot Agent Name">
+			      </div>
+			    </div>
+
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="name">Agent Auth File</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" [(ngModel)]="selectedChatbot.auth_info" name="auth_info" placeholder="Chatbot Auth Infomation">
+			      </div>
+			    </div>
+
+			    <div class="row">
+			      <input type="submit" (click)="saveChatbot()" value="Submit">
+			    </div>
+			</fieldset>
+		  </form>
+
+	    </div>
+    
+    </div>
+    <div class="left">
+    	<div class="left-header"> 
+    		<button mat-raised-button color="primary" (click)="createChatbot()">Create</button>
+    		<button mat-raised-button color="primary" (click)="deleteChatbot()">Delete</button>
+    	</div>
+		<div class="vertical-menu">
+		  <a [ngClass]="{'active': selectedChatbot == chatbot}" (click)="listChatbot(chatbot)" *ngFor="let chatbot of chatbots">
+		  	{{chatbot.name}}<img class="img-circle" src="{{chatbot.image}}">	  	
+		  </a>
+		</div>
+    </div>
+</div>

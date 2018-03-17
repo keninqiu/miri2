@@ -86,6 +86,7 @@ export class AdminCategoryComponent implements OnInit {
           suc => {
               console.log(suc);
               this.categories.push(suc);
+              this.selectedCategory = suc;
           },
           err => {
               console.log(err);
