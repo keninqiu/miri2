@@ -15,9 +15,16 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar.component';
-import { AdminNavbarComponent } from './core/admin-navbar.component';
+
 import { AppRoutingModule } from './app-routing.module';
+
 import { AdminComponent } from './admin/admin.component';
+import { AdminNavbarComponent } from './core/admin-navbar.component';
+import { AdminCategoryComponent,DialogDeleteCategory } from './admin/admin-category/admin-category.component';
+import { AdminChatbotComponent,DialogDeleteChatbot } from './admin/admin-chatbot/admin-chatbot.component';
+import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';  
+import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-dictionary.component';
+
 import { FrontendComponent } from './frontend/frontend.component';
 import { RegisterComponent } from './register/register.component';
 import { CategoryComponent } from './category/category.component';
@@ -37,11 +44,9 @@ import { LessonComponent } from './lesson/lesson.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { PracticeComponent } from './practice/practice.component';
-import { AdminCategoryComponent,DialogDeleteCategory } from './admin/admin-category/admin-category.component';
-import { AdminChatbotComponent,DialogDeleteChatbot } from './admin/admin-chatbot/admin-chatbot.component';
-import { AdminPracticeComponent } from './admin/admin-practice/admin-practice.component';
+
 import { NgUploaderModule } from 'ngx-uploader';
-import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-dictionary.component';
+
 
 @NgModule({
   declarations: [

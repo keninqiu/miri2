@@ -1,3 +1,6 @@
+import * as config from '../../server/common/Config.json';
+const ENV = (<any>config).ENV;
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -18,23 +21,24 @@ import { AdminDictionaryComponent } from './admin/admin-dictionary/admin-diction
 import { AdminChatbotComponent } from './admin/admin-chatbot/admin-chatbot.component'; 
 
 const routes: Routes = [
-  { path: 'admin', component: AdminComponent },
-  { path: 'admin/practice/:id', component: AdminPracticeComponent },
-  { path: 'admin/category', component: AdminCategoryComponent },
-  { path: 'admin/chatbot', component: AdminChatbotComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'category/:id', component: CategoryDetailComponent },
   { path: 'practice/:id', component: PracticeComponent },
   { path: 'practice-detail/:id', component: PracticeDetailComponent },
-  { path: 'admin/dictionary', component: AdminDictionaryComponent },
   { path: 'chatbot', component: ChatbotComponent },
   { path: 'lesson', component: LessonComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: '', component: FrontendComponent }
 ];
-
+if(ENV == 'dev') {
+  routes.push({ path: 'admin', component: AdminComponent });
+  routes.push({ path: 'admin/practice/:id', component: AdminPracticeComponent });
+  routes.push({ path: 'admin/category', component: AdminCategoryComponent });
+  routes.push({ path: 'admin/chatbot', component: AdminChatbotComponent });
+  routes.push({ path: 'admin/dictionary', component: AdminDictionaryComponent });
+}
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [ RouterModule ],
