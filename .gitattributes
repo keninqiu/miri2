@@ -1,2 +1,3 @@
 *.ts filter=git-crypt diff=git-crypt
-
+*.js filter=git-crypt diff=git-crypt
+*.html filter=git-crypt diff=git-crypt
