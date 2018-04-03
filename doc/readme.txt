@@ -19,4 +19,6 @@ Error: ENFILE: file table overflow, open '/Library/WebServer/Documents/miri2/src
 
 mandarinfan.com       
 
+
+export GOOGLE_APPLICATION_CREDENTIALS=/Library/WebServer/Documents/miri2/keys/Small-Talk-67cad1b36d33.json
               
