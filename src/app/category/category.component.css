@@ -25,6 +25,11 @@
 [class*="col-"] {
     width: 100%;
 }
+@media only screen and (max-width: 600px) {
+    #side-bar { 
+      display: none;
+    }    
+}
 @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-m-1 {width: 8.33%;}
@@ -38,7 +43,8 @@
     .col-m-9 {width: 75%;}
     .col-m-10 {width: 83.33%;}
     .col-m-11 {width: 91.66%;}
-    .col-m-12 {width: 100%;}   
+    .col-m-12 {width: 100%;} 
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -56,65 +62,67 @@
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
 
-#category_list{ 
-  display:inline-block; 
-  position:relative; margin:10px; 
-  padding:10px; 
-  background:#fafafa; 
-  box-shadow:0 0 3px rgba(0, 0, 0, 0.2); 
-  -moz-border-radius:4px; 
-  border-radius:10px; 
-  color:rgba(0,0,0, 0.8); 
-  text-shadow:0 1px 0 #fff;
-}
-#category_list::before, #category_list::after{ 
-  position:absolute; 
-  content:""; 
-  top:10px; bottom:10px; left:10px; width:50%; 
-  box-shadow:0 15px 10px 
-  rgba(0, 0, 0, 0.5); 
-  -webkit-transform: rotate(-3deg); 
-  -moz-transform:rotate(-3deg); 
-  -o-transform:rotate(-3deg); 
-  -ms-transform:rotate(-3deg); 
-  transform:rotate(-3deg); 
-  z-index:-1;
-}
-#category_list::after{ 
-  right:10px; 
-  left:auto; 
-  -webkit-transform:rotate(3deg); 
-  -moz-transform:rotate(3deg); 
-  -o-transform:rotate(3deg); 
-  -ms-transform:rotate(3deg); 
-  transform: rotate(3deg);
-}
-#category_list img{ vertical-align:bottom;}
+    #category_list{ 
+      display:inline-block; 
+      position:relative; margin:10px; 
+      padding:10px; 
+      background:#fafafa; 
+      box-shadow:0 0 3px rgba(0, 0, 0, 0.2); 
+      -moz-border-radius:4px; 
+      border-radius:10px; 
+      color:rgba(0,0,0, 0.8); 
+      text-shadow:0 1px 0 #fff;
+    }
+    #category_list::before, #category_list::after{ 
+      position:absolute; 
+      content:""; 
+      top:10px; bottom:10px; left:10px; width:50%; 
+      box-shadow:0 15px 10px 
+      rgba(0, 0, 0, 0.5); 
+      -webkit-transform: rotate(-3deg); 
+      -moz-transform:rotate(-3deg); 
+      -o-transform:rotate(-3deg); 
+      -ms-transform:rotate(-3deg); 
+      transform:rotate(-3deg); 
+      z-index:-1;
+    }
+    #category_list::after{ 
+      right:10px; 
+      left:auto; 
+      -webkit-transform:rotate(3deg); 
+      -moz-transform:rotate(3deg); 
+      -o-transform:rotate(3deg); 
+      -ms-transform:rotate(3deg); 
+      transform: rotate(3deg);
+    }
+    #category_list img{ vertical-align:bottom;}
 
-#side-bar {
-  vertical-align: center;
-  text-align: center; 
-  display:inline-block;
-  padding:10px;
-  -moz-border-radius:4px; 
-  border-radius:10px;
-  text-shadow:0 1px 0 #fff;  
-}
-.statistics{
-  width: 100%;
-  vertical-align: center;
-  text-align: center; 
+    #side-bar {
+      vertical-align: center;
+      text-align: center; 
+      display:inline-block;
+      padding:10px;
+      -moz-border-radius:4px; 
+      border-radius:10px;
+      text-shadow:0 1px 0 #fff;
+      display: block;  
+    }
 
-  display:inline-block;
-  padding:10px; 
-  margin-bottom: 10px;
-  background:#fafafa; 
-  box-shadow:0 0 3px rgba(0, 0, 0, 0.2); 
-  -moz-border-radius:4px; 
-  border-radius:10px; 
-  color:rgba(0,0,0, 0.8); 
-  text-shadow:0 1px 0 #fff;
-}
+    .statistics{
+      width: 100%;
+      vertical-align: center;
+      text-align: center; 
+
+      display:inline-block;
+      padding:10px; 
+      margin-bottom: 10px;
+      background:#fafafa; 
+      box-shadow:0 0 3px rgba(0, 0, 0, 0.2); 
+      -moz-border-radius:4px; 
+      border-radius:10px; 
+      color:rgba(0,0,0, 0.8); 
+      text-shadow:0 1px 0 #fff;
+    }
 
    
 }
@@ -129,6 +137,7 @@
   }
 }
 
+
 .card-list-1 {
 	padding: 10px;
 	float: left;
@@ -142,6 +151,7 @@
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .img-circle {
@@ -151,8 +161,11 @@
 }
 .circle-card {
   text-align: center;
+  border: 1px solid grey;
 }
-
+.circle-card:hover {
+  border: 1px solid red;
+}
 .side-card {
   width: 100%;
  position:relative;
