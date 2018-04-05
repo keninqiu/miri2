@@ -47,6 +47,7 @@
     "rxjs": "^5.5.8",
     "sharp": "^0.19.1",
     "simple-html-dom-parser": "^1.1.2",
+    "time-stamp": "^2.0.0",
     "zone.js": "^0.8.22"
   },
   "devDependencies": {
