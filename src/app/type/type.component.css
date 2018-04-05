@@ -294,6 +294,9 @@
 	z-index: 100;
 	display: none;
 }
+.scord_mask_show {
+	display: block;
+}
 .score{
 	width: 500px;
 	height: 390px;
