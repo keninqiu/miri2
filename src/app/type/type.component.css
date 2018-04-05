@@ -292,11 +292,9 @@
 	top:0;
 	background: rgba(0,0,0,0.7);
 	z-index: 100;
-	display: none;
-}
-.scord_mask_show {
 	display: block;
 }
+
 .score{
 	width: 500px;
 	height: 390px;
@@ -516,6 +514,18 @@
     left: 166px;
 }
 
+.card-container {
+}
+.card {
+	width: 22%;
+	display:inline-block;
+	margin: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+.card:hover {
+	border-color: #f44336;
+}
 
 
 
