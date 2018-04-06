@@ -1,4 +1,17 @@
 [
-	"bike","bus","motorbike","boat","ship","train","helicopter","plane","car","1 truck","2 lorry","food","bread","bean","cake","burger","egg","1 fries","2chips","ice-cream","carrot","potato","tomato","onion","meat","chicken","rice","pea","hot dog","sausage","pizza","drink","water","milk","lemonade","juice","tea","coffee","Coke","fruit","watermelon","lemon","coconut","lime","pineapple","orange","pear","mango","apple","banana","grape","peach","animal","cat","bird","dog","elephant","spider","mouse","mice","horse","hippo","cow","crocodile","duck","lizard","frog","goat","sheep","giraffe","snake","tiger","lion","hen","cock","fish","chick","monkey","bee","kangaroo","bear","pig","bat","panda","zebra","ruler","pencil","pen","pencil-box/pencil case","1eraser","2rubber","blackboard","board","class","desk","table","bag","computer","chair","book","letter","alphabet","bookcase","page","jeans",
-	"clap","bounce","listen","catch","cook","water","feed","wear","point","paint","arm chair","sofa","window","bed","door","wall","mat","floor","sun","star","moon","guitar","piano","TV","phone","photo","tree","camera","clock","cupboard","watch","radio","flower","mirror","doll","lamp","toy","glass","cup","umbrella","box","kite","teacher’s desk","computer","light","fan","end table","air-conditioner","fish bowl","picture","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","January","February","March","April","May","June","July","August","September","October","November","December","first","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth"
+	"bike","bus","motorbike","boat","ship","train","helicopter","plane","car","truck","lorry","food","bread","bean",
+	"cake","burger","egg","1 fries","2chips","ice-cream","carrot","potato","tomato","onion","meat","chicken","rice",
+	"pea","hot dog","sausage","pizza","drink","water","milk","lemonade","juice","tea","coffee","Coke","fruit",
+	"watermelon","lemon","coconut","lime","pineapple","orange","pear","mango","apple","banana","grape","peach",
+	"animal","cat","bird","dog","elephant","spider","mouse","mice","horse","hippo","cow","crocodile","duck","lizard",
+	"frog","goat","sheep","giraffe","snake","tiger","lion","hen","cock","fish","chick","monkey","bee","kangaroo",
+	"bear","pig","bat","panda","zebra","ruler","pencil","pen","pencil-box/pencil case","1eraser","rubber","blackboard",
+	"board","class","desk","table","bag","computer","chair","book","letter","alphabet","bookcase","page","jeans",
+	"clap","bounce","listen","catch","cook","water","feed","wear","point","paint","arm chair","sofa","window","bed",
+	"door","wall","mat","floor","sun","star","moon","guitar","piano","TV","phone","photo","tree","camera","clock",
+	"cupboard","watch","radio","flower","mirror","doll","lamp","toy","glass","cup","umbrella","box","kite",
+	"teacher","desk","computer","light","fan","end table","air-conditioner","fish bowl","picture","Monday",
+	"Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","January","February","March","April","May",
+	"June","July","August","September","October","November","December","first","second","third","fourth","fifth",
+	"sixth","seventh","eighth","ninth","tenth"
 ]
