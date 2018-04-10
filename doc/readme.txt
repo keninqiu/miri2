@@ -23,4 +23,6 @@ mandarinfan.com
 export GOOGLE_APPLICATION_CREDENTIALS=/Library/WebServer/Documents/miri2/keys/Small-Talk-67cad1b36d33.json
 
 https://www.cxy61.com/typing/html/play_games/play_games.html?pk=1
-              
+
+codecombat
+https://github.com/LLK/scratch-blocks
