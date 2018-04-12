@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Scratch编辑器</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<script type="text/javascript" src="swfobject.js"></script>
+		<style type="text/css">
+			.graph{
+				position:absolute;
+				left:0;
+				right:0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				width:450px;
+				line-height:25px;
+				border:1px solid #C8C8C8;
+				height:25px; 
+			}
+			#bar{ 
+				display:block; 
+				background:#ACD429; 
+				float:left; 
+				height:100%; 
+				text-align:center;
+				color:#FFFFFF;
+			}  
+		</style>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript">
+		function $(obj){ 
+		  return document.getElementById(obj); 
+		} 
+		 
+		function ck()
+		{
+		 var mFlash=document.getElementById("player");
+		 
+		 $("bar").style.width = mFlash.PercentLoaded()+"%"; 
+		 $("bar").innerHTML = $("bar").style.width; 
+		 
+		 if($("bar").style.width == "100%"){
+		  clearInterval(timer);
+		  clearTimeout(timer2);
+		  var timer2=setTimeout(function(){
+		  		$("gragh").style.display="none";
+		  },200)
+		 } 
+		}
+		var timer=setInterval("ck()",100)
+		</script>
+	</head>
+	<body>
+	<div class="graph" id="gragh"> 
+		<strong id="bar" style="width:1%;"></strong> 
+	</div> 
+	<div>	
+	<div id="player" style="text-align:center;">
+		<p style="font-size:14px;margin-top:100px; ">您还未安装flash播放器，可以点击下图安装</p>
+		<p><a href="https://www.adobe.com/go/getflashplayer"><img src="https://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+	</div>
+        <script type="text/javascript">
+            function JSeditorReady () {
+                return true;
+            }
+
+            var projectId = '';
+            var params = location.search.substr(1).split('&');
+            params.forEach(function(p) {
+                var parts = p.split('=');
+                if (parts.length > 1) {
+                    switch (parts[0]) {
+                    case 'id':
+                       projectId = parts[1];
+                       break;
+                    }
+		        }
+            });
+            var params = {};
+            params.allowscriptaccess = 'always';
+            params.allowfullscreen = true;
+            params.menu = true;
+            params.wmode = 'direct';
+            var flashvars = {};
+            flashvars.project = projectId;
+            flashvars.autostart = false;
+            flashvars.project_isNew = true;
+            flashvars.server = encodeURIComponent(location.origin);
+            console.log(location.origin);
+            flashvars.urlOverrides = {
+                sitePrefix: location.origin + "/scratch",
+                siteCdnPrefix: location.origin + "/scratch",
+                assetPrefix: location.origin,
+                assetCdnPrefix: location.origin,
+                projectPrefix: location.origin + "/scratch/",
+                projectCdnPrefix: location.origin + "/scratch/",
+                internalAPI: "/internalapi/",
+                siteAPI: "/site-api/",
+                staticFiles: "/scratch2/static/"
+            };
+
+            var attributes = {};
+            attributes.id = "player";
+
+            jQuery.each(flashvars, function (prop, val) {
+                if (jQuery.isPlainObject(val))
+                    flashvars[prop] = encodeURIComponent(JSON.stringify(val));
+             });
+               
+            swfobject.embedSWF("Scratch.swf", "player", "100%", "768", "10.2.0", "expressInstall.swf", flashvars, params, attributes);
+        </script>
+	</div>
+	</body>
+</html>

@@ -26,3 +26,11 @@ https://www.cxy61.com/typing/html/play_games/play_games.html?pk=1
 
 codecombat
 https://github.com/LLK/scratch-blocks
+
+https://yinhang2.gitbooks.io/-blockly/content/freduinode-gu-shi.html
+
+https://github.com/CreateJS/EaselJS/blob/master/examples/SpriteSheet.html
+
+https://www.davrous.com/2012/03/16/html5-gaming-animating-sprites-in-canvas-with-easeljs/
+
+https://www.codeproject.com/Articles/756189/Master-Chief-CreateJS-TypeScript
