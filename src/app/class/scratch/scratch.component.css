@@ -1,22 +1,31 @@
-/*
-    #369ffb è“è‰²
-    #ff6b95 ç²‰è‰²
-*/
 html{
     height: 100%;
 }
-body{
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    word-break: break-all;
+    /* word-wrap: break-word; */
+    outline: none;
+    /* -webkit-user-select: none; */
+}
+
+.main-container {
     width: 100%;
-    height: 100%;
+    height: 600px;
     /*background:white;*/
-    background: url(/assets/image/main-bg1.jpg) no-repeat center 50px;
+    background: url(/assets/image/main.jpg) no-repeat center 50px;
     background-size:100% 100%;
+    overflow: auto;
 }
 /*é¡¶éƒ¨çŠ¶æ€*/
 .header{
     background-color: #fcb121;
-    /*background: #369ffb;*/
-    /*overflow: hidden;*/
+    /* background: #369ffb; */
+    /* overflow: hidden; */
     font-size: 12px;
     color: white;
     display: inline-flex;
@@ -256,9 +265,7 @@ body{
     /*margin-right: 5%;*/
     cursor: pointer;
 }
-.header .item{
-    display: none;
-}
+
 /*å›¢é˜Ÿæˆå‘˜ç­‰çº§*/
 .team-info{
     position: absolute;
@@ -589,6 +596,10 @@ body{
     border-bottom-right-radius: 5px;
     line-height: 1.5em;
     color: rgb(58, 59, 60);
+
+    overflow: visible;
+    height: auto;
+    width: auto;    
     /*font-family: serif;*/
 }
 .link-text .link-content{
@@ -646,7 +657,7 @@ body{
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    margin-right: 5px;
+    margin-right: 5px; 
 }
 .main-view .left-view .chat .answer .avatar{
     width: 40px;
@@ -678,6 +689,9 @@ body{
     color: rgb(58, 59, 60);
     color: gray;
     border-radius: 5px 5px 0 5px;
+    overflow: visible;
+    height: auto;    
+    width: auto;
 }
 .main-view .left-view .chat .btn-wx-auth{
     /*background: #369ffb;
@@ -897,7 +911,7 @@ li.catalog.unselect{
 
 /*ç»ƒä¹ åŒº*/
 .main-view .right-view{
-    width: 60%;
+    width: 65%;
     /*background-color: rgb(229, 230, 231);*/
     background-color: #fff5e2;
     border: solid 1px #fcb121;
@@ -907,9 +921,9 @@ li.catalog.unselect{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 65%;
     height: 100%;
     overflow:hidden;
+
 }
 .main-view .right-view>img{
     width: 100px;
@@ -2603,21 +2617,4 @@ li.catalog.unselect{
     left:96%;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
