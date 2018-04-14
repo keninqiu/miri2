@@ -5,7 +5,11 @@ https://angularfirebase.com/lessons/chatbot-in-angular-with-dialogflow-api-ai/
 https://www.npmjs.com/package/ng-circle-progress
 
 ng build --watch
-npm run dev
+npm run dev --proxy-config proxy.conf.json
+
+
+ng serve --proxy-config proxy.conf.json
+
 
 If you like this free resource, spread the word on:
 

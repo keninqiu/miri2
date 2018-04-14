@@ -1,0 +1,12 @@
+{
+  "/projects/editor": {
+     "target":  {
+       "host": "scratch.mit.edu",
+       "protocol": "https:",
+       "port": 443
+     },
+     "secure": false,
+     "changeOrigin": true,
+     "logLevel": "info"
+  }
+}
