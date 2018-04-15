@@ -1,3 +1,157 @@
-.main-container {
-	text-align: center;
+.body-banner{
+	width: 100%;
+	margin-bottom: 30px;
+	min-height: 20px;
+	background-color: #eee;
+	overflow: hidden;
+	margin-top: 0;	
+	min-width: 800px;
 }
+.logo{
+	width: 100%;
+	height: 80px;
+	margin: 0 auto;
+	min-width: 900px;
+	position: relative;
+}
+.logo img{
+	height: 100%;
+	margin-left: 60px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.logo span{
+    line-height: 80px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 28px;
+}
+.body-banner{
+	min-width: 900px;
+	width: 100%;
+	height: 450px;
+	margin: 0 auto;
+	text-align: center;
+	background-image: url(/assets/image/reg-banner.png);
+	position: relative;
+}
+@media (min-width: 1450px) {
+	.logo{
+		width: 1350px;
+		height: 80px;
+		margin: 0 auto;
+	}
+	.body-banner{
+		width: 100%;
+		height: 450px;
+		margin: 0 auto;
+		background-image: url(/assets/image/reg-banner.png);
+	}
+}
+@media (min-width: 900px) and (max-width: 1450px) {
+	.logo{
+		width: 900px;
+		height: 80px;
+		margin: 0 auto;
+	}
+	.body-banner{
+		width: 100%;
+		height: 450px;
+		margin: 0 auto;
+		background-image: url(/assets/image/reg-banner.png);
+	}
+}
+footer{
+	background-color: inherit;
+}
+.login-win{
+	background-color: #fff;
+	width: 280px;
+	padding: 5px 15px 15px 15px;
+	border: 1px solid #eee;
+	position: absolute;
+	top: 100px;
+	right: 150px;
+}
+h2{
+    display: inline-block;
+    float: left;
+    line-height: 48px;
+    margin: 0;
+    color: #000;
+    font-weight: 400;
+    font-size: 20px;
+}
+.login-title .sign-up{
+	line-height: 48px;
+    float: right;
+    font-size: 14px;
+    color: #f60;
+}
+.login-title .sign-up span{
+	margin-right: 5px;
+}
+
+.login-input{
+	line-height: 38px;
+    border: 1px solid #e2e2e2;
+    width: calc(100% - 52px);
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+.login-win img{
+	float: left;
+}
+
+.login-username, .login-password{
+    margin: 10px 0 30px 0;
+    position: relative;
+}
+
+.login-btn button{
+    width: 100%;
+    border-radius: 5px;
+    line-height: 34px;
+    color: #fff;
+    border: 1px solid #ececec;
+    font-size: 16px;
+}
+
+.msg-error{
+    display: none; 
+    color: #f60;
+    padding: 5px;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+}
+.clear {
+	clear: both;
+}
+.login-win p.forgetPsw{
+	text-align: right;
+}
+.bgc-orange {
+    background-color: #f60;
+}
+.login-win p.forgetPsw a{
+	font-size: 12px;
+}
+
+a {
+    font-size: 16px;
+    color: #999;
+    line-height: 22px;
+    text-decoration: none;
+    position: relative;
+}
+
+input, button, textarea {
+    outline: none;
+}
+
+div {
+    display: block;
+}
+

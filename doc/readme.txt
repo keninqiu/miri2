@@ -23,6 +23,9 @@ Error: ENFILE: file table overflow, open '/Library/WebServer/Documents/miri2/src
 
 mandarinfan.com       
 
+http://jasonwatmore.com/post/2017/02/22/mean-with-angular-2-user-registration-and-login-example-tutorial
+
+
 
 export GOOGLE_APPLICATION_CREDENTIALS=/Library/WebServer/Documents/miri2/keys/Small-Talk-67cad1b36d33.json
 
