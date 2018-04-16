@@ -36,6 +36,7 @@
     "dialogflow": "^0.2.0",
     "express": "^4.16.3",
     "express-http-proxy": "^1.1.0",
+    "express-jwt": "^5.3.1",
     "formidable": "^1.2.0",
     "google-tts-api": "0.0.2",
     "grpc": "^1.10.1",
