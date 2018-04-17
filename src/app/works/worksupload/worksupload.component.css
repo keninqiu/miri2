@@ -1,0 +1,142 @@
+.add_main{
+	min-height:800px;
+
+	width:1200px;
+	margin:0 auto;
+	background:#f6f6f6;
+	margin-top:87px;
+}
+.add_picture{
+	width:100px;
+	height:45px;
+	text-align:center;
+	line-height:45px;
+	background:#eee;
+	margin-top:30px;
+	margin-left: 200px;
+	cursor: pointer;
+	opacity:0;
+}
+.add_btn{
+	height: 37px;
+    line-height: 37px;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    float: left;
+    /* font-size: 16px; */
+    border: 1px solid #048cc8;
+
+    cursor: pointer;
+    background: #04b6fe;
+    margin-left:100px;
+}
+.add_main .add_main_body{
+	margin:40px 0 0 40px;
+	float:left;
+}
+.add_main dl{
+	width:100%;
+	margin-bottom:20px;
+	float:left;
+	position:relative;
+}
+.add_main dl dd{
+	width: 85px;
+    background: url(/assets/image/bg1.png) no-repeat left top;
+    background-size: 100% 100%;
+    line-height: 37px;
+    font-size:14px;
+    margin-right: 15px;
+    text-align: center;
+    color: #fff;
+    height: 37px;
+    float: left;
+} 
+.add_main .two{
+	background: url(/assets/image/bg2.png) no-repeat left top;
+}
+.add_main dl dt{
+	width:500px;
+	float:left;
+}
+.add_main dl dt textarea{
+	width:478px;
+	height:80px;
+	padding:10px;
+}
+.add_main dl dt input,.add_main dl dt p{
+	width:478px;
+	height:37px;
+	display:inline-block;
+	border:1px solid #bfbfbf;
+	background:#fff;
+	line-height:37px;
+	text-indent:10px;
+	white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.add_main .click{
+	height:37px;
+	cursor:pointer;
+	line-height:37px;
+	width:100px;
+	border:2px solid #bfbfbf;
+	background:#c6c6c6;
+	text-align: center;
+	float:left;
+}
+.loading,.loading2{
+	height: 70px;
+    width: 70px;
+    float: left;
+    display:none;
+    margin-top: -6px;
+    position: relative;
+}
+.loading2{
+	margin-left: 122px;
+    margin-top: 12px;
+}
+.loading img,.loading2 img{
+	height:50px;
+}
+.loading p,.loading2 p{
+	position: absolute;
+    top: 19px;
+    left: 10px;
+}
+.to_file{
+	position: relative;
+	left: 100px;
+	top: 2px;
+    width: 120px;
+    height: 35px;
+    background: #eee;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+#text{
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 120px;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+    color: #666;
+    font-family: "é»‘ä½“";
+    font-size: 18px;
+}
+#layui-upload-file2{
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px; /* å®½é«˜å’Œå¤–å›´å…ƒç´ ä¿æŒä¸€è‡´ */
+    height: 35px;
+    opacity: 0;
+    -moz-opacity: 0;  /* å…¼å®¹è€å¼æµè§ˆå™¨ */
+    filter: alpha(opacity=0); /* å…¼å®¹IE */
+}
