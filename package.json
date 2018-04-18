@@ -9,7 +9,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "dev": "nodemon start.js",
-    "proxy": "ng serve --proxy-config proxy.conf.json",
     "e2e": "ng e2e"
   },
   "private": true,
