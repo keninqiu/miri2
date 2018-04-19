@@ -936,6 +936,7 @@ li.catalog.unselect{
     display: none;  
     z-index: 111;
 }
+
 .main-view .right-view iframe{
 	width: 100%;
 	/*height: 100%;*/
