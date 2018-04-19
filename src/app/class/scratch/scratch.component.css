@@ -494,6 +494,16 @@ html{
     /*background: red;*/
     height: calc(100% - 100px);
 }
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 .main-view .left-view .chat .messages .loadAgoMore,
 .main-view .left-view .chat .messages .loadAgoNoMore{
     color: gray;
@@ -2754,7 +2764,6 @@ h3 {
     left: 0;
     top: 50px;
     z-index: 10001;
-    display: none;
 }
 
 .course-detail-catalogs-shadow-view .course-detail-catalogs-view {
@@ -2764,22 +2773,6 @@ h3 {
     width: 100%;
     height: 100%;
     flex-direction: column;
-}
-
-.course-detail-catalogs-view .close {
-    background: #369ffb;
-    height: 35px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.course-detail-catalogs-view .close img {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
 }
 
 .course-detail-catalogs-view .tabs {
@@ -2873,11 +2866,20 @@ h3 {
     border-bottom-right-radius: 5px;
 }
 
-.ui-catalogs-view {
-    width: 50%;
-    background: #efefef;
+.course-detail-catalogs-view .close2 {
+    background: #369ffb;
+    height: 35px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-
+.course-detail-catalogs-view .close2 img {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
 
 
