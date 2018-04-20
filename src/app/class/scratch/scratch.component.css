@@ -2882,4 +2882,25 @@ h3 {
     cursor: pointer;
 }
 
+.options {
+    border: solid 1px rgb(205, 206, 207);
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.options .option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options .option .order-letter {
+    width: 15px;
+    margin-right: 5px;
+}
+
+.options .option .option-content-imgs {
+    flex: 1;
+}
+
 
