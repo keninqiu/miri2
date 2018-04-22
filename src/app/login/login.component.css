@@ -46,7 +46,7 @@
 		width: 100%;
 		height: 450px;
 		margin: 0 auto;
-		background-image: url(/assets/image/reg-banner.png);
+		/*background-image: url(/assets/image/reg-banner.png);*/
 	}
 }
 @media (min-width: 900px) and (max-width: 1450px) {
@@ -59,7 +59,7 @@
 		width: 100%;
 		height: 450px;
 		margin: 0 auto;
-		background-image: url(/assets/image/reg-banner.png);
+		/*background-image: url(/assets/image/reg-banner.png);*/
 	}
 }
 footer{
