@@ -11,11 +11,12 @@
 
 .left {
     float: none; /* not needed, just for clarification */
-    background: #777;
+    /*background: #777;*/
     /* the next props are meant to keep this block independent from the other floated one */
     width: auto;
     color: white;
     overflow: hidden;
+    border-right: 1px solid #ccc;
 }
 .left-header {
     border-bottom: 1px solid #878991;
@@ -50,20 +51,23 @@
 
 
 .vertical-menu a {
-    background-color: #777; /* Grey background color */
-    color: white; /* white text color */
+    /*background-color: #777; *//* Grey background color */
+    color: rgba(0,0,0,0.54); /* white text color */
     display: block; /* Make the links appear below each other */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove underline from links */
+    border-bottom: 1px solid #ccc;
 }
 
 .vertical-menu a:hover {
-    background-color: #303e54; /* Dark grey background on mouse-over */
+    color: #d14836;
+    background-color: rgb(238,238,238);
+    /*background-color: #303e54; *//* Dark grey background on mouse-over */
 }
 
 .vertical-menu a.active {
-    background-color: #1f8dd6; /* Add a green color to the "active/current" link */
-    color: white;
+    /*background-color: #1f8dd6; *//* Add a green color to the "active/current" link */
+    color: #d14836;
 }
 .img-circle {
     border-radius: 50%;
@@ -134,7 +138,8 @@ input[type=submit]:hover {
 
 .container {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    /*background-color: #f2f2f2;*/
+    background-color: #fafafa;
     padding: 20px;
 }
 

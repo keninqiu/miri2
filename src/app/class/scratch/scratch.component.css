@@ -1025,7 +1025,6 @@ li.catalog.unselect{
     left: 0;
     top: 0;
     z-index: 10001;
-    display: none;
 }
 .imgmsg-shadow-view .imgmsg,
 .find-help-shadow-view .find-help-view{
@@ -2903,4 +2902,65 @@ h3 {
     flex: 1;
 }
 
+#textarea {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 1px solid gray;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    height: 400px;
+    overflow: auto;
+    padding: 2px;
+    resize: both;
+    width: 100%;
+}
 
+.edits .compile-result .resultHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 40px;
+    border-bottom: 1px solid rgb(85, 86, 87);
+    padding: 0px 5%;
+}
+
+.edits .compile-result .resultHeader .resultAction {
+    background: rgb(78, 79, 80);
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 5px 0px;
+}
+
+.result {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    background: rgb(55, 56, 57);
+    z-index: 10002;
+}
+
+.result .run, .result .close {
+    color: white;
+    font-size: 13px;
+    margin-left: 1%;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-top: 0px;
+    cursor: pointer;
+    background: rgb(78, 79, 80);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10002;
+}
+
+.codeEditor {
+    text-align: center;
+}
+textarea {
+    width: 99%;
+    border: none;
+}
