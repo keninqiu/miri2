@@ -2915,7 +2915,7 @@ h3 {
     width: 100%;
 }
 
-.edits .compile-result .resultHeader {
+.resultHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -2926,13 +2926,25 @@ h3 {
     padding: 0px 5%;
 }
 
-.edits .compile-result .resultHeader .resultAction {
+.resultHeader {
     background: rgb(78, 79, 80);
     border-radius: 5px;
     padding: 2px 5px;
     margin: 5px 0px;
+    color: rgb(62, 62, 62);
 }
-
+.compile-result {
+    background: rgb(55, 56, 57);
+    color: white;
+    width: 100%;
+    overflow: hidden;
+}
+.resultAction {
+    background: rgb(78, 79, 80);
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 5px 0;
+}
 .result {
     width: 100%;
     display: flex;
@@ -2952,7 +2964,7 @@ h3 {
     margin-top: 0px;
     cursor: pointer;
     background: rgb(78, 79, 80);
-    padding: 5px 10px;
+    padding: 5px 5px;
     border-radius: 5px;
     z-index: 10002;
 }
@@ -2960,7 +2972,24 @@ h3 {
 .codeEditor {
     text-align: center;
 }
-textarea {
-    width: 99%;
-    border: none;
+.tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    /* padding-right: 5%; */
+    border-bottom: solid 1px rgb(85, 86, 87);
+    color: white;
+    height: 40px;
+}
+.editor-header {
+    color:rgb(62, 62, 62);
+}
+.content {
+    background: #272822;
+    padding: 10px;
+    width: calc(100% - 20px);
+    display: inline-block;
+    overflow: auto;
+    height: 50px;
 }
