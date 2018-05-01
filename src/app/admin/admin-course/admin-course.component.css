@@ -52,10 +52,25 @@ input:checked + label {
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
-#tab4:checked ~ #content4 {
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5,
+#tab6:checked ~ #content6,
+#tab7:checked ~ #content7,
+#tab8:checked ~ #content8,
+#tab9:checked ~ #content9,
+#tab10:checked ~ #content10,
+#tab11:checked ~ #content11,
+#tab12:checked ~ #content12,
+#tab13:checked ~ #content13,
+#tab14:checked ~ #content14,
+#tab15:checked ~ #content15,
+#tab16:checked ~ #content16,
+#tab17:checked ~ #content17,
+#tab18:checked ~ #content18,
+#tab19:checked ~ #content19,
+#tab20:checked ~ #content20 {
   display: block;
 }
-
 .section-wapper {
   display: inline-block;
 }
@@ -73,4 +88,12 @@ input:checked + label {
   label {
     padding: 15px;
   }
+}
+
+.section div:nth-child(2n) {
+  background-color: white;
+}
+
+.section div:nth-child(2n+1) {
+  background-color: lightgrey;
 }
