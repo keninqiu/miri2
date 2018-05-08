@@ -90,10 +90,10 @@ input:checked + label {
   }
 }
 
-.section div:nth-child(2n) {
+.section div.section-div:nth-of-type(odd) {
   background-color: white;
 }
 
-.section div:nth-child(2n+1) {
+.section div.section-div:nth-of-type(even) {
   background-color: lightgrey;
 }
