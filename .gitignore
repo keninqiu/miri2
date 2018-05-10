@@ -45,3 +45,4 @@ yarn-error.log
 Thumbs.db
 
 /server/common/Config.json
+/doc/secret.txt
