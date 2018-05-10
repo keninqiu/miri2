@@ -97,3 +97,7 @@ input:checked + label {
 .section div.section-div:nth-of-type(even) {
   background-color: lightgrey;
 }
+
+.img-min {
+  height: 50px;
+}
