@@ -1,3 +1,5 @@
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/creating-and-throwing-exceptions
+
 https://www.cxy61.com/face2face/app/home/codeCompileRN.html?lang=python
 
 https://medium.com/@ct7/the-simple-way-to-make-a-mobile-angular-2-bootstrap-navbar-without-jquery-d6b3f67b037b
