@@ -8,6 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "fix-memory-limit": "cross-env LIMIT=4096 increase-memory-limit",
     "dev": "nodemon start.js",
     "e2e": "ng e2e"
   },

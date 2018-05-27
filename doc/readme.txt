@@ -8,6 +8,7 @@ https://angularfirebase.com/lessons/chatbot-in-angular-with-dialogflow-api-ai/
 
 https://www.npmjs.com/package/ng-circle-progress
 
+npm run fix-memory-limit
 ng build --watch
 npm run dev
 
