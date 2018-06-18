@@ -1,0 +1,149 @@
+.header_logo img{width:55px;height:55px}
+.page-footer .thanksTo{
+	background-color: #a3ba84;
+	height: 140px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+}
+.page-footer .thanksTo-title{
+	font-size: 20px;
+	height: 80px;
+	line-height: 80px;
+}
+.page-footer .everyone a{
+	color: inherit;
+	font-size: 16px;
+}
+.page-footer .footer-div{
+	background-color:#705db6;
+	width: 100%;
+	height: 40px;
+	padding-top: 0;
+    padding-bottom: 0;
+}
+.page-footer .foot-publisher{
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+	margin: 0;
+}
+.footer_new{
+	padding-top:20px;
+}
+#warning-banner #message{
+	width:100%;
+}
+/*��¼��ע�ᰴť  */
+.headerDiv{
+	position:relative;
+}
+.rightBox{
+	height:100%;
+	position:absolute;
+	top:0;
+	right:15%;
+}
+.buttonBtn{
+	display: inline-block;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    padding:6px 15px;
+   	margin:8px 5px;
+}
+.loginBtn{
+	color: #fff;
+    background-color: #f60;
+}
+.registerBtn{
+	color: #666;
+    background-color: #f5f5f5;
+}
+.personalCenter img{
+	width:40px;
+	height:40px;
+	margin:6px 15px;
+	cursor:pointer;
+}
+.personalCenter a{
+	color:white;
+}
+.personalCenter a:hover{
+	color:blue;
+}
+
+#myModal_works .x-close {
+	position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    background: url(../img/x_button.png) no-repeat center center;
+    background-size: 100% auto;
+    top: -33px;
+    right: -20px;
+    width: 61px;
+    height: 59px;
+}
+#myModal_works .generatedCode {
+	display: block;
+	font-size: 14px;
+    overflow: scroll;
+    max-height: 200px;
+    line-height: 27px;
+    color: #7665a0;
+    background-color: #eee;
+    padding: 10px;
+}
+/* #myModal_works .modal-dialog {
+	margin-top: 60px;
+}
+#myModal_works .modal-content {
+	position:relative;
+	margin-left:0;
+}
+#myModal_works .modal-body {
+	margin-top:10px;
+	margin-left:60px;
+	padding-right:25px;
+} */
+#myModal_works {
+	margin-top: 60px;
+}
+#myModal_works .modal-content {
+	position:relative;
+	margin-left:0;
+	padding-left: 60px;
+	padding-right: 15px;
+}
+#myModal_works .modal-image {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+#myModal_works .form-horizontal .control-label {
+    width: 100px;
+    text-align: center;
+    font-weight: 700;
+}
+#myModal_works .modal-body .form-horizontal .form-group {
+	margin-top:20px;
+}
+#myModal_works .works_name{
+	width:74%;
+}
+#share-cell{
+	margin-left:5px;
+}
